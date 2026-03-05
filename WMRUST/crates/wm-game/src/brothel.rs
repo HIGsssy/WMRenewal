@@ -129,6 +129,20 @@ impl BrothelManager {
         &mut self.brothels[self.current]
     }
 
+    pub fn current_brothel_name(&self) -> &str {
+        &self.brothels[self.current].name
+    }
+
+    pub fn set_current(&mut self, index: usize) {
+        if index < self.brothels.len() {
+            self.current = index;
+        }
+    }
+
+    pub fn current_index(&self) -> usize {
+        self.current
+    }
+
     pub fn add_brothel(&mut self, name: &str) -> usize {
         let id = self.brothels.len();
         let mut b = Brothel::default();

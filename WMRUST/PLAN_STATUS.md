@@ -11,7 +11,7 @@
 | 2 | UI Widget System & Screen Framework | **COMPLETE** | All 8 widgets render, XML screen loader, FontCache, TextureCache, wm-app wired |
 | 3 | Core Game Logic | **COMPLETE** | 7 managers, 64 jobs, turn processor, combat, inventory — 37 tests passing |
 | 4 | Lua Scripting & .script Conversion | **COMPLETE** | mlua engine, 41 opcodes, wm.* API, trigger system — 16 tests passing |
-| 5 | All Game Screens | Not started | `wm-ui` screen/ module — 12+ screens with real game data |
+| 5 | All Game Screens | **COMPLETE** | 15 screens wired to real game data, full navigation, all 67 tests passing |
 | 6 | WMEdit Standalone | Not started | `wm-edit` crate — egui desktop editor |
 | 7 | Polish & Release Prep | Not started | CI/CD, open assets, cross-platform, docs |
 
@@ -103,10 +103,39 @@
   - 5 tests: GlobalTriggers.xml parsing, flag evaluation, skill evaluation, once-only, check_for_trigger
 - **16 unit tests** all passing, 1 clippy warning (dead_code on entry_type field)
 
-## Build Verification (as of Phase 4 completion)
-- `cargo test -p wm-script` — **16 passed**, 0 failed
-- `cargo test -p wm-game` — **37 passed**, 0 failed
-- `cargo check` — all 6 crates compile and link
+### Phase 5 — All Game Screens (`wm-ui`)
+- **Architecture changes:**
+  - Screen trait updated: `init`, `process`, `on_event` all take `&mut GameState`
+  - ScreenManager passes GameState through push/pop/process/on_event/handle_action
+  - `wm-ui/Cargo.toml` — added `wm-game`, `serde_json`, `rand` dependencies
+  - `wm-app/main.rs` — creates GameState, passes to all ScreenManager calls
+  - `xml_loader.rs` — enhanced with ColumnXml, EditBoxXml, dual CheckBox/Checkbox tags, Multi/HeaderDiv alternates
+- **15 screens implemented (all XML-loaded or programmatic):**
+  - **main_menu.rs** — Programmatic layout (MainMenu.txt spec), 3 buttons: New Game → BrothelManagement, Load → LoadGame, Exit → Quit
+  - **bank.rs** — XML-loaded (bank_screen.xml), deposit/withdraw/deposit_all via Gold struct, dynamic button enable/disable
+  - **town.rs** — XML-loaded (town_screen.xml), navigation hub to 5 screens, 6 brothel selection buttons, walk-around toggle
+  - **brothel_management.rs** — Programmatic layout (BrothelScreen.txt), main game hub: GirlManagement/BuildingSetup/Dungeon/Town navigation, NextWeek turns via TurnProcessor, prev/next brothel cycling, details display
+  - **girl_management.rs** — XML-loaded (girl_management_screen.xml), 7-column girl list from brothel, 9 job categories with filtered job lists, day/night shift toggle, job assignment via safe `job_from_id()`, view details/fire/transfer
+  - **building_setup.rs** — XML-loaded (building_setup_screen.xml), potion buying (10/20 at 2g each), bar/casino hire/fire toggles, advertising slider with live-update, room building (5000g/20 rooms), 6 sex restriction checkbox toggles
+  - **house.rs** — XML-loaded (house_screen.xml), player info display (name, disposition, suspicion, gold, girls, brothels, week)
+  - **slave_market.rs** — XML-loaded (slavemarket_screen.xml), market population (up to 10 unassigned girls), buy mechanic deducting AskPrice gold, girl stat/trait preview on selection
+  - **dungeon.rs** — XML-loaded (dungeon_screen.xml), 7-column inmate list, release selected/all girls/all customers, torture via DungeonManager.torture(), feeding toggle
+  - **prison.rs** — XML-loaded (prison_screen.xml), prisoner list with details, release selected inmate
+  - **gang_management.rs** — XML-loaded (gangs_screen.xml), 9-column gang list, 8-column recruit list, 11 mission types in MissionList, hire/fire gangs, weapon upgrade (scaling cost), buy heal potions (20×10g) and nets (20×5g), weekly cost display
+  - **mayor.rs** — XML-loaded (mayor_screen.xml), disposition/suspicion/influence display, bribe mechanic (suspicion-scaled cost, reduces suspicion by 10)
+  - **girl_details.rs** — XML-loaded (girl_details_screen.xml), full stat list (22 stats), skill list (10 skills), trait list, house % slider, prev/next girl navigation through brothel, send-to-dungeon action, `with_girl(girl_id)` constructor
+  - **item_management.rs** — XML-loaded (itemmanagement_screen.xml), dual-pane owner/item lists (Player/Shop/Girl owners), equip/unequip toggle, transfer items between owners, item effect description display
+  - **turn_summary.rs** — Programmatic layout, scrollable event list from TurnProcessor results, gold/girls/week summary bar, `with_events(Vec<String>)` constructor
+  - **load_game.rs** — Programmatic layout, .json save file scanning, list/load/save UI (serialization stubbed pending Serialize derives on GameState), `new()` constructor
+- **Gallery stub** remains minimal (optional/cosmetic screen)
+- **Zero compilation errors**, zero warnings from wm-ui screens
 
-## Next Up: Phase 5
-All Game Screens in `wm-ui` — see [PROJECT_PLAN.md](PROJECT_PLAN.md#phase-5-all-game-screens) for full task breakdown including 12+ game screens wired to real game data.
+## Build Verification (as of Phase 5 completion)
+- `cargo test -p wm-core` — **14 passed**, 0 failed
+- `cargo test -p wm-game` — **37 passed**, 0 failed
+- `cargo test -p wm-script` — **16 passed**, 0 failed
+- `cargo check --workspace` — all 6 crates compile, zero errors
+- **Total: 67 tests passing**
+
+## Next Up: Phase 6
+WMEdit Standalone in `wm-edit` — see [PROJECT_PLAN.md](PROJECT_PLAN.md#phase-6-wmedit-standalone) for full task breakdown including egui desktop editor with Girls, Items, and Traits tabs.

@@ -4,8 +4,9 @@ use serde::Deserialize;
 
 use crate::widget::button::ButtonWidget;
 use crate::widget::checkbox::CheckBoxWidget;
+use crate::widget::editbox::EditBoxWidget;
 use crate::widget::image_item::ImageItemWidget;
-use crate::widget::listbox::ListBoxWidget;
+use crate::widget::listbox::{ColumnDef, ListBoxWidget};
 use crate::widget::slider::SliderWidget;
 use crate::widget::text_item::TextItemWidget;
 use crate::widget::{Widget, WidgetBase, WidgetStore};
@@ -35,6 +36,10 @@ pub struct ScreenXml {
     pub listboxes: Vec<ListBoxXml>,
     #[serde(rename = "CheckBox", default)]
     pub checkboxes: Vec<CheckBoxXml>,
+    #[serde(rename = "Checkbox", default)]
+    pub checkboxes_alt: Vec<CheckBoxXml>,
+    #[serde(rename = "EditBox", default)]
+    pub editboxes: Vec<EditBoxXml>,
     #[serde(rename = "Slider", default)]
     pub sliders: Vec<SliderXml>,
 }
@@ -125,12 +130,46 @@ pub struct ListBoxXml {
     pub border: i32,
     #[serde(rename = "@MultiSelect", default)]
     pub multi_select: String,
+    #[serde(rename = "@Multi", default)]
+    pub multi: String,
     #[serde(rename = "@ShowHeaders", default)]
     pub show_headers: String,
     #[serde(rename = "@HeaderDividers", default)]
     pub header_dividers: String,
+    #[serde(rename = "@HeaderDiv", default)]
+    pub header_div: String,
     #[serde(rename = "@HeaderClicksSort", default)]
     pub header_clicks_sort: String,
+    #[serde(rename = "Column", default)]
+    pub columns: Vec<ColumnXml>,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct ColumnXml {
+    #[serde(rename = "@Name")]
+    pub name: String,
+    #[serde(rename = "@Header", default)]
+    pub header: String,
+    #[serde(rename = "@Offset", default)]
+    pub offset: i32,
+    #[serde(rename = "@Skip", default)]
+    pub skip: String,
+}
+
+#[derive(Debug, Deserialize)]
+pub struct EditBoxXml {
+    #[serde(rename = "@Name")]
+    pub name: String,
+    #[serde(rename = "@XPos", default)]
+    pub x: i32,
+    #[serde(rename = "@YPos", default)]
+    pub y: i32,
+    #[serde(rename = "@Width", default)]
+    pub width: u32,
+    #[serde(rename = "@Height", default)]
+    pub height: u32,
+    #[serde(rename = "@MaxLength", default)]
+    pub max_length: usize,
 }
 
 #[derive(Debug, Deserialize)]
@@ -219,13 +258,24 @@ pub fn load_screen_xml(path: &Path, widgets: &mut WidgetStore) -> Result<(), Xml
     for lb in screen.listboxes {
         let id = widgets.allocate_id();
         let base = WidgetBase::new(id, &lb.name, lb.x, lb.y, lb.width, lb.height);
+        let columns: Vec<ColumnDef> = lb.columns.iter().map(|c| ColumnDef {
+            name: c.name.clone(),
+            header: c.header.clone(),
+            offset: c.offset,
+            skip: c.skip.to_lowercase() == "true",
+        }).collect();
+        let is_multi = lb.multi_select.to_lowercase() == "true"
+            || lb.multi.to_lowercase() == "true";
+        let has_headers = lb.show_headers.to_lowercase() == "true";
+        let has_dividers = lb.header_dividers.to_lowercase() == "true"
+            || lb.header_div.to_lowercase() == "true";
         let w = ListBoxWidget {
             base,
             items: Vec::new(),
-            columns: Vec::new(),
-            multi_select: lb.multi_select.to_lowercase() == "true",
-            show_headers: lb.show_headers.to_lowercase() == "true",
-            header_dividers: lb.header_dividers.to_lowercase() == "true",
+            columns,
+            multi_select: is_multi,
+            show_headers: has_headers,
+            header_dividers: has_dividers,
             header_clicks_sort: lb.header_clicks_sort.to_lowercase() == "true",
             scroll_position: 0,
             sorted_column: String::new(),
@@ -236,8 +286,9 @@ pub fn load_screen_xml(path: &Path, widgets: &mut WidgetStore) -> Result<(), Xml
         widgets.add(&lb.name, Widget::ListBox(w));
     }
 
-    // Add check boxes
-    for cb in screen.checkboxes {
+    // Add check boxes (both <CheckBox> and <Checkbox> variants)
+    let all_checkboxes = screen.checkboxes.into_iter().chain(screen.checkboxes_alt);
+    for cb in all_checkboxes {
         let id = widgets.allocate_id();
         let base = WidgetBase::new(id, &cb.name, cb.x, cb.y, cb.width, cb.height);
         let w = CheckBoxWidget {
@@ -261,6 +312,19 @@ pub fn load_screen_xml(path: &Path, widgets: &mut WidgetStore) -> Result<(), Xml
             dragging: false,
         };
         widgets.add(&sl.name, Widget::Slider(w));
+    }
+
+    // Add edit boxes
+    for eb in screen.editboxes {
+        let id = widgets.allocate_id();
+        let base = WidgetBase::new(id, &eb.name, eb.x, eb.y, eb.width, eb.height);
+        let w = EditBoxWidget {
+            base,
+            text: String::new(),
+            max_length: if eb.max_length > 0 { eb.max_length } else { 256 },
+            focused: false,
+        };
+        widgets.add(&eb.name, Widget::EditBox(w));
     }
 
     Ok(())

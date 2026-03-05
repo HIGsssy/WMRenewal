@@ -4246,10 +4246,13 @@ name = "wm-ui"
 version = "0.1.0"
 dependencies = [
  "quick-xml 0.36.2",
+ "rand",
  "sdl2",
  "serde",
+ "serde_json",
  "thiserror 2.0.18",
  "wm-core",
+ "wm-game",
 ]
 
 [[package]]

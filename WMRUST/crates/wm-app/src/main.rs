@@ -36,7 +36,7 @@ fn main() -> Result<()> {
     };
 
     // Create game state
-    let _game_state = GameState::new(config);
+    let mut game_state = GameState::new(config);
     info!("Game state initialized");
 
     // Initialize graphics (800x600, matching original)
@@ -53,10 +53,12 @@ fn main() -> Result<()> {
     // Initialize texture cache
     let mut textures = TextureCache::new();
 
-    // Initialize screen manager
+    // Initialize screen manager and push main menu
     let mut screen_mgr = ScreenManager::new();
-    // TODO: push MainMenuScreen once builder implements it
-    // screen_mgr.push(Box::new(MainMenuScreen));
+    screen_mgr.push(
+        Box::new(wm_ui::screen::main_menu::MainMenuScreen::new()),
+        &mut game_state,
+    );
 
     // Main game loop
     let mut event_pump = graphics
@@ -115,12 +117,12 @@ fn main() -> Result<()> {
                 }
 
                 if !screen_mgr.is_empty() {
-                    let action = screen_mgr.on_event(ui_event);
+                    let action = screen_mgr.on_event(ui_event, &mut game_state);
                     if matches!(action, ScreenAction::Quit) {
                         running = false;
                         break;
                     }
-                    screen_mgr.handle_action(action);
+                    screen_mgr.handle_action(action, &mut game_state);
                 }
             }
         }
@@ -131,12 +133,12 @@ fn main() -> Result<()> {
 
         // Process current screen
         if !screen_mgr.is_empty() {
-            let action = screen_mgr.process();
+            let action = screen_mgr.process(&mut game_state);
             if matches!(action, ScreenAction::Quit) {
                 running = false;
                 continue;
             }
-            screen_mgr.handle_action(action);
+            screen_mgr.handle_action(action, &mut game_state);
         }
 
         // Render
