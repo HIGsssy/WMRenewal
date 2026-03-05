@@ -1,8 +1,8 @@
 use sdl2::pixels::Color;
 use sdl2::rect::Rect;
 
-use super::WidgetBase;
 use super::RenderContext;
+use super::WidgetBase;
 
 /// A list item in a ListBox.
 #[derive(Debug, Clone)]

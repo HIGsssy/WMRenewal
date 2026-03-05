@@ -46,7 +46,12 @@ pub trait Screen: std::fmt::Debug {
     fn process(&mut self, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction;
 
     /// Handle a UI event (click, key press, etc.).
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction;
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction;
 }
 
 /// Manages the screen stack (push/pop navigation).

@@ -218,7 +218,11 @@ pub fn load_screen_xml(path: &Path, widgets: &mut WidgetStore) -> Result<(), Xml
         let w = TextItemWidget {
             base,
             text: text.text,
-            font_size: if text.font_size > 0 { text.font_size } else { 12 },
+            font_size: if text.font_size > 0 {
+                text.font_size
+            } else {
+                12
+            },
             scroll_offset: 0,
             total_height: 0,
         };
@@ -258,17 +262,21 @@ pub fn load_screen_xml(path: &Path, widgets: &mut WidgetStore) -> Result<(), Xml
     for lb in screen.listboxes {
         let id = widgets.allocate_id();
         let base = WidgetBase::new(id, &lb.name, lb.x, lb.y, lb.width, lb.height);
-        let columns: Vec<ColumnDef> = lb.columns.iter().map(|c| ColumnDef {
-            name: c.name.clone(),
-            header: c.header.clone(),
-            offset: c.offset,
-            skip: c.skip.to_lowercase() == "true",
-        }).collect();
-        let is_multi = lb.multi_select.to_lowercase() == "true"
-            || lb.multi.to_lowercase() == "true";
+        let columns: Vec<ColumnDef> = lb
+            .columns
+            .iter()
+            .map(|c| ColumnDef {
+                name: c.name.clone(),
+                header: c.header.clone(),
+                offset: c.offset,
+                skip: c.skip.to_lowercase() == "true",
+            })
+            .collect();
+        let is_multi =
+            lb.multi_select.to_lowercase() == "true" || lb.multi.to_lowercase() == "true";
         let has_headers = lb.show_headers.to_lowercase() == "true";
-        let has_dividers = lb.header_dividers.to_lowercase() == "true"
-            || lb.header_div.to_lowercase() == "true";
+        let has_dividers =
+            lb.header_dividers.to_lowercase() == "true" || lb.header_div.to_lowercase() == "true";
         let w = ListBoxWidget {
             base,
             items: Vec::new(),
@@ -321,7 +329,11 @@ pub fn load_screen_xml(path: &Path, widgets: &mut WidgetStore) -> Result<(), Xml
         let w = EditBoxWidget {
             base,
             text: String::new(),
-            max_length: if eb.max_length > 0 { eb.max_length } else { 256 },
+            max_length: if eb.max_length > 0 {
+                eb.max_length
+            } else {
+                256
+            },
             focused: false,
         };
         widgets.add(&eb.name, Widget::EditBox(w));

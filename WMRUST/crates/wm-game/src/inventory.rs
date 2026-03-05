@@ -8,8 +8,12 @@ use crate::girls::GirlManager;
 fn max_equip_slots(item_type: ItemType) -> usize {
     match item_type {
         ItemType::Ring => 8,
-        ItemType::Dress | ItemType::Underwear | ItemType::Shoes
-        | ItemType::Hat | ItemType::Helmet | ItemType::Necklace
+        ItemType::Dress
+        | ItemType::Underwear
+        | ItemType::Shoes
+        | ItemType::Hat
+        | ItemType::Helmet
+        | ItemType::Necklace
         | ItemType::Armor => 1,
         ItemType::SmallWeapon | ItemType::LargeWeapon | ItemType::Shield => 2,
         // Consumables: Food, Makeup, Consumable — no equip limit (consumed immediately)
@@ -20,7 +24,10 @@ fn max_equip_slots(item_type: ItemType) -> usize {
 
 /// Returns true if the item type is consumed on use (removed from inventory).
 fn is_consumable(item_type: ItemType) -> bool {
-    matches!(item_type, ItemType::Food | ItemType::Makeup | ItemType::Consumable)
+    matches!(
+        item_type,
+        ItemType::Food | ItemType::Makeup | ItemType::Consumable
+    )
 }
 
 /// Count how many items of a given type a girl has equipped.
@@ -39,12 +46,7 @@ fn count_equipped_of_type(girl: &Girl, items: &[Item], item_type: ItemType) -> u
 
 /// Check if a girl can equip an item of the given type.
 /// If `force` is true and slots are full, returns the inventory index to unequip first.
-pub fn can_equip(
-    girl: &Girl,
-    items: &[Item],
-    item_type: ItemType,
-    force: bool,
-) -> EquipCheck {
+pub fn can_equip(girl: &Girl, items: &[Item], item_type: ItemType, force: bool) -> EquipCheck {
     let max = max_equip_slots(item_type);
     if max == 0 {
         // Consumable — always "equippable" (use immediately)
@@ -242,12 +244,7 @@ fn reverse_effects(girl: &mut Girl, item: &Item, temporary: bool) {
 
 /// Girl auto-buys an item. Matches C++ GirlBuyItem.
 /// Returns true if the girl bought and equipped the item.
-pub fn girl_buy_item(
-    girl: &mut Girl,
-    items: &[Item],
-    item_id: usize,
-    girl_gold: &mut i32,
-) -> bool {
+pub fn girl_buy_item(girl: &mut Girl, items: &[Item], item_id: usize, girl_gold: &mut i32) -> bool {
     if item_id >= items.len() {
         return false;
     }
@@ -395,7 +392,9 @@ mod tests {
 
     #[test]
     fn test_ring_slot_limit() {
-        let items: Vec<Item> = (0..9).map(|i| make_ring(&format!("Ring {i}"), "Charisma", 1)).collect();
+        let items: Vec<Item> = (0..9)
+            .map(|i| make_ring(&format!("Ring {i}"), "Charisma", 1))
+            .collect();
         let mut girl = Girl::default();
         // Add and equip 8 rings
         for id in 0..8 {

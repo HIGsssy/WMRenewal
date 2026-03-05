@@ -1,7 +1,7 @@
 use sdl2::pixels::Color;
 
-use super::WidgetBase;
 use super::RenderContext;
+use super::WidgetBase;
 
 #[derive(Debug)]
 pub struct EditBoxWidget {

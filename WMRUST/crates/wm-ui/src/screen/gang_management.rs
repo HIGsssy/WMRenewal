@@ -3,7 +3,7 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 #[derive(Debug)]
@@ -27,11 +27,20 @@ pub struct GangManagementScreen {
 impl GangManagementScreen {
     pub fn new() -> Self {
         Self {
-            gang_list_id: 0, recruit_list_id: 0, mission_list_id: 0,
-            mission_desc_id: 0, hire_id: 0, fire_id: 0,
-            weapon_up_id: 0, weapon_desc_id: 0, heal_pot_desc_id: 0,
-            buy_heal_id: 0, net_desc_id: 0, buy_nets_id: 0,
-            total_cost_id: 0, back_id: 0,
+            gang_list_id: 0,
+            recruit_list_id: 0,
+            mission_list_id: 0,
+            mission_desc_id: 0,
+            hire_id: 0,
+            fire_id: 0,
+            weapon_up_id: 0,
+            weapon_desc_id: 0,
+            heal_pot_desc_id: 0,
+            buy_heal_id: 0,
+            net_desc_id: 0,
+            buy_nets_id: 0,
+            total_cost_id: 0,
+            back_id: 0,
         }
     }
 
@@ -39,10 +48,17 @@ impl GangManagementScreen {
         if let Some(Widget::ListBox(lb)) = widgets.get_mut(self.gang_list_id) {
             lb.clear();
             for (i, gang) in state.gangs.hired_gangs.iter().enumerate() {
-                let data = format!("{}|{:?}|{}|{}|{}|{}|{}|{}|{}",
-                    gang.name, gang.mission, gang.num_members,
-                    gang.combat_skill, gang.magic_skill, gang.intelligence,
-                    gang.agility, gang.constitution, gang.charisma,
+                let data = format!(
+                    "{}|{:?}|{}|{}|{}|{}|{}|{}|{}",
+                    gang.name,
+                    gang.mission,
+                    gang.num_members,
+                    gang.combat_skill,
+                    gang.magic_skill,
+                    gang.intelligence,
+                    gang.agility,
+                    gang.constitution,
+                    gang.charisma,
                 );
                 lb.add_element(i as i32, &data);
             }
@@ -50,10 +66,16 @@ impl GangManagementScreen {
         if let Some(Widget::ListBox(lb)) = widgets.get_mut(self.recruit_list_id) {
             lb.clear();
             for (i, gang) in state.gangs.recruit_list.iter().enumerate() {
-                let data = format!("{}|{}|{}|{}|{}|{}|{}|{}",
-                    gang.name, gang.num_members,
-                    gang.combat_skill, gang.magic_skill, gang.intelligence,
-                    gang.agility, gang.constitution, gang.charisma,
+                let data = format!(
+                    "{}|{}|{}|{}|{}|{}|{}|{}",
+                    gang.name,
+                    gang.num_members,
+                    gang.combat_skill,
+                    gang.magic_skill,
+                    gang.intelligence,
+                    gang.agility,
+                    gang.constitution,
+                    gang.charisma,
                 );
                 lb.add_element(i as i32, &data);
             }
@@ -69,10 +91,17 @@ impl GangManagementScreen {
         if let Some(Widget::ListBox(lb)) = widgets.get_mut(self.mission_list_id) {
             lb.clear();
             let missions = [
-                (0, "Guarding"), (1, "Sabotage"), (2, "Spy on Girls"),
-                (3, "Capture Girl"), (4, "Extortion"), (5, "Petty Theft"),
-                (6, "Grand Theft"), (7, "Kidnap"), (8, "Catacombs"),
-                (9, "Training"), (10, "Recruit"),
+                (0, "Guarding"),
+                (1, "Sabotage"),
+                (2, "Spy on Girls"),
+                (3, "Capture Girl"),
+                (4, "Extortion"),
+                (5, "Petty Theft"),
+                (6, "Grand Theft"),
+                (7, "Kidnap"),
+                (8, "Catacombs"),
+                (9, "Training"),
+                (10, "Recruit"),
             ];
             for (id, name) in missions {
                 lb.add_element(id, name);
@@ -94,7 +123,9 @@ impl GangManagementScreen {
 }
 
 impl Screen for GangManagementScreen {
-    fn id(&self) -> ScreenId { "gang_management" }
+    fn id(&self) -> ScreenId {
+        "gang_management"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/gangs_screen.xml");
@@ -123,10 +154,17 @@ impl Screen for GangManagementScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             // Hire gang
             if let Some(Widget::Button(b)) = widgets.get(self.hire_id) {

@@ -1,8 +1,7 @@
 use serde::Deserialize;
 
 /// Game configuration matching all sections of config.xml.
-#[derive(Debug, Clone)]
-#[derive(Default)]
+#[derive(Debug, Clone, Default)]
 pub struct GameConfig {
     pub initial: InitialConfig,
     pub income: IncomeConfig,
@@ -16,7 +15,6 @@ pub struct GameConfig {
     pub fonts: FontsConfig,
     pub debug: DebugConfig,
 }
-
 
 #[derive(Debug, Clone)]
 pub struct InitialConfig {
@@ -249,8 +247,8 @@ pub struct FontsConfig {
 impl Default for FontsConfig {
     fn default() -> Self {
         Self {
-            normal: "segoeui.ttf".to_string(),
-            fixed: "segoeui.ttf".to_string(),
+            normal: "DejaVuSans.ttf".to_string(),
+            fixed: "DejaVuSansMono.ttf".to_string(),
             antialias: true,
         }
     }

@@ -8,11 +8,7 @@ use crate::girls::GirlManager;
 use super::{Job, JobResult};
 
 /// Shared teaching logic: girl teaches a specific skill.
-fn teach_skill(
-    girl: &mut Girl,
-    skill: Skill,
-    rng: &mut dyn rand::RngCore,
-) -> JobResult {
+fn teach_skill(girl: &mut Girl, skill: Skill, rng: &mut dyn rand::RngCore) -> JobResult {
     let mut result = JobResult::default();
     let skill_val = GirlManager::get_skill(girl, skill);
     // Teacher needs at least 50 skill to teach effectively
@@ -38,48 +34,90 @@ fn teach_skill(
 
 pub struct JobTeachBDSM;
 impl Job for JobTeachBDSM {
-    fn job_type(&self) -> JobType { JobType::TeachBDSM }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::TeachBDSM
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         teach_skill(girl, Skill::BDSM, rng)
     }
 }
 
 pub struct JobTeachSex;
 impl Job for JobTeachSex {
-    fn job_type(&self) -> JobType { JobType::TeachSex }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::TeachSex
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         teach_skill(girl, Skill::NormalSex, rng)
     }
 }
 
 pub struct JobTeachBeast;
 impl Job for JobTeachBeast {
-    fn job_type(&self) -> JobType { JobType::TeachBeast }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::TeachBeast
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         teach_skill(girl, Skill::Beastiality, rng)
     }
 }
 
 pub struct JobTeachMagic;
 impl Job for JobTeachMagic {
-    fn job_type(&self) -> JobType { JobType::TeachMagic }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::TeachMagic
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         teach_skill(girl, Skill::Magic, rng)
     }
 }
 
 pub struct JobTeachCombat;
 impl Job for JobTeachCombat {
-    fn job_type(&self) -> JobType { JobType::TeachCombat }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::TeachCombat
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         teach_skill(girl, Skill::Combat, rng)
     }
 }
 
 pub struct JobDaycare;
 impl Job for JobDaycare {
-    fn job_type(&self) -> JobType { JobType::Daycare }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Daycare
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let tiredness = (4 - GirlManager::get_stat(girl, Stat::Constitution) / 25).max(1);
         GirlManager::update_stat(girl, Stat::Tiredness, tiredness);
@@ -88,15 +126,24 @@ impl Job for JobDaycare {
         if rng.gen_range(0..100) < 20 {
             GirlManager::update_skill(girl, Skill::Service, 1);
         }
-        result.events.push("She watched over the children.".to_string());
+        result
+            .events
+            .push("She watched over the children.".to_string());
         result
     }
 }
 
 pub struct JobSchooling;
 impl Job for JobSchooling {
-    fn job_type(&self) -> JobType { JobType::Schooling }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Schooling
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let intel = GirlManager::get_stat(girl, Stat::Intelligence);
         let tiredness = (5 - GirlManager::get_stat(girl, Stat::Constitution) / 20).max(1);
@@ -114,24 +161,45 @@ impl Job for JobSchooling {
 
 pub struct JobTeachDancing;
 impl Job for JobTeachDancing {
-    fn job_type(&self) -> JobType { JobType::TeachDancing }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::TeachDancing
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         teach_skill(girl, Skill::Strip, rng)
     }
 }
 
 pub struct JobTeachService;
 impl Job for JobTeachService {
-    fn job_type(&self) -> JobType { JobType::TeachService }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::TeachService
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         teach_skill(girl, Skill::Service, rng)
     }
 }
 
 pub struct JobTrain;
 impl Job for JobTrain {
-    fn job_type(&self) -> JobType { JobType::Train }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Train
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         // Same as general training (solo)
         let mut result = JobResult::default();
         let tiredness = (10 - GirlManager::get_stat(girl, Stat::Constitution) / 10).max(1);

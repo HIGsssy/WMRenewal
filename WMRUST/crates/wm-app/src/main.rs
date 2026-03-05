@@ -40,14 +40,21 @@ fn main() -> Result<()> {
     info!("Game state initialized");
 
     // Initialize graphics (800x600, matching original)
-    let mut graphics = Graphics::new("WhoreMaster Renewal", 800, 600)
-        .map_err(|e| anyhow::anyhow!("{}", e))?;
+    let mut graphics =
+        Graphics::new("WhoreMaster Renewal", 800, 600).map_err(|e| anyhow::anyhow!("{}", e))?;
     info!("Graphics initialized (800x600)");
 
-    // Initialize font cache
-    let font_path = resources.join("../Dependencies/fonts/bin/segoeui.ttf");
-    let mut fonts = FontCache::new(&font_path)
-        .map_err(|e| anyhow::anyhow!("Font init failed: {}", e))?;
+    // Initialize font cache — use bundled open-source DejaVu Sans font,
+    // falling back to the legacy font path if the bundled font is missing.
+    let bundled_font = std::path::PathBuf::from("assets/fonts/DejaVuSans.ttf");
+    let legacy_font = resources.join("../Dependencies/fonts/bin/segoeui.ttf");
+    let font_path = if bundled_font.exists() {
+        bundled_font
+    } else {
+        legacy_font
+    };
+    let mut fonts =
+        FontCache::new(&font_path).map_err(|e| anyhow::anyhow!("Font init failed: {}", e))?;
     info!("Font cache initialized");
 
     // Initialize texture cache
@@ -87,9 +94,7 @@ fn main() -> Result<()> {
                     ..
                 } => Some(UiEvent::KeyDown { keycode }),
                 Event::MouseButtonDown { x, y, .. } => Some(UiEvent::MouseDown { x, y }),
-                Event::MouseButtonUp { x, y, .. } => {
-                    Some(UiEvent::MouseClick { x, y })
-                }
+                Event::MouseButtonUp { x, y, .. } => Some(UiEvent::MouseClick { x, y }),
                 Event::MouseMotion { x, y, .. } => {
                     mouse_x = x;
                     mouse_y = y;

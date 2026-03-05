@@ -4,7 +4,7 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 /// Number of girls available for purchase in the slave market per visit.
@@ -26,9 +26,14 @@ pub struct SlaveMarketScreen {
 impl SlaveMarketScreen {
     pub fn new() -> Self {
         Self {
-            back_id: 0, buy_id: 0, show_more_id: 0,
-            slave_list_id: 0, trait_list_id: 0, details_id: 0,
-            trait_desc_id: 0, current_brothel_id: 0,
+            back_id: 0,
+            buy_id: 0,
+            show_more_id: 0,
+            slave_list_id: 0,
+            trait_list_id: 0,
+            details_id: 0,
+            trait_desc_id: 0,
+            current_brothel_id: 0,
             available: Vec::new(),
         }
     }
@@ -71,7 +76,9 @@ impl SlaveMarketScreen {
 }
 
 impl Screen for SlaveMarketScreen {
-    fn id(&self) -> ScreenId { "slave_market" }
+    fn id(&self) -> ScreenId {
+        "slave_market"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/slavemarket_screen.xml");
@@ -90,7 +97,8 @@ impl Screen for SlaveMarketScreen {
         self.available.clear();
         let total = state.girls.count();
         for gid in 0..total {
-            if state.brothels.find_girl_brothel(gid).is_none() && self.available.len() < MARKET_SIZE {
+            if state.brothels.find_girl_brothel(gid).is_none() && self.available.len() < MARKET_SIZE
+            {
                 self.available.push(gid);
             }
         }
@@ -105,10 +113,17 @@ impl Screen for SlaveMarketScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             // Buy slave
             if let Some(Widget::Button(b)) = widgets.get(self.buy_id) {

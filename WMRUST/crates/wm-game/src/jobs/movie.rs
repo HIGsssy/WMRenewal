@@ -47,8 +47,15 @@ fn film_common(
 
 pub struct JobFilmBeast;
 impl Job for JobFilmBeast {
-    fn job_type(&self) -> JobType { JobType::FilmBeast }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FilmBeast
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = film_common(girl, Skill::Beastiality, 40, rng);
         GirlManager::update_stat(girl, Stat::Spirit, -1);
         result.events.push("She filmed a beast scene.".to_string());
@@ -58,8 +65,15 @@ impl Job for JobFilmBeast {
 
 pub struct JobFilmSex;
 impl Job for JobFilmSex {
-    fn job_type(&self) -> JobType { JobType::FilmSex }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FilmSex
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = film_common(girl, Skill::NormalSex, 35, rng);
         result.events.push("She filmed a sex scene.".to_string());
         result
@@ -68,8 +82,15 @@ impl Job for JobFilmSex {
 
 pub struct JobFilmAnal;
 impl Job for JobFilmAnal {
-    fn job_type(&self) -> JobType { JobType::FilmAnal }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FilmAnal
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = film_common(girl, Skill::Anal, 40, rng);
         GirlManager::update_stat(girl, Stat::Spirit, -1);
         result.events.push("She filmed an anal scene.".to_string());
@@ -79,29 +100,54 @@ impl Job for JobFilmAnal {
 
 pub struct JobFilmLesbian;
 impl Job for JobFilmLesbian {
-    fn job_type(&self) -> JobType { JobType::FilmLesbian }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FilmLesbian
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = film_common(girl, Skill::Lesbian, 30, rng);
-        result.events.push("She filmed a lesbian scene.".to_string());
+        result
+            .events
+            .push("She filmed a lesbian scene.".to_string());
         result
     }
 }
 
 pub struct JobFilmBondage;
 impl Job for JobFilmBondage {
-    fn job_type(&self) -> JobType { JobType::FilmBondage }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FilmBondage
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = film_common(girl, Skill::BDSM, 40, rng);
         GirlManager::update_stat(girl, Stat::Spirit, -1);
-        result.events.push("She filmed a bondage scene.".to_string());
+        result
+            .events
+            .push("She filmed a bondage scene.".to_string());
         result
     }
 }
 
 pub struct JobFluffer;
 impl Job for JobFluffer {
-    fn job_type(&self) -> JobType { JobType::Fluffer }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Fluffer
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let service = GirlManager::get_skill(girl, Skill::Service);
         result.gold_earned = 15 + service / 3;
@@ -119,8 +165,15 @@ impl Job for JobFluffer {
 
 pub struct JobCameraMage;
 impl Job for JobCameraMage {
-    fn job_type(&self) -> JobType { JobType::CameraMage }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::CameraMage
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let magic = GirlManager::get_skill(girl, Skill::Magic);
         result.gold_earned = 20 + magic / 3;
@@ -131,15 +184,24 @@ impl Job for JobCameraMage {
         if rng.gen_range(0..100) < 25 {
             GirlManager::update_skill(girl, Skill::Magic, 1);
         }
-        result.events.push("She operated the crystal camera.".to_string());
+        result
+            .events
+            .push("She operated the crystal camera.".to_string());
         result
     }
 }
 
 pub struct JobCrystalPurifier;
 impl Job for JobCrystalPurifier {
-    fn job_type(&self) -> JobType { JobType::CrystalPurifier }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::CrystalPurifier
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let magic = GirlManager::get_skill(girl, Skill::Magic);
         let intelligence = GirlManager::get_stat(girl, Stat::Intelligence);
@@ -151,7 +213,9 @@ impl Job for JobCrystalPurifier {
         if rng.gen_range(0..100) < 20 {
             GirlManager::update_skill(girl, Skill::Magic, 1);
         }
-        result.events.push("She purified crystals for filming.".to_string());
+        result
+            .events
+            .push("She purified crystals for filming.".to_string());
         result
     }
 }

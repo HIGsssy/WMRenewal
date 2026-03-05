@@ -9,8 +9,15 @@ use super::{Job, JobResult};
 
 pub struct JobVirasPlantFucker;
 impl Job for JobVirasPlantFucker {
-    fn job_type(&self) -> JobType { JobType::VirasPlantFucker }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::VirasPlantFucker
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         // Produces Viras Blood drug ingredient
         let beastiality = GirlManager::get_skill(girl, Skill::Beastiality);
@@ -23,15 +30,24 @@ impl Job for JobVirasPlantFucker {
         if rng.gen_range(0..100) < 20 {
             GirlManager::update_skill(girl, Skill::Beastiality, 1);
         }
-        result.events.push("She worked with the Viras plants.".to_string());
+        result
+            .events
+            .push("She worked with the Viras plants.".to_string());
         result
     }
 }
 
 pub struct JobShroudGrower;
 impl Job for JobShroudGrower {
-    fn job_type(&self) -> JobType { JobType::ShroudGrower }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::ShroudGrower
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let intelligence = GirlManager::get_stat(girl, Stat::Intelligence);
         result.gold_earned = 20 + intelligence / 4;
@@ -48,8 +64,15 @@ impl Job for JobShroudGrower {
 
 pub struct JobFairyDuster;
 impl Job for JobFairyDuster {
-    fn job_type(&self) -> JobType { JobType::FairyDuster }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FairyDuster
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let intelligence = GirlManager::get_stat(girl, Stat::Intelligence);
         let magic = GirlManager::get_skill(girl, Skill::Magic);
@@ -68,8 +91,15 @@ impl Job for JobFairyDuster {
 
 pub struct JobDrugDealer;
 impl Job for JobDrugDealer {
-    fn job_type(&self) -> JobType { JobType::DrugDealer }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::DrugDealer
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let charisma = GirlManager::get_stat(girl, Stat::Charisma);
         let intelligence = GirlManager::get_stat(girl, Stat::Intelligence);
@@ -80,7 +110,9 @@ impl Job for JobDrugDealer {
         // Risk: 5% chance of arrest (lose gold)
         if rng.gen_range(0..100) < 5 {
             result.gold_earned = 0;
-            result.events.push("She was nearly caught dealing drugs!".to_string());
+            result
+                .events
+                .push("She was nearly caught dealing drugs!".to_string());
         } else {
             result.events.push("She dealt drugs.".to_string());
         }

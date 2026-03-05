@@ -1,5 +1,5 @@
 use rand::Rng;
-use wm_core::enums::{DungeonReason, Stat, Skill, Status};
+use wm_core::enums::{DungeonReason, Skill, Stat, Status};
 use wm_core::girl::Girl;
 
 use crate::girls::GirlManager;
@@ -90,9 +90,8 @@ impl DungeonManager {
     /// Matches C++ updateGirlTurnDungeonStats.
     pub fn process_week(&mut self) {
         // Remove dead bodies first
-        self.inmates.retain(|inmate| {
-            GirlManager::get_stat(&inmate.girl, Stat::Health) > 0
-        });
+        self.inmates
+            .retain(|inmate| GirlManager::get_stat(&inmate.girl, Stat::Health) > 0);
 
         for inmate in &mut self.inmates {
             inmate.weeks += 1;
@@ -194,7 +193,11 @@ impl DungeonManager {
 
         // Evil gained by player
         let _evil = if is_player_torturing {
-            if is_slave { 5 } else { 10 }
+            if is_slave {
+                5
+            } else {
+                10
+            }
         } else if is_slave {
             2
         } else {
@@ -302,8 +305,7 @@ impl DungeonManager {
             if is_torturer_girl {
                 chance /= 2;
             }
-            if rng.gen_range(0..100) < chance
-                && !GirlManager::has_trait(&inmate.girl, "Masochist")
+            if rng.gen_range(0..100) < chance && !GirlManager::has_trait(&inmate.girl, "Masochist")
             {
                 GirlManager::add_trait(&mut inmate.girl, "Masochist");
                 events.push("Girl has become a masochist".to_string());
@@ -388,6 +390,9 @@ mod tests {
         let pre_health = GirlManager::get_stat(&dm.inmates[0].girl, Stat::Health);
         dm.process_week();
         let post_health = GirlManager::get_stat(&dm.inmates[0].girl, Stat::Health);
-        assert!(post_health < pre_health, "Starved customer should lose health");
+        assert!(
+            post_health < pre_health,
+            "Starved customer should lose health"
+        );
     }
 }

@@ -4,7 +4,7 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 #[derive(Debug)]
@@ -31,11 +31,20 @@ impl GirlDetailsScreen {
     pub fn with_girl(girl_id: usize) -> Self {
         Self {
             girl_id,
-            stat_list_id: 0, skill_list_id: 0, trait_list_id: 0,
-            job_type_list_id: 0, job_list_id: 0,
-            girl_desc_id: 0, girl_name_id: 0, house_slider_id: 0,
-            back_id: 0, prev_id: 0, next_id: 0,
-            gallery_id: 0, interact_id: 0, send_dungeon_id: 0,
+            stat_list_id: 0,
+            skill_list_id: 0,
+            trait_list_id: 0,
+            job_type_list_id: 0,
+            job_list_id: 0,
+            girl_desc_id: 0,
+            girl_name_id: 0,
+            house_slider_id: 0,
+            back_id: 0,
+            prev_id: 0,
+            next_id: 0,
+            gallery_id: 0,
+            interact_id: 0,
+            send_dungeon_id: 0,
             inventory_id: 0,
         }
     }
@@ -79,13 +88,26 @@ impl GirlDetailsScreen {
 
         // Description
         if let Some(Widget::TextItem(t)) = widgets.get_mut(self.girl_desc_id) {
-            let job_day = girl.job_day.map(|j| format!("{:?}", j)).unwrap_or_else(|| "None".into());
-            let job_night = girl.job_night.map(|j| format!("{:?}", j)).unwrap_or_else(|| "None".into());
+            let job_day = girl
+                .job_day
+                .map(|j| format!("{:?}", j))
+                .unwrap_or_else(|| "None".into());
+            let job_night = girl
+                .job_night
+                .map(|j| format!("{:?}", j))
+                .unwrap_or_else(|| "None".into());
             t.text = format!(
                 "{}\n\n{}\n\nDay Job: {}\nNight Job: {}\nVirgin: {}\nPregnant: {}",
-                girl.name, girl.desc, job_day, job_night,
+                girl.name,
+                girl.desc,
+                job_day,
+                job_night,
                 if girl.virgin { "Yes" } else { "No" },
-                if girl.weeks_pregnant > 0 { format!("{} weeks", girl.weeks_pregnant) } else { "No".into() },
+                if girl.weeks_pregnant > 0 {
+                    format!("{} weeks", girl.weeks_pregnant)
+                } else {
+                    "No".into()
+                },
             );
         }
 
@@ -97,7 +119,9 @@ impl GirlDetailsScreen {
 }
 
 impl Screen for GirlDetailsScreen {
-    fn id(&self) -> ScreenId { "girl_details" }
+    fn id(&self) -> ScreenId {
+        "girl_details"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/girl_details_screen.xml");
@@ -126,11 +150,18 @@ impl Screen for GirlDetailsScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             // Back
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             // Prev girl
             if let Some(Widget::Button(b)) = widgets.get(self.prev_id) {
@@ -164,7 +195,9 @@ impl Screen for GirlDetailsScreen {
                     let cur = state.brothels.current_index();
                     state.brothels.unassign_girl(cur, self.girl_id);
                     if let Some(girl) = state.girls.remove_girl(self.girl_id) {
-                        state.dungeon.add_girl(girl, wm_core::enums::DungeonReason::GirlWhim);
+                        state
+                            .dungeon
+                            .add_girl(girl, wm_core::enums::DungeonReason::GirlWhim);
                     }
                     return ScreenAction::Pop;
                 }

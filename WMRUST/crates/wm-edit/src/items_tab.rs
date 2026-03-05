@@ -32,11 +32,8 @@ const ALL_RARITIES: &[Rarity] = &[
     Rarity::Reward,
 ];
 
-const ALL_EFFECT_TARGETS: &[EffectTarget] = &[
-    EffectTarget::Stat,
-    EffectTarget::Skill,
-    EffectTarget::Trait,
-];
+const ALL_EFFECT_TARGETS: &[EffectTarget] =
+    &[EffectTarget::Stat, EffectTarget::Skill, EffectTarget::Trait];
 
 #[derive(Default)]
 pub struct ItemsTab {
@@ -173,10 +170,7 @@ impl ItemsTab {
                     .show_ui(ui, |ui| {
                         for &itype in ALL_ITEM_TYPES {
                             if ui
-                                .selectable_label(
-                                    item.item_type == itype,
-                                    item_type_to_str(itype),
-                                )
+                                .selectable_label(item.item_type == itype, item_type_to_str(itype))
                                 .clicked()
                             {
                                 item.item_type = itype;
@@ -282,10 +276,7 @@ impl ItemsTab {
 
                         // Name
                         if ui
-                            .add(
-                                egui::TextEdit::singleline(&mut effect.name)
-                                    .desired_width(120.0),
-                            )
+                            .add(egui::TextEdit::singleline(&mut effect.name).desired_width(120.0))
                             .changed()
                         {
                             *dirty = true;
@@ -330,11 +321,7 @@ impl ItemsTab {
                         format!("Loaded {} items from {}", items.len(), path.display());
                     self.items = items;
                     self.file_path = Some(path);
-                    self.selected = if self.items.is_empty() {
-                        None
-                    } else {
-                        Some(0)
-                    };
+                    self.selected = if self.items.is_empty() { None } else { Some(0) };
                     self.dirty = false;
                 }
                 Err(e) => {

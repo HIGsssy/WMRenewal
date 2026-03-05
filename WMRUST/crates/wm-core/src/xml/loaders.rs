@@ -1,12 +1,12 @@
 use std::path::Path;
 
 use crate::config::{ConfigXml, GameConfig};
+use crate::enums::{EffectTarget, ItemType, Rarity, Skill, Stat};
 use crate::girl::{Girl, GirlXml, GirlsXml};
 use crate::item::{Item, ItemXml, ItemsXml};
 use crate::room::{FacilitiesXml, FacilityXml, Room};
 use crate::screen::{ScreenLayout, ScreenXml};
 use crate::traits::{parse_traits, TraitDef};
-use crate::enums::{EffectTarget, ItemType, Rarity, Skill, Stat};
 
 /// Error type for resource loading operations.
 #[derive(Debug, thiserror::Error)]
@@ -21,7 +21,11 @@ pub enum LoadError {
 pub fn load_items(path: &Path) -> Result<Vec<Item>, LoadError> {
     let xml_str = std::fs::read_to_string(path)?;
     let items_xml: ItemsXml = quick_xml::de::from_str(&xml_str)?;
-    Ok(items_xml.items.into_iter().map(ItemXml::into_item).collect())
+    Ok(items_xml
+        .items
+        .into_iter()
+        .map(ItemXml::into_item)
+        .collect())
 }
 
 /// Load rooms/facilities from a Rooms.roomsx XML file.
@@ -46,7 +50,11 @@ pub fn load_config(path: &Path) -> Result<GameConfig, LoadError> {
 pub fn load_girls(path: &Path) -> Result<Vec<Girl>, LoadError> {
     let xml_str = std::fs::read_to_string(path)?;
     let girls_xml: GirlsXml = quick_xml::de::from_str(&xml_str)?;
-    Ok(girls_xml.girls.into_iter().map(GirlXml::into_girl).collect())
+    Ok(girls_xml
+        .girls
+        .into_iter()
+        .map(GirlXml::into_girl)
+        .collect())
 }
 
 /// Load trait definitions from CoreTraits.traits (plain text format).
@@ -250,13 +258,12 @@ mod tests {
     fn resources_dir() -> PathBuf {
         // Try the symlink/junction in WMRUST/resources first, then fall back
         // to the relative path to the original WhoreMasterRenewal resources.
-        let from_workspace = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-            .join("../../resources");
+        let from_workspace = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../resources");
         if from_workspace.join("Data").exists() {
             return from_workspace;
         }
-        let from_original = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-            .join("../../../WhoreMasterRenewal/Resources");
+        let from_original =
+            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../../WhoreMasterRenewal/Resources");
         if from_original.join("Data").exists() {
             return from_original;
         }
@@ -271,14 +278,21 @@ mod tests {
             return;
         }
         let items = load_items(&path).expect("Failed to load Items.itemsx");
-        assert!(items.len() > 50, "Should have 50+ items, got {}", items.len());
+        assert!(
+            items.len() > 50,
+            "Should have 50+ items, got {}",
+            items.len()
+        );
 
         // Verify a known item
         let aids_cure = items.iter().find(|i| i.name == "AIDS Cure");
         assert!(aids_cure.is_some(), "Should contain 'AIDS Cure' item");
         let aids_cure = aids_cure.unwrap();
         assert_eq!(aids_cure.cost, 3500);
-        assert!(!aids_cure.effects.is_empty(), "AIDS Cure should have effects");
+        assert!(
+            !aids_cure.effects.is_empty(),
+            "AIDS Cure should have effects"
+        );
     }
 
     #[test]
@@ -298,17 +312,29 @@ mod tests {
         assert_eq!(bedroom.space, 4);
         assert_eq!(bedroom.provides, 4);
         assert_eq!(bedroom.price, 100);
-        assert!(!bedroom.functions.is_empty(), "Bedroom should have functions");
+        assert!(
+            !bedroom.functions.is_empty(),
+            "Bedroom should have functions"
+        );
 
         // Verify percentage Success value parsed correctly
         let dorm = rooms.iter().find(|r| r.name == "Dormitory Unit");
         assert!(dorm.is_some(), "Should contain 'Dormitory Unit'");
         let dorm = dorm.unwrap();
         let whoring_fn = dorm.functions.iter().find(|f| f.name == "Whoring");
-        assert!(whoring_fn.is_some(), "Dormitory should have Whoring function");
+        assert!(
+            whoring_fn.is_some(),
+            "Dormitory should have Whoring function"
+        );
         let whoring_fn = whoring_fn.unwrap();
-        assert!(whoring_fn.success.is_some(), "Whoring should have Success value");
-        assert!((whoring_fn.success.unwrap() - 30.0).abs() < 0.01, "Success should be 30%");
+        assert!(
+            whoring_fn.success.is_some(),
+            "Whoring should have Success value"
+        );
+        assert!(
+            (whoring_fn.success.unwrap() - 30.0).abs() < 0.01,
+            "Success should be 30%"
+        );
     }
 
     #[test]
@@ -323,7 +349,11 @@ mod tests {
         assert_eq!(config.initial.girl_meet, 30);
         assert_eq!(config.gambling.odds, 49);
         // Tax rate parsed from "6%" → 0.06
-        assert!((config.tax.rate - 0.06).abs() < 0.001, "Tax rate should be 0.06, got {}", config.tax.rate);
+        assert!(
+            (config.tax.rate - 0.06).abs() < 0.001,
+            "Tax rate should be 0.06, got {}",
+            config.tax.rate
+        );
     }
 
     #[test]
@@ -373,7 +403,10 @@ mod tests {
             return;
         }
         let layout = load_screen(&path).expect("Failed to load bank_screen.xml");
-        assert!(!layout.widgets.is_empty(), "Bank screen should have widgets");
+        assert!(
+            !layout.widgets.is_empty(),
+            "Bank screen should have widgets"
+        );
 
         // Count widget types
         let mut buttons = 0;
@@ -405,10 +438,14 @@ mod tests {
         let layout = load_screen(&path).expect("Failed to load dungeon_screen.xml");
 
         // Should have a ListBox with columns
-        let has_listbox = layout.widgets.iter().any(|w| {
-            matches!(w, crate::screen::WidgetDef::ListBox(lb) if !lb.columns.is_empty())
-        });
-        assert!(has_listbox, "Dungeon screen should have a ListBox with columns");
+        let has_listbox = layout
+            .widgets
+            .iter()
+            .any(|w| matches!(w, crate::screen::WidgetDef::ListBox(lb) if !lb.columns.is_empty()));
+        assert!(
+            has_listbox,
+            "Dungeon screen should have a ListBox with columns"
+        );
     }
 }
 
@@ -499,13 +536,12 @@ mod save_tests {
     use std::path::PathBuf;
 
     fn resources_dir() -> PathBuf {
-        let from_workspace =
-            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../resources");
+        let from_workspace = PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../resources");
         if from_workspace.join("Data").exists() {
             return from_workspace;
         }
-        let from_original = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
-            .join("../../../WhoreMasterRenewal/Resources");
+        let from_original =
+            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../../WhoreMasterRenewal/Resources");
         if from_original.join("Data").exists() {
             return from_original;
         }

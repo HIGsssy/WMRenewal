@@ -238,7 +238,10 @@ impl GangManager {
 
     /// Get count of gangs on a specific mission.
     pub fn gangs_on_mission(&self, mission: GangMission) -> usize {
-        self.hired_gangs.iter().filter(|g| g.mission == mission).count()
+        self.hired_gangs
+            .iter()
+            .filter(|g| g.mission == mission)
+            .count()
     }
 
     /// Get guard power (sum of guarding gang power).
@@ -350,24 +353,12 @@ impl GangManager {
                     // Passive — handled during girl processing
                     GangMissionResult::default()
                 }
-                GangMission::Extortion => {
-                    self.process_extortion(i, player, rng)
-                }
-                GangMission::PettyTheft => {
-                    self.process_petty_theft(i, player, rng)
-                }
-                GangMission::GrandTheft => {
-                    self.process_grand_theft(i, player, rng)
-                }
-                GangMission::Kidnap => {
-                    self.process_kidnap(i, rng)
-                }
-                GangMission::Catacombs => {
-                    self.process_catacombs(i, rng)
-                }
-                GangMission::Sabotage => {
-                    self.process_sabotage(i, player, rng)
-                }
+                GangMission::Extortion => self.process_extortion(i, player, rng),
+                GangMission::PettyTheft => self.process_petty_theft(i, player, rng),
+                GangMission::GrandTheft => self.process_grand_theft(i, player, rng),
+                GangMission::Kidnap => self.process_kidnap(i, rng),
+                GangMission::Catacombs => self.process_catacombs(i, rng),
+                GangMission::Sabotage => self.process_sabotage(i, player, rng),
                 GangMission::CaptureGirl => {
                     // Handled during runaway processing
                     GangMissionResult::default()
@@ -397,7 +388,9 @@ impl GangManager {
         let territories = rng.gen_range(0..3);
         result.territories_gained = territories;
         player.businesses_extort += territories;
-        result.events.push(format!("Gang extorted {} businesses", territories));
+        result
+            .events
+            .push(format!("Gang extorted {} businesses", territories));
         result
     }
 
@@ -426,13 +419,17 @@ impl GangManager {
             if rng.gen_range(0..100) > gang.combat_skill {
                 gang.num_members = (gang.num_members - 1).max(1);
                 result.members_lost = 1;
-                result.events.push("Lost a gang member during theft".to_string());
+                result
+                    .events
+                    .push("Lost a gang member during theft".to_string());
             }
             gang.saw_combat = true;
         } else {
             // Rival fight
             self.hired_gangs[gang_idx].saw_combat = true;
-            result.events.push("Ran into rival gang during theft".to_string());
+            result
+                .events
+                .push("Ran into rival gang during theft".to_string());
         }
         result
     }
@@ -462,12 +459,16 @@ impl GangManager {
             if rng.gen_range(0..100) > gang.combat_skill {
                 gang.num_members = (gang.num_members - 1).max(1);
                 result.members_lost = 1;
-                result.events.push("Lost a gang member during robbery".to_string());
+                result
+                    .events
+                    .push("Lost a gang member during robbery".to_string());
             }
             gang.saw_combat = true;
         } else {
             self.hired_gangs[gang_idx].saw_combat = true;
-            result.events.push("Ran into rival gang during robbery".to_string());
+            result
+                .events
+                .push("Ran into rival gang during robbery".to_string());
         }
         result
     }
@@ -484,21 +485,29 @@ impl GangManager {
             let gang = &self.hired_gangs[gang_idx];
             // Attempt to convince: charisma check
             if rng.gen_range(0..100) < gang.charisma {
-                result.events.push("Gang convinced a girl to join".to_string());
+                result
+                    .events
+                    .push("Gang convinced a girl to join".to_string());
             } else if self.nets > 0 {
                 self.nets -= 1;
-                result.events.push("Gang captured a girl with a net".to_string());
+                result
+                    .events
+                    .push("Gang captured a girl with a net".to_string());
             } else {
                 // Combat attempt
                 self.hired_gangs[gang_idx].saw_combat = true;
                 if rng.gen_range(0..100) < self.hired_gangs[gang_idx].combat_skill {
-                    result.events.push("Gang captured a girl by force".to_string());
+                    result
+                        .events
+                        .push("Gang captured a girl by force".to_string());
                 } else {
                     result.events.push("Girl escaped the gang".to_string());
                 }
             }
         } else {
-            result.events.push("Gang found no suitable targets".to_string());
+            result
+                .events
+                .push("Gang found no suitable targets".to_string());
         }
         result
     }
@@ -536,12 +545,16 @@ impl GangManager {
             item_count += 1;
         }
         if item_count > 0 {
-            result.events.push(format!("Found {} items in the catacombs", item_count));
+            result
+                .events
+                .push(format!("Found {} items in the catacombs", item_count));
         }
 
         // 40% chance monster girl
         if rng.gen_range(0..100) < 40 {
-            result.events.push("Found a monster girl in the catacombs".to_string());
+            result
+                .events
+                .push("Found a monster girl in the catacombs".to_string());
         }
 
         result.events.push(format!(
@@ -562,7 +575,9 @@ impl GangManager {
 
         // 30% chance of finding nothing
         if rng.gen_range(0..100) < 30 {
-            result.events.push("Gang found no targets to sabotage".to_string());
+            result
+                .events
+                .push("Gang found no targets to sabotage".to_string());
             return result;
         }
 
@@ -570,7 +585,9 @@ impl GangManager {
         // Destroy businesses: 1 + random(intel/4)
         let intel = gang.intelligence;
         let destroyed = 1 + rng.gen_range(0..=(intel / 4).max(1));
-        result.events.push(format!("Destroyed {} rival businesses", destroyed));
+        result
+            .events
+            .push(format!("Destroyed {} rival businesses", destroyed));
 
         // Steal gold
         let max_gold = ((2 + intel / 4) * 400).max(44);

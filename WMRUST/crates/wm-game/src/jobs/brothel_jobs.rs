@@ -31,17 +31,35 @@ fn girl_fucks(
     cust_happy += GirlManager::get_skill(girl, Skill::Service) / 10;
 
     // Trait modifiers
-    if GirlManager::has_trait(girl, "Fast Orgasms") { cust_happy += 15; }
-    if GirlManager::has_trait(girl, "Slow Orgasms") { cust_happy -= 10; }
-    if GirlManager::has_trait(girl, "Psychic") { cust_happy += 10; }
-    if GirlManager::has_trait(girl, "Fake Orgasms") { cust_happy += 15; }
-    if GirlManager::has_trait(girl, "Abnormally Large Boobs") { cust_happy += 15; }
-    if GirlManager::has_trait(girl, "Big Boobs") { cust_happy += 10; }
+    if GirlManager::has_trait(girl, "Fast Orgasms") {
+        cust_happy += 15;
+    }
+    if GirlManager::has_trait(girl, "Slow Orgasms") {
+        cust_happy -= 10;
+    }
+    if GirlManager::has_trait(girl, "Psychic") {
+        cust_happy += 10;
+    }
+    if GirlManager::has_trait(girl, "Fake Orgasms") {
+        cust_happy += 15;
+    }
+    if GirlManager::has_trait(girl, "Abnormally Large Boobs") {
+        cust_happy += 15;
+    }
+    if GirlManager::has_trait(girl, "Big Boobs") {
+        cust_happy += 10;
+    }
 
     // Disease penalties
-    if GirlManager::has_trait(girl, "AIDS") { cust_happy -= 10; }
-    if GirlManager::has_trait(girl, "Chlamydia") { cust_happy -= 20; }
-    if GirlManager::has_trait(girl, "Syphilis") { cust_happy -= 10; }
+    if GirlManager::has_trait(girl, "AIDS") {
+        cust_happy -= 10;
+    }
+    if GirlManager::has_trait(girl, "Chlamydia") {
+        cust_happy -= 20;
+    }
+    if GirlManager::has_trait(girl, "Syphilis") {
+        cust_happy -= 10;
+    }
 
     // Magic bonus if mana available
     let mana = GirlManager::get_stat(girl, Stat::Mana);
@@ -128,7 +146,11 @@ fn girl_fucks(
     }
 
     // Tips: if customer very happy
-    let tip = if cust_happy > 50 { rng.gen_range(5..21) } else { 0 };
+    let tip = if cust_happy > 50 {
+        rng.gen_range(5..21)
+    } else {
+        0
+    };
 
     events.push(format!("Customer satisfaction: {cust_happy}"));
     (cust_happy, tip, events)
@@ -138,8 +160,15 @@ fn girl_fucks(
 // Matches C++ WorkWhore.cpp
 pub struct JobWhoreBrothel;
 impl Job for JobWhoreBrothel {
-    fn job_type(&self) -> JobType { JobType::WhoreBrothel }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::WhoreBrothel
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let beauty = GirlManager::get_stat(girl, Stat::Beauty).max(1);
@@ -155,7 +184,13 @@ impl Job for JobWhoreBrothel {
 
         for _ in 0..num_custs {
             // Pick sex type
-            let sex_skills = [Skill::NormalSex, Skill::Anal, Skill::BDSM, Skill::Group, Skill::Lesbian];
+            let sex_skills = [
+                Skill::NormalSex,
+                Skill::Anal,
+                Skill::BDSM,
+                Skill::Group,
+                Skill::Lesbian,
+            ];
             let skill = sex_skills[rng.gen_range(0..sex_skills.len())];
 
             let (cust_happy, tip, events) = girl_fucks(girl, skill, rng);
@@ -176,7 +211,10 @@ impl Job for JobWhoreBrothel {
         }
 
         result.gold_earned = total_gold + total_tips;
-        result.events.push(format!("She serviced {num_custs} customers for {} gold.", result.gold_earned));
+        result.events.push(format!(
+            "She serviced {num_custs} customers for {} gold.",
+            result.gold_earned
+        ));
         result
     }
 }
@@ -184,8 +222,15 @@ impl Job for JobWhoreBrothel {
 // ===== Whore (Streets) =====
 pub struct JobWhoreStreets;
 impl Job for JobWhoreStreets {
-    fn job_type(&self) -> JobType { JobType::WhoreStreets }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::WhoreStreets
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let beauty = GirlManager::get_stat(girl, Stat::Beauty).max(1);
@@ -193,13 +238,18 @@ impl Job for JobWhoreStreets {
         let fame = GirlManager::get_stat(girl, Stat::Fame).max(1);
 
         // Street: 2/3 of normal customers and pay
-        let num_custs = (((beauty / 50).max(1) + (charisma / 50).max(1) + fame / 25) * 2 / 3).min(7);
+        let num_custs =
+            (((beauty / 50).max(1) + (charisma / 50).max(1) + fame / 25) * 2 / 3).min(7);
         let ask_price = (GirlManager::get_stat(girl, Stat::AskPrice).max(1) * 2) / 3;
 
         let mut total_gold = 0;
 
         for _ in 0..num_custs.max(1) {
-            let skill = if rng.gen_range(0..100) < 60 { Skill::NormalSex } else { Skill::Anal };
+            let skill = if rng.gen_range(0..100) < 60 {
+                Skill::NormalSex
+            } else {
+                Skill::Anal
+            };
             let (cust_happy, tip, events) = girl_fucks(girl, skill, rng);
             result.events.extend(events);
 
@@ -213,7 +263,9 @@ impl Job for JobWhoreStreets {
             let dmg = rng.gen_range(0..20).max(0);
             GirlManager::update_stat(girl, Stat::Health, -dmg);
             GirlManager::update_stat(girl, Stat::Tiredness, rng.gen_range(5..15));
-            result.events.push(format!("She was attacked by a rival gang! (-{dmg} health)"));
+            result
+                .events
+                .push(format!("She was attacked by a rival gang! (-{dmg} health)"));
         }
 
         result.gold_earned = total_gold;
@@ -225,8 +277,15 @@ impl Job for JobWhoreStreets {
 // Matches C++ WorkStripper: 50/50 strip+sex or strip only
 pub struct JobBrothelStripper;
 impl Job for JobBrothelStripper {
-    fn job_type(&self) -> JobType { JobType::BrothelStripper }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::BrothelStripper
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let ask_price = GirlManager::get_stat(girl, Stat::AskPrice).max(1);
 
@@ -236,13 +295,17 @@ impl Job for JobBrothelStripper {
             result.events.extend(events);
             result.gold_earned = ask_price + 30 + tip;
             GirlManager::update_temp_stat(girl, Stat::Libido, -4);
-            result.events.push("She stripped and had sex with a customer.".to_string());
+            result
+                .events
+                .push("She stripped and had sex with a customer.".to_string());
         } else {
             // Strip only
             result.gold_earned = ask_price + 10;
             let tiredness = (6 - GirlManager::get_stat(girl, Stat::Constitution) / 15).max(1);
             GirlManager::update_stat(girl, Stat::Tiredness, tiredness);
-            result.events.push("She performed a strip show.".to_string());
+            result
+                .events
+                .push("She performed a strip show.".to_string());
         }
 
         // Strip skill gain
@@ -257,8 +320,15 @@ impl Job for JobBrothelStripper {
 // ===== Masseuse =====
 pub struct JobMasseuse;
 impl Job for JobMasseuse {
-    fn job_type(&self) -> JobType { JobType::Masseuse }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Masseuse
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let service = GirlManager::get_skill(girl, Skill::Service);
@@ -277,7 +347,9 @@ impl Job for JobMasseuse {
             result.skill_changes.push((Skill::Service, 1));
         }
 
-        result.events.push(format!("She gave massages and earned {base_pay} gold."));
+        result
+            .events
+            .push(format!("She gave massages and earned {base_pay} gold."));
         result
     }
 }

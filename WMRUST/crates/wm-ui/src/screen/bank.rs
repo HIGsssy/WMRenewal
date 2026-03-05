@@ -2,7 +2,7 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 #[derive(Debug)]
@@ -47,7 +47,9 @@ impl BankScreen {
 }
 
 impl Screen for BankScreen {
-    fn id(&self) -> ScreenId { "bank" }
+    fn id(&self) -> ScreenId {
+        "bank"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/bank_screen.xml");
@@ -66,7 +68,12 @@ impl Screen for BankScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
                 if b.base.is_over(x, y) {

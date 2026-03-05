@@ -10,7 +10,7 @@ use crate::screen::turn_summary::TurnSummaryScreen;
 use crate::screen::{Screen, ScreenAction, ScreenId};
 use crate::widget::button::ButtonWidget;
 use crate::widget::text_item::TextItemWidget;
-use crate::widget::{Widget, WidgetBase, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetBase, WidgetId, WidgetStore};
 
 #[derive(Debug)]
 pub struct BrothelManagementScreen {
@@ -46,27 +46,40 @@ impl BrothelManagementScreen {
         }
     }
 
-    fn make_button(widgets: &mut WidgetStore, name: &str, x: i32, y: i32, w: u32, h: u32) -> WidgetId {
+    fn make_button(
+        widgets: &mut WidgetStore,
+        name: &str,
+        x: i32,
+        y: i32,
+        w: u32,
+        h: u32,
+    ) -> WidgetId {
         let id = widgets.allocate_id();
         let base = WidgetBase::new(id, name, x, y, w, h);
-        widgets.add(name, Widget::Button(ButtonWidget {
-            base,
-            image_off: format!("{}Off.png", name),
-            image_on: format!("{}On.png", name),
-            image_disabled: format!("{}Disabled.png", name),
-            transparency: true,
-            scale: true,
-            pressed: false,
-        }))
+        widgets.add(
+            name,
+            Widget::Button(ButtonWidget {
+                base,
+                image_off: format!("{}Off.png", name),
+                image_on: format!("{}On.png", name),
+                image_disabled: format!("{}Disabled.png", name),
+                transparency: true,
+                scale: true,
+                pressed: false,
+            }),
+        )
     }
 
     fn update_details(&self, widgets: &mut WidgetStore, state: &GameState) {
         let brothel = state.brothels.current_brothel();
         let details = format!(
             "Girls: {}/{}\nRooms: {}\nFame: {}\nHappiness: {}\nFilth: {}\nWeek: {}",
-            brothel.num_girls(), brothel.num_rooms,
-            brothel.num_rooms, brothel.fame,
-            brothel.happiness, brothel.filthiness,
+            brothel.num_girls(),
+            brothel.num_rooms,
+            brothel.num_rooms,
+            brothel.fame,
+            brothel.happiness,
+            brothel.filthiness,
             state.week,
         );
         if let Some(Widget::TextItem(t)) = widgets.get_mut(self.details_id) {
@@ -79,27 +92,45 @@ impl BrothelManagementScreen {
 }
 
 impl Default for BrothelManagementScreen {
-    fn default() -> Self { Self::new() }
+    fn default() -> Self {
+        Self::new()
+    }
 }
 
 impl Screen for BrothelManagementScreen {
-    fn id(&self) -> ScreenId { "brothel_management" }
+    fn id(&self) -> ScreenId {
+        "brothel_management"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         // Layout from BrothelScreen.txt (programmatic)
         // Brothel Name text at 8,8 584x40
         let id = widgets.allocate_id();
         let base = WidgetBase::new(id, "BrothelName", 8, 8, 584, 40);
-        self.name_id = widgets.add("BrothelName", Widget::TextItem(TextItemWidget {
-            base, text: String::new(), font_size: 20, scroll_offset: 0, total_height: 0,
-        }));
+        self.name_id = widgets.add(
+            "BrothelName",
+            Widget::TextItem(TextItemWidget {
+                base,
+                text: String::new(),
+                font_size: 20,
+                scroll_offset: 0,
+                total_height: 0,
+            }),
+        );
 
         // Brothel Details text at 600,20 160x170
         let id = widgets.allocate_id();
         let base = WidgetBase::new(id, "BrothelDetails", 600, 20, 160, 170);
-        self.details_id = widgets.add("BrothelDetails", Widget::TextItem(TextItemWidget {
-            base, text: String::new(), font_size: 10, scroll_offset: 0, total_height: 0,
-        }));
+        self.details_id = widgets.add(
+            "BrothelDetails",
+            Widget::TextItem(TextItemWidget {
+                base,
+                text: String::new(),
+                font_size: 10,
+                scroll_offset: 0,
+                total_height: 0,
+            }),
+        );
 
         // Buttons from BrothelScreen.txt
         self.girl_mgmt_id = Self::make_button(widgets, "GirlManagement", 600, 258, 160, 32);
@@ -119,7 +150,12 @@ impl Screen for BrothelManagementScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.girl_mgmt_id) {
                 if b.base.is_over(x, y) {
@@ -146,7 +182,9 @@ impl Screen for BrothelManagementScreen {
                     let events = TurnProcessor::process_week(state);
                     self.last_events = Some(events.events.clone());
                     self.update_details(widgets, state);
-                    return ScreenAction::Push(Box::new(TurnSummaryScreen::with_events(events.events)));
+                    return ScreenAction::Push(Box::new(TurnSummaryScreen::with_events(
+                        events.events,
+                    )));
                 }
             }
             if let Some(Widget::Button(b)) = widgets.get(self.turn_summary_id) {

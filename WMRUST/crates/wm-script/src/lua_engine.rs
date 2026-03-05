@@ -81,9 +81,7 @@ mod tests {
     #[test]
     fn test_message_api() {
         let engine = LuaEngine::new().unwrap();
-        engine
-            .exec_str(r#"wm.message("Hello world", 0)"#)
-            .unwrap();
+        engine.exec_str(r#"wm.message("Hello world", 0)"#).unwrap();
         engine
             .exec_str(r#"wm.message("Second message", 1)"#)
             .unwrap();
@@ -201,13 +199,10 @@ mod tests {
     #[test]
     fn test_reset_context() {
         let engine = LuaEngine::new().unwrap();
-        engine
-            .exec_str(r#"wm.message("test", 0)"#)
-            .unwrap();
+        engine.exec_str(r#"wm.message("test", 0)"#).unwrap();
         assert_eq!(engine.context().lock().unwrap().messages.len(), 1);
 
         engine.reset_context();
         assert_eq!(engine.context().lock().unwrap().messages.len(), 0);
     }
 }
-

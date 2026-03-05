@@ -9,8 +9,15 @@ use super::{Job, JobResult};
 
 pub struct JobFightBeasts;
 impl Job for JobFightBeasts {
-    fn job_type(&self) -> JobType { JobType::FightBeasts }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FightBeasts
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let combat = GirlManager::get_skill(girl, Skill::Combat);
         let magic = GirlManager::get_skill(girl, Skill::Magic);
@@ -27,7 +34,9 @@ impl Job for JobFightBeasts {
         } else {
             let dmg = rng.gen_range(5..20);
             GirlManager::update_stat(girl, Stat::Health, -dmg);
-            result.events.push(format!("She lost the fight (-{dmg} health)."));
+            result
+                .events
+                .push(format!("She lost the fight (-{dmg} health)."));
         }
 
         let tiredness = (12 - GirlManager::get_stat(girl, Stat::Constitution) / 10).max(2);
@@ -42,8 +51,15 @@ impl Job for JobFightBeasts {
 
 pub struct JobWrestle;
 impl Job for JobWrestle {
-    fn job_type(&self) -> JobType { JobType::Wrestle }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Wrestle
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let combat = GirlManager::get_skill(girl, Skill::Combat);
         let agility = GirlManager::get_stat(girl, Stat::Agility);
@@ -52,11 +68,15 @@ impl Job for JobWrestle {
         let win = rng.gen_range(0..100) < 30 + best / 2;
         if win {
             result.gold_earned = 25 + best / 3;
-            result.events.push("She won the wrestling match!".to_string());
+            result
+                .events
+                .push("She won the wrestling match!".to_string());
         } else {
             let dmg = rng.gen_range(2..10);
             GirlManager::update_stat(girl, Stat::Health, -dmg);
-            result.events.push("She lost the wrestling match.".to_string());
+            result
+                .events
+                .push("She lost the wrestling match.".to_string());
         }
 
         let tiredness = (10 - GirlManager::get_stat(girl, Stat::Constitution) / 10).max(2);
@@ -71,8 +91,15 @@ impl Job for JobWrestle {
 
 pub struct JobFightToDeath;
 impl Job for JobFightToDeath {
-    fn job_type(&self) -> JobType { JobType::FightToDeath }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FightToDeath
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let combat = GirlManager::get_skill(girl, Skill::Combat);
         let magic = GirlManager::get_skill(girl, Skill::Magic);
@@ -83,12 +110,16 @@ impl Job for JobFightToDeath {
         if win {
             result.gold_earned = 50 + best;
             GirlManager::update_stat(girl, Stat::Fame, 2);
-            result.events.push("She killed her opponent in the arena!".to_string());
+            result
+                .events
+                .push("She killed her opponent in the arena!".to_string());
         } else {
             // Severe injury
             let dmg = rng.gen_range(15..40);
             GirlManager::update_stat(girl, Stat::Health, -dmg);
-            result.events.push(format!("She was badly injured in the arena (-{dmg} health)."));
+            result.events.push(format!(
+                "She was badly injured in the arena (-{dmg} health)."
+            ));
             // Could die if health drops to 0
         }
 
@@ -102,8 +133,15 @@ impl Job for JobFightToDeath {
 
 pub struct JobFightVolunteers;
 impl Job for JobFightVolunteers {
-    fn job_type(&self) -> JobType { JobType::FightVolunteers }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FightVolunteers
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let combat = GirlManager::get_skill(girl, Skill::Combat);
 
@@ -129,8 +167,15 @@ impl Job for JobFightVolunteers {
 
 pub struct JobCollectBets;
 impl Job for JobCollectBets {
-    fn job_type(&self) -> JobType { JobType::CollectBets }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::CollectBets
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let charisma = GirlManager::get_stat(girl, Stat::Charisma);
         let intelligence = GirlManager::get_stat(girl, Stat::Intelligence);
@@ -141,7 +186,9 @@ impl Job for JobCollectBets {
         if rng.gen_range(0..100) < 25 {
             GirlManager::update_skill(girl, Skill::Service, 1);
         }
-        result.events.push("She collected bets at the arena.".to_string());
+        result
+            .events
+            .push("She collected bets at the arena.".to_string());
         result
     }
 }

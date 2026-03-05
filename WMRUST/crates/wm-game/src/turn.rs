@@ -61,11 +61,11 @@ impl TurnProcessor {
             }
 
             // STD progression: if health very low, small chance of disease
-            if GirlManager::get_stat(girl, Stat::Health) <= 10
-                && rng.gen_range(0..100) < 1
-            {
+            if GirlManager::get_stat(girl, Stat::Health) <= 10 && rng.gen_range(0..100) < 1 {
                 GirlManager::add_trait(girl, "Chlamydia");
-                events.events.push(format!("{} contracted chlamydia!", girl.name));
+                events
+                    .events
+                    .push(format!("{} contracted chlamydia!", girl.name));
             }
 
             // Update happy/sad traits based on current happiness
@@ -135,12 +135,9 @@ impl TurnProcessor {
                 let brothel_snapshot = state.brothels.brothels[brothel_idx].clone();
                 let girl = &mut state.girls.girls[girl_id];
 
-                let result = state.job_dispatcher.process(
-                    job_type,
-                    girl,
-                    &brothel_snapshot,
-                    rng,
-                );
+                let result = state
+                    .job_dispatcher
+                    .process(job_type, girl, &brothel_snapshot, rng);
 
                 // Apply gold
                 if result.gold_earned > 0 {
@@ -153,17 +150,27 @@ impl TurnProcessor {
                         JobType::WhoreStreets => {
                             state.gold.add_street_work(gold);
                         }
-                        JobType::Barmaid | JobType::Waitress | JobType::Stripper
-                        | JobType::WhoreBar | JobType::Singer => {
+                        JobType::Barmaid
+                        | JobType::Waitress
+                        | JobType::Stripper
+                        | JobType::WhoreBar
+                        | JobType::Singer => {
                             state.gold.add_bar_income(gold);
                         }
-                        JobType::Dealer | JobType::CustomerService
-                        | JobType::Entertainment | JobType::XXXEntertainment => {
+                        JobType::Dealer
+                        | JobType::CustomerService
+                        | JobType::Entertainment
+                        | JobType::XXXEntertainment => {
                             state.gold.add_gambling_profits(gold);
                         }
-                        JobType::FilmBeast | JobType::FilmSex | JobType::FilmAnal
-                        | JobType::FilmLesbian | JobType::FilmBondage | JobType::Fluffer
-                        | JobType::CameraMage | JobType::CrystalPurifier => {
+                        JobType::FilmBeast
+                        | JobType::FilmSex
+                        | JobType::FilmAnal
+                        | JobType::FilmLesbian
+                        | JobType::FilmBondage
+                        | JobType::Fluffer
+                        | JobType::CameraMage
+                        | JobType::CrystalPurifier => {
                             state.gold.add_movie_income(gold);
                         }
                         _ => {
@@ -177,7 +184,9 @@ impl TurnProcessor {
 
                 // Collect events
                 for event in result.events {
-                    events.events.push(format!("[{}] {}", state.girls.girls[girl_id].name, event));
+                    events
+                        .events
+                        .push(format!("[{}] {}", state.girls.girls[girl_id].name, event));
                 }
 
                 // Cleaning reduces filthiness
@@ -209,7 +218,9 @@ impl TurnProcessor {
         // 2. Building upkeep per brothel
         let num_brothels = state.brothels.brothels.len();
         let upkeep_per_brothel = 100.0; // Base upkeep
-        state.gold.charge_building_upkeep(upkeep_per_brothel * num_brothels as f64);
+        state
+            .gold
+            .charge_building_upkeep(upkeep_per_brothel * num_brothels as f64);
 
         // 3. Girl support costs
         let total_girls = state.girls.girls.len() as f64;
@@ -236,10 +247,7 @@ impl TurnProcessor {
         }
 
         // 7. Process gang missions
-        let gang_results = state.gangs.process_missions(
-            &mut state.player,
-            rng,
-        );
+        let gang_results = state.gangs.process_missions(&mut state.player, rng);
         for result in gang_results {
             for event in &result.events {
                 events.events.push(format!("[Gang] {}", event));
@@ -265,7 +273,9 @@ impl TurnProcessor {
         let tax_rate = state.config.tax.rate / 100.0;
         let (plunder, rival_events) = state.rivals.process_rivals(tax_rate, rng);
         if plunder > 0 {
-            events.events.push(format!("[Rival] Rivals plundered {} gold!", plunder));
+            events
+                .events
+                .push(format!("[Rival] Rivals plundered {} gold!", plunder));
         }
         for event in rival_events {
             events.events.push(format!("[Rival] {}", event));
@@ -273,7 +283,9 @@ impl TurnProcessor {
 
         // 10. Rival takeover check
         if state.rivals.check_takeover() {
-            events.events.push("[CRITICAL] Rivals have taken over!".to_string());
+            events
+                .events
+                .push("[CRITICAL] Rivals have taken over!".to_string());
         }
 
         // 11. Maybe spawn new rival
@@ -317,11 +329,7 @@ impl TurnProcessor {
     }
 
     /// Check if any girls try to run away.
-    fn check_runaways(
-        state: &mut GameState,
-        rng: &mut dyn rand::RngCore,
-        events: &mut TurnEvents,
-    ) {
+    fn check_runaways(state: &mut GameState, rng: &mut dyn rand::RngCore, events: &mut TurnEvents) {
         let guard_power: i32 = state.gangs.guard_power();
 
         for girl in &mut state.girls.girls {
@@ -349,7 +357,9 @@ impl TurnProcessor {
                 } else {
                     // Free girl quits
                     GirlManager::update_stat(girl, Stat::Happiness, -20);
-                    events.events.push(format!("{} is threatening to leave!", girl.name));
+                    events
+                        .events
+                        .push(format!("{} is threatening to leave!", girl.name));
                 }
             }
         }

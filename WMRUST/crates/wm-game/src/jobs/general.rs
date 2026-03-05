@@ -11,8 +11,15 @@ use super::{Job, JobResult};
 // Matches C++ WorkFreetime.cpp
 pub struct JobResting;
 impl Job for JobResting {
-    fn job_type(&self) -> JobType { JobType::Resting }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Resting
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         GirlManager::update_stat(girl, Stat::Tiredness, -20);
@@ -41,8 +48,15 @@ impl Job for JobResting {
 // Matches C++ WorkTraining: solo = 50% nothing, otherwise +1..4 to random skill/stat
 pub struct JobTraining;
 impl Job for JobTraining {
-    fn job_type(&self) -> JobType { JobType::Training }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Training
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         // Tiredness from training
@@ -59,9 +73,16 @@ impl Job for JobTraining {
         // Pick random trainable attribute
         let trainable_stats = [Stat::Charisma, Stat::Constitution, Stat::Libido];
         let trainable_skills = [
-            Skill::Anal, Skill::Magic, Skill::BDSM, Skill::NormalSex,
-            Skill::Beastiality, Skill::Group, Skill::Lesbian, Skill::Service,
-            Skill::Strip, Skill::Combat,
+            Skill::Anal,
+            Skill::Magic,
+            Skill::BDSM,
+            Skill::NormalSex,
+            Skill::Beastiality,
+            Skill::Group,
+            Skill::Lesbian,
+            Skill::Service,
+            Skill::Strip,
+            Skill::Combat,
         ];
 
         let total = trainable_stats.len() + trainable_skills.len();
@@ -88,8 +109,15 @@ impl Job for JobTraining {
 // ===== Cleaning =====
 pub struct JobCleaning;
 impl Job for JobCleaning {
-    fn job_type(&self) -> JobType { JobType::Cleaning }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Cleaning
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let tiredness = (10 - GirlManager::get_stat(girl, Stat::Constitution) / 10).max(1);
@@ -114,8 +142,15 @@ impl Job for JobCleaning {
 // ===== Security =====
 pub struct JobSecurity;
 impl Job for JobSecurity {
-    fn job_type(&self) -> JobType { JobType::Security }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Security
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let tiredness = (8 - GirlManager::get_stat(girl, Stat::Constitution) / 12).max(1);
@@ -125,9 +160,13 @@ impl Job for JobSecurity {
         // Security effectiveness based on combat skill
         let combat = GirlManager::get_skill(girl, Skill::Combat);
         if combat > 50 {
-            result.events.push("She kept the building secure.".to_string());
+            result
+                .events
+                .push("She kept the building secure.".to_string());
         } else {
-            result.events.push("She did her best to keep watch.".to_string());
+            result
+                .events
+                .push("She did her best to keep watch.".to_string());
         }
 
         // Combat skill gain
@@ -144,8 +183,15 @@ impl Job for JobSecurity {
 // ===== Advertising =====
 pub struct JobAdvertising;
 impl Job for JobAdvertising {
-    fn job_type(&self) -> JobType { JobType::Advertising }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Advertising
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let tiredness = (6 - GirlManager::get_stat(girl, Stat::Constitution) / 15).max(1);
@@ -156,7 +202,9 @@ impl Job for JobAdvertising {
         let charisma = GirlManager::get_stat(girl, Stat::Charisma);
         let beauty = GirlManager::get_stat(girl, Stat::Beauty);
         let effectiveness = (charisma + beauty) / 2;
-        result.events.push(format!("She advertised (effectiveness: {effectiveness})."));
+        result
+            .events
+            .push(format!("She advertised (effectiveness: {effectiveness})."));
 
         // Fame very small gain
         if effectiveness > 50 && rng.gen_range(0..100) < 20 {
@@ -175,8 +223,15 @@ impl Job for JobAdvertising {
 // ===== Matron =====
 pub struct JobMatron;
 impl Job for JobMatron {
-    fn job_type(&self) -> JobType { JobType::Matron }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, _rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Matron
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        _rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let tiredness = (5 - GirlManager::get_stat(girl, Stat::Constitution) / 20).max(1);
@@ -184,7 +239,9 @@ impl Job for JobMatron {
         GirlManager::update_stat(girl, Stat::Exp, 3);
 
         // Matron boosts other girls (handled by turn processor)
-        result.events.push("She supervised the other girls.".to_string());
+        result
+            .events
+            .push("She supervised the other girls.".to_string());
         result.gold_earned = 15;
         result
     }
@@ -193,8 +250,15 @@ impl Job for JobMatron {
 // ===== Torturer =====
 pub struct JobTorturer;
 impl Job for JobTorturer {
-    fn job_type(&self) -> JobType { JobType::Torturer }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, _rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Torturer
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        _rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let tiredness = (8 - GirlManager::get_stat(girl, Stat::Constitution) / 12).max(1);
@@ -210,8 +274,15 @@ impl Job for JobTorturer {
 // ===== Explore Catacombs =====
 pub struct JobExploreCatacombs;
 impl Job for JobExploreCatacombs {
-    fn job_type(&self) -> JobType { JobType::ExploreCatacombs }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::ExploreCatacombs
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let tiredness = (12 - GirlManager::get_stat(girl, Stat::Constitution) / 10).max(2);
@@ -229,9 +300,13 @@ impl Job for JobExploreCatacombs {
         if rng.gen_range(0..100) < 20 {
             let dmg = rng.gen_range(5..20);
             GirlManager::update_stat(girl, Stat::Health, -dmg);
-            result.events.push(format!("She was injured in the catacombs (-{dmg} health)."));
+            result
+                .events
+                .push(format!("She was injured in the catacombs (-{dmg} health)."));
         } else {
-            result.events.push(format!("She explored the catacombs and found {gold} gold."));
+            result
+                .events
+                .push(format!("She explored the catacombs and found {gold} gold."));
         }
 
         // Skill gains
@@ -246,8 +321,15 @@ impl Job for JobExploreCatacombs {
 // ===== Beast Capture =====
 pub struct JobBeastCapture;
 impl Job for JobBeastCapture {
-    fn job_type(&self) -> JobType { JobType::BeastCapture }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::BeastCapture
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let tiredness = (10 - GirlManager::get_stat(girl, Stat::Constitution) / 10).max(2);
@@ -259,13 +341,17 @@ impl Job for JobBeastCapture {
             result.events.push("She captured a beast!".to_string());
             // Beast count managed by state
         } else {
-            result.events.push("She failed to capture any beasts.".to_string());
+            result
+                .events
+                .push("She failed to capture any beasts.".to_string());
         }
 
         if rng.gen_range(0..100) < 15 {
             let dmg = rng.gen_range(3..12);
             GirlManager::update_stat(girl, Stat::Health, -dmg);
-            result.events.push(format!("A beast injured her (-{dmg} health)."));
+            result
+                .events
+                .push(format!("A beast injured her (-{dmg} health)."));
         }
 
         GirlManager::update_stat(girl, Stat::Exp, 3);
@@ -276,8 +362,15 @@ impl Job for JobBeastCapture {
 // ===== Beast Carer =====
 pub struct JobBeastCarer;
 impl Job for JobBeastCarer {
-    fn job_type(&self) -> JobType { JobType::BeastCarer }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::BeastCarer
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
 
         let tiredness = (6 - GirlManager::get_stat(girl, Stat::Constitution) / 15).max(1);

@@ -22,7 +22,7 @@ pub struct Customer {
     pub is_official: bool,
     pub fetish: i32,
     pub preferred_skill: i32, // Skill enum index for sex preference
-    pub stats: [i32; 10], // general stat values (combat, appearance, etc.)
+    pub stats: [i32; 10],     // general stat values (combat, appearance, etc.)
 }
 
 impl Default for Customer {
@@ -190,6 +190,9 @@ mod tests {
         b.fame = 40;
         gen.generate_customers(&[b], Shift::Night, &mut rng);
         let count = gen.get_customers(0);
-        assert!(count > 0, "Should generate customers for brothel with girls");
+        assert!(
+            count > 0,
+            "Should generate customers for brothel with girls"
+        );
     }
 }

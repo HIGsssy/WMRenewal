@@ -7,7 +7,7 @@ const ENTRY_TYPE_TEXT: i32 = 1;
 /// A single entry in a script action.
 #[derive(Debug)]
 struct ScriptEntry {
-    entry_type: i32,
+    _entry_type: i32,
     value: i32, // union: length for TEXT, lValue/Selection/bValue for others
     var: u8,    // 1 = use as variable index into vars[]
     text: Option<String>,
@@ -64,7 +64,7 @@ fn parse_script(data: &[u8]) -> Result<Vec<ScriptAction>, ConvertError> {
             };
 
             entries.push(ScriptEntry {
-                entry_type,
+                _entry_type: entry_type,
                 value,
                 var,
                 text,
@@ -202,7 +202,11 @@ fn actions_to_lua(actions: &[ScriptAction]) -> Result<String, ConvertError> {
                     .first()
                     .and_then(|e| e.text.as_deref())
                     .unwrap_or("");
-                out.push_str(&format!("{}wm.message(\"{}\", 0)\n", indent, lua_escape(text)));
+                out.push_str(&format!(
+                    "{}wm.message(\"{}\", 0)\n",
+                    indent,
+                    lua_escape(text)
+                ));
             }
             // 1: Init
             1 => {
@@ -224,10 +228,7 @@ fn actions_to_lua(actions: &[ScriptAction]) -> Result<String, ConvertError> {
             5 => {
                 let id = val_expr(&action.entries[0]);
                 let num: i32 = action.entries[1].value;
-                out.push_str(&format!(
-                    "{}wm.choice_box({}, {{\n",
-                    indent, id
-                ));
+                out.push_str(&format!("{}wm.choice_box({}, {{\n", indent, id));
                 // The next `num` actions are TEXT entries
                 for j in 0..num {
                     let text_idx = i + 1 + j as usize;
@@ -308,10 +309,7 @@ fn actions_to_lua(actions: &[ScriptAction]) -> Result<String, ConvertError> {
             // 16: ClearGlobalFlag
             16 => {
                 let flag = val_expr(&action.entries[0]);
-                out.push_str(&format!(
-                    "{}wm.global.set_flag({}, false)\n",
-                    indent, flag
-                ));
+                out.push_str(&format!("{}wm.global.set_flag({}, false)\n", indent, flag));
             }
             // 17: AddCustToDungeon
             17 => {
@@ -498,10 +496,7 @@ fn actions_to_lua(actions: &[ScriptAction]) -> Result<String, ConvertError> {
             }
             // 40: IfNotDisobey
             40 => {
-                out.push_str(&format!(
-                    "{}if not wm.girl.disobey_check() then\n",
-                    indent
-                ));
+                out.push_str(&format!("{}if not wm.girl.disobey_check() then\n", indent));
             }
             _ => {
                 return Err(ConvertError::UnknownOpcode(action.action_type as u8));
@@ -522,9 +517,7 @@ pub fn convert_script_to_lua(path: &Path) -> Result<String, ConvertError> {
 }
 
 /// Convert all .script files in a directory; returns a vec of (filename, lua_source).
-pub fn convert_all_scripts(
-    scripts_dir: &Path,
-) -> Result<Vec<(String, String)>, ConvertError> {
+pub fn convert_all_scripts(scripts_dir: &Path) -> Result<Vec<(String, String)>, ConvertError> {
     let mut results = Vec::new();
 
     if !scripts_dir.is_dir() {
@@ -582,7 +575,11 @@ mod tests {
         );
 
         for (name, lua) in &results {
-            assert!(!lua.is_empty(), "Converted Lua for {} should not be empty", name);
+            assert!(
+                !lua.is_empty(),
+                "Converted Lua for {} should not be empty",
+                name
+            );
             // Verify it starts with the header comment
             assert!(
                 lua.starts_with("-- Auto-converted"),

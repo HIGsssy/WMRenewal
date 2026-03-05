@@ -4,7 +4,7 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 #[derive(Debug)]
@@ -19,8 +19,11 @@ pub struct PrisonScreen {
 impl PrisonScreen {
     pub fn new() -> Self {
         Self {
-            prison_list_id: 0, desc_id: 0, release_id: 0,
-            show_more_id: 0, back_id: 0,
+            prison_list_id: 0,
+            desc_id: 0,
+            release_id: 0,
+            show_more_id: 0,
+            back_id: 0,
         }
     }
 
@@ -36,7 +39,9 @@ impl PrisonScreen {
 }
 
 impl Screen for PrisonScreen {
-    fn id(&self) -> ScreenId { "prison" }
+    fn id(&self) -> ScreenId {
+        "prison"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/prison_screen.xml");
@@ -55,10 +60,17 @@ impl Screen for PrisonScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             if let Some(Widget::Button(b)) = widgets.get(self.release_id) {
                 if b.base.is_over(x, y) {
@@ -80,8 +92,11 @@ impl Screen for PrisonScreen {
                             let health = GirlManager::get_stat(&inmate.girl, Stat::Health);
                             let desc = format!(
                                 "Name: {}\nHealth: {}\nWeeks: {}\nReason: {:?}\nFed: {}",
-                                inmate.girl.name, health, inmate.weeks,
-                                inmate.reason, if inmate.fed { "Yes" } else { "No" },
+                                inmate.girl.name,
+                                health,
+                                inmate.weeks,
+                                inmate.reason,
+                                if inmate.fed { "Yes" } else { "No" },
                             );
                             if let Some(Widget::TextItem(t)) = widgets.get_mut(self.desc_id) {
                                 t.text = desc;

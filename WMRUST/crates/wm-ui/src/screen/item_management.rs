@@ -2,7 +2,7 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 #[derive(Debug)]
@@ -32,10 +32,17 @@ enum Owner {
 impl ItemManagementScreen {
     pub fn new() -> Self {
         Self {
-            owners_left_id: 0, owners_right_id: 0,
-            items_left_id: 0, items_right_id: 0,
-            filter_list_id: 0, shift_right_id: 0, shift_left_id: 0,
-            equip_id: 0, unequip_id: 0, back_id: 0, desc_id: 0,
+            owners_left_id: 0,
+            owners_right_id: 0,
+            items_left_id: 0,
+            items_right_id: 0,
+            filter_list_id: 0,
+            shift_right_id: 0,
+            shift_left_id: 0,
+            equip_id: 0,
+            unequip_id: 0,
+            back_id: 0,
+            desc_id: 0,
             left_owner: Owner::Player,
             right_owner: Owner::Shop,
         }
@@ -73,7 +80,10 @@ impl ItemManagementScreen {
                 Owner::Player => {
                     // Show global items
                     for (i, item) in state.items.iter().enumerate() {
-                        lb.add_element(i as i32, &format!("{}|{:?}|{}", item.name, item.item_type, item.cost));
+                        lb.add_element(
+                            i as i32,
+                            &format!("{}|{:?}|{}", item.name, item.item_type, item.cost),
+                        );
                     }
                 }
                 Owner::Girl(gid) => {
@@ -81,7 +91,11 @@ impl ItemManagementScreen {
                         for (slot, &item_idx) in girl.inventory.iter().enumerate() {
                             if item_idx < state.items.len() {
                                 let item = &state.items[item_idx];
-                                let eq = if slot < girl.equipped.len() && girl.equipped[slot] { " [E]" } else { "" };
+                                let eq = if slot < girl.equipped.len() && girl.equipped[slot] {
+                                    " [E]"
+                                } else {
+                                    ""
+                                };
                                 lb.add_element(slot as i32, &format!("{}{}", item.name, eq));
                             }
                         }
@@ -99,7 +113,10 @@ impl ItemManagementScreen {
                 Owner::Shop => {
                     for (i, item) in state.items.iter().enumerate() {
                         if item.infinite || item.cost > 0 {
-                            lb.add_element(i as i32, &format!("{}|{:?}|{}", item.name, item.item_type, item.cost));
+                            lb.add_element(
+                                i as i32,
+                                &format!("{}|{:?}|{}", item.name, item.item_type, item.cost),
+                            );
                         }
                     }
                 }
@@ -108,7 +125,11 @@ impl ItemManagementScreen {
                         for (slot, &item_idx) in girl.inventory.iter().enumerate() {
                             if item_idx < state.items.len() {
                                 let item = &state.items[item_idx];
-                                let eq = if slot < girl.equipped.len() && girl.equipped[slot] { " [E]" } else { "" };
+                                let eq = if slot < girl.equipped.len() && girl.equipped[slot] {
+                                    " [E]"
+                                } else {
+                                    ""
+                                };
                                 lb.add_element(slot as i32, &format!("{}{}", item.name, eq));
                             }
                         }
@@ -116,7 +137,10 @@ impl ItemManagementScreen {
                 }
                 Owner::Player => {
                     for (i, item) in state.items.iter().enumerate() {
-                        lb.add_element(i as i32, &format!("{}|{:?}|{}", item.name, item.item_type, item.cost));
+                        lb.add_element(
+                            i as i32,
+                            &format!("{}|{:?}|{}", item.name, item.item_type, item.cost),
+                        );
                     }
                 }
             }
@@ -126,12 +150,22 @@ impl ItemManagementScreen {
     fn update_desc(&self, widgets: &mut WidgetStore, state: &GameState, item_idx: usize) {
         if item_idx < state.items.len() {
             let item = &state.items[item_idx];
-            let effects: Vec<String> = item.effects.iter()
+            let effects: Vec<String> = item
+                .effects
+                .iter()
                 .map(|e| format!("{:?} {} {:+}", e.target, e.name, e.amount))
                 .collect();
-            let desc = format!("{}\n\nType: {:?}\nCost: {}\nRarity: {:?}\n\nEffects:\n{}",
-                item.desc, item.item_type, item.cost, item.rarity,
-                if effects.is_empty() { "None".to_string() } else { effects.join("\n") },
+            let desc = format!(
+                "{}\n\nType: {:?}\nCost: {}\nRarity: {:?}\n\nEffects:\n{}",
+                item.desc,
+                item.item_type,
+                item.cost,
+                item.rarity,
+                if effects.is_empty() {
+                    "None".to_string()
+                } else {
+                    effects.join("\n")
+                },
             );
             if let Some(Widget::TextItem(t)) = widgets.get_mut(self.desc_id) {
                 t.text = desc;
@@ -141,7 +175,9 @@ impl ItemManagementScreen {
 }
 
 impl Screen for ItemManagementScreen {
-    fn id(&self) -> ScreenId { "item_management" }
+    fn id(&self) -> ScreenId {
+        "item_management"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/itemmanagement_screen.xml");
@@ -168,11 +204,18 @@ impl Screen for ItemManagementScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             // Back
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             // Equip button
             if let Some(Widget::Button(b)) = widgets.get(self.equip_id) {
@@ -184,7 +227,9 @@ impl Screen for ItemManagementScreen {
                                 if let Some(girl) = state.girls.get_girl_mut(*gid) {
                                     if slot < girl.inventory.len() {
                                         // Ensure equipped vec is large enough
-                                        while girl.equipped.len() <= slot { girl.equipped.push(false); }
+                                        while girl.equipped.len() <= slot {
+                                            girl.equipped.push(false);
+                                        }
                                         girl.equipped[slot] = true;
                                         self.populate_items_left(widgets, state);
                                     }
@@ -227,7 +272,9 @@ impl Screen for ItemManagementScreen {
                                     if let Some(girl) = state.girls.get_girl_mut(src) {
                                         if sel < girl.inventory.len() {
                                             let item_idx = girl.inventory.remove(sel);
-                                            if sel < girl.equipped.len() { girl.equipped.remove(sel); }
+                                            if sel < girl.equipped.len() {
+                                                girl.equipped.remove(sel);
+                                            }
                                             if let Some(dst_girl) = state.girls.get_girl_mut(dst) {
                                                 dst_girl.inventory.push(item_idx);
                                                 dst_girl.equipped.push(false);
@@ -248,7 +295,11 @@ impl Screen for ItemManagementScreen {
                 if lb.base.is_over(x, y) {
                     lb.handle_click(x, y);
                     if let Some(sel) = lb.get_selected() {
-                        self.left_owner = if sel == -1 { Owner::Player } else { Owner::Girl(sel as usize) };
+                        self.left_owner = if sel == -1 {
+                            Owner::Player
+                        } else {
+                            Owner::Girl(sel as usize)
+                        };
                         self.populate_items_left(widgets, state);
                     }
                     return ScreenAction::None;
@@ -259,7 +310,11 @@ impl Screen for ItemManagementScreen {
                 if lb.base.is_over(x, y) {
                     lb.handle_click(x, y);
                     if let Some(sel) = lb.get_selected() {
-                        self.right_owner = if sel == -2 { Owner::Shop } else { Owner::Girl(sel as usize) };
+                        self.right_owner = if sel == -2 {
+                            Owner::Shop
+                        } else {
+                            Owner::Girl(sel as usize)
+                        };
                         self.populate_items_right(widgets, state);
                     }
                     return ScreenAction::None;

@@ -217,10 +217,7 @@ impl GirlsTab {
                         for &(name, stat, min, max) in STAT_INFO {
                             ui.label(name);
                             if ui
-                                .add(egui::Slider::new(
-                                    &mut girl.stats[stat as usize],
-                                    min..=max,
-                                ))
+                                .add(egui::Slider::new(&mut girl.stats[stat as usize], min..=max))
                                 .changed()
                             {
                                 *dirty = true;
@@ -243,10 +240,7 @@ impl GirlsTab {
                         for &(name, skill) in SKILL_INFO {
                             ui.label(name);
                             if ui
-                                .add(egui::Slider::new(
-                                    &mut girl.skills[skill as usize],
-                                    0..=100,
-                                ))
+                                .add(egui::Slider::new(&mut girl.skills[skill as usize], 0..=100))
                                 .changed()
                             {
                                 *dirty = true;
@@ -289,10 +283,7 @@ impl GirlsTab {
                             for td in trait_defs {
                                 if !girl.traits.contains(&td.name)
                                     && ui
-                                        .selectable_label(
-                                            *new_trait_name == td.name,
-                                            &td.name,
-                                        )
+                                        .selectable_label(*new_trait_name == td.name, &td.name)
                                         .clicked()
                                 {
                                     *new_trait_name = td.name.clone();
@@ -321,11 +312,7 @@ impl GirlsTab {
                         format!("Loaded {} girls from {}", girls.len(), path.display());
                     self.girls = girls;
                     self.file_path = Some(path);
-                    self.selected = if self.girls.is_empty() {
-                        None
-                    } else {
-                        Some(0)
-                    };
+                    self.selected = if self.girls.is_empty() { None } else { Some(0) };
                     self.dirty = false;
                     self.load_trait_defs();
                 }

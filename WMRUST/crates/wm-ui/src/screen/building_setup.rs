@@ -2,7 +2,7 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 #[derive(Debug)]
@@ -30,14 +30,24 @@ pub struct BuildingSetupScreen {
 impl BuildingSetupScreen {
     pub fn new() -> Self {
         Self {
-            back_id: 0, buy10_id: 0, buy20_id: 0,
-            bar_hire_id: 0, bar_fire_id: 0,
-            casino_hire_id: 0, casino_fire_id: 0,
-            build_rooms_id: 0, ad_slider_id: 0, ad_value_id: 0,
-            potions_text_id: 0, current_brothel_id: 0,
-            prohibit_anal_id: 0, prohibit_bdsm_id: 0,
-            prohibit_beast_id: 0, prohibit_group_id: 0,
-            prohibit_normal_id: 0, prohibit_lesbian_id: 0,
+            back_id: 0,
+            buy10_id: 0,
+            buy20_id: 0,
+            bar_hire_id: 0,
+            bar_fire_id: 0,
+            casino_hire_id: 0,
+            casino_fire_id: 0,
+            build_rooms_id: 0,
+            ad_slider_id: 0,
+            ad_value_id: 0,
+            potions_text_id: 0,
+            current_brothel_id: 0,
+            prohibit_anal_id: 0,
+            prohibit_bdsm_id: 0,
+            prohibit_beast_id: 0,
+            prohibit_group_id: 0,
+            prohibit_normal_id: 0,
+            prohibit_lesbian_id: 0,
         }
     }
 
@@ -53,17 +63,31 @@ impl BuildingSetupScreen {
             t.text = format!("{} gold / week", brothel.advertising_budget as i64);
         }
         // Sync restriction checkboxes
-        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_anal_id) { cb.checked = brothel.restrict_anal; }
-        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_bdsm_id) { cb.checked = brothel.restrict_bdsm; }
-        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_beast_id) { cb.checked = brothel.restrict_beast; }
-        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_group_id) { cb.checked = brothel.restrict_group; }
-        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_normal_id) { cb.checked = brothel.restrict_normal; }
-        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_lesbian_id) { cb.checked = brothel.restrict_lesbian; }
+        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_anal_id) {
+            cb.checked = brothel.restrict_anal;
+        }
+        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_bdsm_id) {
+            cb.checked = brothel.restrict_bdsm;
+        }
+        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_beast_id) {
+            cb.checked = brothel.restrict_beast;
+        }
+        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_group_id) {
+            cb.checked = brothel.restrict_group;
+        }
+        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_normal_id) {
+            cb.checked = brothel.restrict_normal;
+        }
+        if let Some(Widget::CheckBox(cb)) = widgets.get_mut(self.prohibit_lesbian_id) {
+            cb.checked = brothel.restrict_lesbian;
+        }
     }
 }
 
 impl Screen for BuildingSetupScreen {
-    fn id(&self) -> ScreenId { "building_setup" }
+    fn id(&self) -> ScreenId {
+        "building_setup"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/building_setup_screen.xml");
@@ -108,10 +132,17 @@ impl Screen for BuildingSetupScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             // Buy potions
             if let Some(Widget::Button(b)) = widgets.get(self.buy10_id) {

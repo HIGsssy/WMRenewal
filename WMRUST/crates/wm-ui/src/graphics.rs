@@ -97,5 +97,3 @@ impl Graphics {
         let _ = self.canvas.draw_rect(rect);
     }
 }
-
-

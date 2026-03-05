@@ -1,14 +1,14 @@
-pub mod general;
-pub mod brothel_jobs;
-pub mod gambling;
-pub mod bar;
-pub mod movie;
-pub mod community;
-pub mod drug_lab;
 pub mod alchemy;
 pub mod arena;
-pub mod training;
+pub mod bar;
+pub mod brothel_jobs;
 pub mod clinic;
+pub mod community;
+pub mod drug_lab;
+pub mod gambling;
+pub mod general;
+pub mod movie;
+pub mod training;
 
 use std::collections::HashMap;
 
@@ -18,8 +18,7 @@ use wm_core::girl::Girl;
 use crate::brothel::Brothel;
 
 /// Result of processing a single girl's job for one shift.
-#[derive(Debug, Clone)]
-#[derive(Default)]
+#[derive(Debug, Clone, Default)]
 pub struct JobResult {
     pub gold_earned: i32,
     pub events: Vec<String>,
@@ -27,16 +26,11 @@ pub struct JobResult {
     pub skill_changes: Vec<(Skill, i32)>,
 }
 
-
 /// Trait for implementing a job processor.
 pub trait Job {
     fn job_type(&self) -> JobType;
-    fn process(
-        &self,
-        girl: &mut Girl,
-        brothel: &Brothel,
-        rng: &mut dyn rand::RngCore,
-    ) -> JobResult;
+    fn process(&self, girl: &mut Girl, brothel: &Brothel, rng: &mut dyn rand::RngCore)
+        -> JobResult;
 }
 
 /// Dispatches job processing to the correct implementation.

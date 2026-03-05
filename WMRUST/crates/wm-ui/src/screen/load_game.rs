@@ -2,10 +2,10 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetBase, WidgetStore, WidgetId};
 use crate::widget::button::ButtonWidget;
 use crate::widget::listbox::ListBoxWidget;
 use crate::widget::text_item::TextItemWidget;
+use crate::widget::{Widget, WidgetBase, WidgetId, WidgetStore};
 
 #[derive(Debug)]
 pub struct LoadGameScreen {
@@ -20,7 +20,11 @@ pub struct LoadGameScreen {
 impl LoadGameScreen {
     pub fn new() -> Self {
         Self {
-            save_list_id: 0, load_id: 0, save_id: 0, back_id: 0, status_id: 0,
+            save_list_id: 0,
+            load_id: 0,
+            save_id: 0,
+            back_id: 0,
+            status_id: 0,
             save_files: Vec::new(),
         }
     }
@@ -58,7 +62,9 @@ impl LoadGameScreen {
 }
 
 impl Screen for LoadGameScreen {
-    fn id(&self) -> ScreenId { "load_game" }
+    fn id(&self) -> ScreenId {
+        "load_game"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, _state: &mut GameState) {
         widgets.clear();
@@ -144,17 +150,27 @@ impl Screen for LoadGameScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, _state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        _state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             // Back
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             // Save
             if let Some(Widget::Button(b)) = widgets.get(self.save_id) {
                 if b.base.is_over(x, y) {
                     // Save stub — requires Serialize derives on GameState
-                    self.set_status(widgets, "Save not yet implemented (needs Serialize derives).");
+                    self.set_status(
+                        widgets,
+                        "Save not yet implemented (needs Serialize derives).",
+                    );
                     return ScreenAction::None;
                 }
             }

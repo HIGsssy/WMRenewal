@@ -9,8 +9,15 @@ use super::{Job, JobResult};
 
 pub struct JobDoctor;
 impl Job for JobDoctor {
-    fn job_type(&self) -> JobType { JobType::Doctor }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Doctor
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let intelligence = GirlManager::get_stat(girl, Stat::Intelligence);
         let magic = GirlManager::get_skill(girl, Skill::Magic);
@@ -21,15 +28,24 @@ impl Job for JobDoctor {
         if rng.gen_range(0..100) < 20 {
             GirlManager::update_skill(girl, Skill::Magic, 1);
         }
-        result.events.push("She worked as the clinic doctor.".to_string());
+        result
+            .events
+            .push("She worked as the clinic doctor.".to_string());
         result
     }
 }
 
 pub struct JobGetAbort;
 impl Job for JobGetAbort {
-    fn job_type(&self) -> JobType { JobType::GetAbort }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, _rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::GetAbort
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        _rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         // Remove pregnancy status
         GirlManager::remove_status(girl, Status::Pregnant);
@@ -47,8 +63,15 @@ impl Job for JobGetAbort {
 
 pub struct JobPhysicalSurgery;
 impl Job for JobPhysicalSurgery {
-    fn job_type(&self) -> JobType { JobType::PhysicalSurgery }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::PhysicalSurgery
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         // Cosmetic surgery: boost beauty at cost of gold and health
         let beauty_gain = rng.gen_range(1..5);
@@ -56,15 +79,24 @@ impl Job for JobPhysicalSurgery {
         GirlManager::update_stat(girl, Stat::Health, -15);
         GirlManager::update_stat(girl, Stat::Tiredness, 20);
         result.gold_earned = -100; // Surgery cost
-        result.events.push(format!("She had cosmetic surgery (+{beauty_gain} beauty)."));
+        result
+            .events
+            .push(format!("She had cosmetic surgery (+{beauty_gain} beauty)."));
         result
     }
 }
 
 pub struct JobHealing;
 impl Job for JobHealing {
-    fn job_type(&self) -> JobType { JobType::Healing }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::Healing
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         // Girl provides healing services to other girls (or is being healed)
         let magic = GirlManager::get_skill(girl, Skill::Magic);
@@ -80,7 +112,9 @@ impl Job for JobHealing {
             GirlManager::remove_trait(girl, "Syphilis");
             GirlManager::remove_status(girl, Status::Poisoned);
             GirlManager::remove_status(girl, Status::BadlyPoisoned);
-            result.events.push("She was cured of her ailments!".to_string());
+            result
+                .events
+                .push("She was cured of her ailments!".to_string());
         } else {
             result.events.push("She received healing.".to_string());
         }
@@ -90,8 +124,15 @@ impl Job for JobHealing {
 
 pub struct JobRepairShop;
 impl Job for JobRepairShop {
-    fn job_type(&self) -> JobType { JobType::RepairShop }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::RepairShop
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let intelligence = GirlManager::get_stat(girl, Stat::Intelligence);
         result.gold_earned = 15 + intelligence / 4;

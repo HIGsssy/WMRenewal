@@ -64,10 +64,7 @@ impl FontCache {
             return;
         }
 
-        let font = match self
-            .ttf_context
-            .load_font(&self.default_font_path, size)
-        {
+        let font = match self.ttf_context.load_font(&self.default_font_path, size) {
             Ok(f) => f,
             Err(_) => return,
         };
@@ -104,10 +101,7 @@ impl FontCache {
             return 0;
         }
 
-        let font = match self
-            .ttf_context
-            .load_font(&self.default_font_path, size)
-        {
+        let font = match self.ttf_context.load_font(&self.default_font_path, size) {
             Ok(f) => f,
             Err(_) => return 0,
         };

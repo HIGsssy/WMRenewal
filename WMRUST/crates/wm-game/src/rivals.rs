@@ -58,8 +58,7 @@ impl Rival {
 
         // Customers estimate
         let customers = if self.num_girls > 0 {
-            (rng.gen_range(0..self.num_girls as i64) + self.num_girls as i64)
-                * rng.gen_range(1..=2)
+            (rng.gen_range(0..self.num_girls as i64) + self.num_girls as i64) * rng.gen_range(1..=2)
         } else {
             0
         };
@@ -131,10 +130,7 @@ impl Rival {
         let mut events = Vec::new();
 
         // 1. New brothel at 20 girls per brothel, max 6
-        if self.num_girls >= self.max_girls()
-            && self.num_brothels < 6
-            && self.gold >= 20_000
-        {
+        if self.num_girls >= self.max_girls() && self.num_brothels < 6 && self.gold >= 20_000 {
             self.num_brothels += 1;
             self.gold -= 20_000;
             events.push(format!("{} opened a new brothel", self.name));
@@ -226,9 +222,7 @@ impl Default for RivalManager {
 
 impl RivalManager {
     pub fn new() -> Self {
-        Self {
-            rivals: Vec::new(),
-        }
+        Self { rivals: Vec::new() }
     }
 
     pub fn add_rival(&mut self, rival: Rival) {
@@ -284,11 +278,7 @@ impl RivalManager {
     }
 
     /// 30% chance per week to spawn a new rival post-game-win.
-    pub fn maybe_spawn_rival(
-        &mut self,
-        rival_names: &[String],
-        rng: &mut dyn rand::RngCore,
-    ) {
+    pub fn maybe_spawn_rival(&mut self, rival_names: &[String], rng: &mut dyn rand::RngCore) {
         if rng.gen_range(0..100) < 30 {
             let name = if rival_names.is_empty() {
                 format!("Rival #{}", rng.gen_range(100..999))

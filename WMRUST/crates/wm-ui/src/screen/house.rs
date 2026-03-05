@@ -2,7 +2,7 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 #[derive(Debug)]
@@ -13,12 +13,17 @@ pub struct HouseScreen {
 
 impl HouseScreen {
     pub fn new() -> Self {
-        Self { back_id: 0, details_id: 0 }
+        Self {
+            back_id: 0,
+            details_id: 0,
+        }
     }
 }
 
 impl Screen for HouseScreen {
-    fn id(&self) -> ScreenId { "house" }
+    fn id(&self) -> ScreenId {
+        "house"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/house_screen.xml");
@@ -47,10 +52,17 @@ impl Screen for HouseScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, _state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        _state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
         }
         ScreenAction::None

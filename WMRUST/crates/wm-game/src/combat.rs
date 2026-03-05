@@ -158,7 +158,9 @@ pub fn girl_vs_gang(
             }
         }
         gang.num_members = (gang.num_members - extra_kills).max(0);
-        result.events.push("Girl is incorporeal - phased through attackers!".to_string());
+        result
+            .events
+            .push("Girl is incorporeal - phased through attackers!".to_string());
         return result;
     }
 
@@ -293,11 +295,7 @@ pub fn girl_escape_odds(girl: &Girl, guard_gangs: &[&Gang], weapon_level: i32) -
 }
 
 /// Player vs girl combat. Returns true if player wins.
-pub fn player_combat(
-    girl: &mut Girl,
-    weapon_level: i32,
-    rng: &mut dyn rand::RngCore,
-) -> bool {
+pub fn player_combat(girl: &mut Girl, weapon_level: i32, rng: &mut dyn rand::RngCore) -> bool {
     // Incorporeal: player auto-wins
     if GirlManager::has_trait(girl, "Incorporial") {
         return true;
@@ -378,8 +376,18 @@ mod tests {
         let mut atk_potions = 5;
         let mut def_potions = 5;
 
-        let result = gang_brawl(&mut atk, &mut def, &mut atk_potions, &mut def_potions, 1, &mut rng);
-        assert!(atk.num_members + def.num_members < 20, "Some casualties expected");
+        let result = gang_brawl(
+            &mut atk,
+            &mut def,
+            &mut atk_potions,
+            &mut def_potions,
+            1,
+            &mut rng,
+        );
+        assert!(
+            atk.num_members + def.num_members < 20,
+            "Some casualties expected"
+        );
         assert!(result.attacker_casualties >= 0);
         assert!(result.defender_casualties >= 0);
     }

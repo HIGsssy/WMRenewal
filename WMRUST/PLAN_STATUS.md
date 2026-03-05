@@ -13,7 +13,7 @@
 | 4 | Lua Scripting & .script Conversion | **COMPLETE** | mlua engine, 41 opcodes, wm.* API, trigger system — 16 tests passing |
 | 5 | All Game Screens | **COMPLETE** | 15 screens wired to real game data, full navigation, all 67 tests passing |
 | 6 | WMEdit Standalone | **COMPLETE** | egui desktop editor — Girls, Items, Traits tabs with load/save, 17 wm-core tests |
-| 7 | Polish & Release Prep | Not started | CI/CD, open assets, cross-platform, docs |
+| 7 | Polish & Release Prep | **COMPLETE** | Open fonts, CI/CD, release packaging, docs, copyright review |
 
 ## Completed Phase Details
 
@@ -101,7 +101,7 @@
   - XML parsing via quick-xml for all 13 trigger types
   - `TriggerEvalContext` for condition checking (girl stats/skills, global flags, money, etc.)
   - 5 tests: GlobalTriggers.xml parsing, flag evaluation, skill evaluation, once-only, check_for_trigger
-- **16 unit tests** all passing, 1 clippy warning (dead_code on entry_type field)
+- **16 unit tests** all passing, zero clippy warnings
 
 ### Phase 5 — All Game Screens (`wm-ui`)
 - **Architecture changes:**
@@ -148,13 +148,49 @@
 - **Common UI patterns:** SidePanel for lists, ScrollArea for editors, toolbar with Load/Save/Save As/Add/Remove, dirty flag indicator, status messages
 - **17 wm-core tests** all passing (14 original + 3 new save round-trip tests), zero clippy warnings
 
-## Build Verification (as of Phase 6 completion)
-- `cargo test -p wm-core` — **17 passed**, 0 failed (3 new round-trip save tests)
-- `cargo test -p wm-game` — **36 passed**, 1 failed (pre-existing test_whore_brothel_earns_gold)
+### Phase 7 — Polish & Release Prep
+- **Font replacement:**
+  - Replaced proprietary Segoe UI / Comic Sans with open-source **DejaVu Sans** (Bitstream Vera license)
+  - Bundled `DejaVuSans.ttf` and `DejaVuSansMono.ttf` in `assets/fonts/`
+  - `wm-app` main.rs uses bundled font with fallback to legacy path
+  - `FontsConfig` defaults updated to DejaVu
+- **Copyright review:**
+  - Created `docs/ASSET_REVIEW.md` documenting status of all asset categories
+  - Flagged `Cammy White/` and `Chun-Li/` directories as trademarked (Capcom)
+  - Flagged `Cute Girl/` and `Dangerous Girl/` images as unknown provenance
+  - Release packaging script excludes copyright-flagged directories
+- **CI/CD:**
+  - `.github/workflows/ci.yml` — GitHub Actions workflow with 4 jobs:
+    - **check**: `cargo check` + `cargo clippy` on Windows + Linux
+    - **test**: `cargo test` for wm-core, wm-game, wm-script on Windows + Linux
+    - **fmt**: `cargo fmt --check` on Linux
+    - **release**: Release builds + artifact upload for Windows + Linux (on main branch)
+  - Cargo caching for fast incremental builds
+- **Release packaging:**
+  - `scripts/package-release.ps1` — PowerShell script that:
+    - Builds release binaries for game + editor
+    - Copies SDL2 DLLs (Windows)
+    - Bundles fonts + documentation
+    - Copies game resources (excluding copyright-flagged assets)
+    - Produces a distributable `dist/` folder
+- **Documentation:**
+  - `README.md` — Project overview, prerequisites, build instructions, crate guide
+  - `CONTRIBUTING.md` — Development workflow, code standards, architecture rules
+  - `docs/LUA_MODDING_GUIDE.md` — Full Lua API reference, trigger system docs, script examples
+  - `docs/ASSET_REVIEW.md` — Copyright status of fonts, images, characters, scripts
+- **Code cleanup:**
+  - Fixed `entry_type` dead_code warning in wm-script/script_converter.rs
+  - Ran `cargo fmt --all` for consistent formatting
+  - Zero clippy warnings across all crates
+
+## Build Verification (as of Phase 7 completion)
+- `cargo test -p wm-core` — **17 passed**, 0 failed
+- `cargo test -p wm-game` — **37 passed**, 0 failed
 - `cargo test -p wm-script` — **16 passed**, 0 failed
 - `cargo check --workspace` — all 6 crates compile, zero errors
-- `cargo clippy -p wm-core -p wm-edit` — zero warnings
-- **Total: 69 tests passing** (up from 67)
+- `cargo clippy -p wm-core -p wm-game -p wm-script -p wm-edit` — zero warnings
+- `cargo fmt --all -- --check` — clean
+- **Total: 70 tests passing**
 
-## Next Up: Phase 7
-Polish & Release Prep — see [PROJECT_PLAN.md](PROJECT_PLAN.md#phase-7-polish--release-prep) for cross-platform builds, CI/CD, open-licensed assets, and documentation.
+## Project Complete
+All 8 phases (0–7) finished. See [PROJECT_PLAN.md](PROJECT_PLAN.md) for the full plan and [CONTRIBUTING.md](CONTRIBUTING.md) for how to contribute.

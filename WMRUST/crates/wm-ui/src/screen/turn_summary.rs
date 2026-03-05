@@ -2,10 +2,10 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetBase, WidgetStore, WidgetId};
 use crate::widget::button::ButtonWidget;
 use crate::widget::listbox::ListBoxWidget;
 use crate::widget::text_item::TextItemWidget;
+use crate::widget::{Widget, WidgetBase, WidgetId, WidgetStore};
 
 #[derive(Debug)]
 pub struct TurnSummaryScreen {
@@ -27,7 +27,9 @@ impl TurnSummaryScreen {
 }
 
 impl Screen for TurnSummaryScreen {
-    fn id(&self) -> ScreenId { "turn_summary" }
+    fn id(&self) -> ScreenId {
+        "turn_summary"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         widgets.clear();
@@ -59,7 +61,10 @@ impl Screen for TurnSummaryScreen {
         let base2 = WidgetBase::new(id2, "Summary", 30, 490, 740, 60);
         let summary_text = format!(
             "Week {} complete  |  Gold: {:.0}  |  Girls: {}  |  Brothels: {}",
-            state.week, state.gold.cash_on_hand, state.girls.count(), state.brothels.num_brothels(),
+            state.week,
+            state.gold.cash_on_hand,
+            state.girls.count(),
+            state.brothels.num_brothels(),
         );
         let ti = TextItemWidget {
             base: base2,
@@ -89,10 +94,17 @@ impl Screen for TurnSummaryScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, _state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        _state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             // Scroll event list
             if let Some(Widget::ListBox(lb)) = widgets.get_mut(self.event_list_id) {

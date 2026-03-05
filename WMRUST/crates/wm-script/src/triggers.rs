@@ -199,11 +199,7 @@ impl TriggerSystem {
 
     /// Check for a trigger matching a specific event type (e.g. Meet, Talk, GlobalFlag).
     /// Returns the index of the matching trigger if found.
-    pub fn check_for_trigger(
-        &self,
-        trigger_type: TriggerType,
-        values: &[i32; 2],
-    ) -> Option<usize> {
+    pub fn check_for_trigger(&self, trigger_type: TriggerType, values: &[i32; 2]) -> Option<usize> {
         for (i, trigger) in self.triggers.iter().enumerate() {
             if trigger.trigger_type != trigger_type {
                 continue;
@@ -336,7 +332,7 @@ fn parse_trigger_element(
             // (handled by the caller since we set the type already)
             let is_player = who_str == "Player";
             let _ = is_player; // Type was already determined from XML "Type" attr
-            // Comparison: 0 = LessThan, 1 = MoreThan
+                               // Comparison: 0 = LessThan, 1 = MoreThan
             values[0] = if comparison_str == "LessThan" { 0 } else { 1 };
             values[1] = threshold_str.parse().unwrap_or(0);
         }
@@ -444,11 +440,11 @@ fn parse_talk_where_code(s: &str) -> i32 {
 
 fn parse_global_flag_code(s: &str) -> i32 {
     match s {
-        "NoPay" => 0,        // FLAG_CUSTNOPAY
-        "GirlDies" => 1,     // FLAG_DUNGEONGIRLDIE
-        "CustomerDies" => 2, // FLAG_DUNGEONCUSTDIE
+        "NoPay" => 0,         // FLAG_CUSTNOPAY
+        "GirlDies" => 1,      // FLAG_DUNGEONGIRLDIE
+        "CustomerDies" => 2,  // FLAG_DUNGEONCUSTDIE
         "GamblingCheat" => 3, // FLAG_CUSTGAMBCHEAT
-        "RivalLose" => 4,    // FLAG_RIVALLOSE
+        "RivalLose" => 4,     // FLAG_RIVALLOSE
         _ => -1,
     }
 }

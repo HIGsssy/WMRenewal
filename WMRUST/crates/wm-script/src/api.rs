@@ -514,11 +514,8 @@ pub fn register_api(lua: &Lua, ctx: SharedContext) -> LuaResult<()> {
             "add_customer",
             lua.create_function(move |_, (reason, num, wife): (String, i32, i32)| {
                 let mut ctx = ctx.lock().unwrap();
-                ctx.dungeon_add_customers.push(DungeonCustomerOp {
-                    reason,
-                    num,
-                    wife,
-                });
+                ctx.dungeon_add_customers
+                    .push(DungeonCustomerOp { reason, num, wife });
                 Ok(())
             })?,
         )?;
@@ -528,7 +525,8 @@ pub fn register_api(lua: &Lua, ctx: SharedContext) -> LuaResult<()> {
         dungeon.set(
             "add_random_girl",
             lua.create_function(
-                move |_, (reason, min_age, max_age, slave, non_human): (
+                move |_,
+                      (reason, min_age, max_age, slave, non_human): (
                     String,
                     i32,
                     i32,

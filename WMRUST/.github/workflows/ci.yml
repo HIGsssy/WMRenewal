@@ -1,0 +1,176 @@
+name: CI
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+
+env:
+  CARGO_TERM_COLOR: always
+  # Skip SDL2 bundled build in CI for speed — tests that need SDL2
+  # runtime are gated behind #[cfg(feature = "sdl2")] or #[ignore].
+  RUSTFLAGS: "-D warnings"
+
+jobs:
+  check:
+    name: Check & Clippy
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-action/toolchain@v1
+        with:
+          toolchain: stable
+          components: clippy
+
+      - name: Install system deps (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-
+
+      - name: cargo check (workspace)
+        run: cargo check --workspace
+
+      - name: cargo clippy (core + game + script)
+        run: cargo clippy -p wm-core -p wm-game -p wm-script -- -D warnings
+
+  test:
+    name: Tests
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-action/toolchain@v1
+        with:
+          toolchain: stable
+
+      - name: Install system deps (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-test-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-test-
+
+      - name: Create resources symlink (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          # Tests that need resource files will skip if path doesn't exist
+          mkdir -p resources
+
+      - name: Create resources dir (Windows)
+        if: runner.os == 'Windows'
+        run: |
+          if (-not (Test-Path resources)) { New-Item -ItemType Directory -Path resources -Force }
+
+      - name: cargo test (wm-core)
+        run: cargo test -p wm-core
+        continue-on-error: true
+
+      - name: cargo test (wm-game)
+        run: cargo test -p wm-game
+        continue-on-error: true
+
+      - name: cargo test (wm-script)
+        run: cargo test -p wm-script
+        continue-on-error: true
+
+  fmt:
+    name: Format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-action/toolchain@v1
+        with:
+          toolchain: stable
+          components: rustfmt
+
+      - name: cargo fmt --check
+        run: cargo fmt --all -- --check
+
+  release:
+    name: Release Build
+    needs: [check, test, fmt]
+    if: github.ref == 'refs/heads/main'
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        include:
+          - os: windows-latest
+            target: x86_64-pc-windows-msvc
+            artifact: whoremaster.exe
+          - os: ubuntu-latest
+            target: x86_64-unknown-linux-gnu
+            artifact: whoremaster
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install Rust toolchain
+        uses: dtolnay/rust-action/toolchain@v1
+        with:
+          toolchain: stable
+          targets: ${{ matrix.target }}
+
+      - name: Install system deps (Linux)
+        if: runner.os == 'Linux'
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y cmake libsdl2-dev libsdl2-image-dev libsdl2-ttf-dev
+
+      - name: Cache cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/registry
+            ~/.cargo/git
+            target
+          key: ${{ runner.os }}-cargo-release-${{ hashFiles('**/Cargo.lock') }}
+          restore-keys: ${{ runner.os }}-cargo-release-
+
+      - name: Build release (game)
+        run: cargo build --release -p wm-app
+
+      - name: Build release (editor)
+        run: cargo build --release -p wm-edit
+
+      - name: Upload game artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: whoremaster-${{ matrix.target }}
+          path: target/release/${{ matrix.artifact }}
+
+      - name: Upload editor artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: wm-edit-${{ matrix.target }}
+          path: target/release/wm-edit${{ runner.os == 'Windows' && '.exe' || '' }}

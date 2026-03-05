@@ -5,23 +5,34 @@ use wm_game::state::GameState;
 use crate::events::UiEvent;
 use crate::screen::girl_details::GirlDetailsScreen;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 fn job_from_id(id: i32) -> Option<JobType> {
     match id {
-        0 => Some(JobType::Resting), 1 => Some(JobType::Training),
-        2 => Some(JobType::Cleaning), 3 => Some(JobType::Security),
-        4 => Some(JobType::Advertising), 5 => Some(JobType::Matron),
-        6 => Some(JobType::Torturer), 7 => Some(JobType::ExploreCatacombs),
-        8 => Some(JobType::BeastCapture), 9 => Some(JobType::BeastCarer),
-        10 => Some(JobType::WhoreBrothel), 11 => Some(JobType::WhoreStreets),
-        12 => Some(JobType::BrothelStripper), 13 => Some(JobType::Masseuse),
-        14 => Some(JobType::CustomerService), 15 => Some(JobType::WhoreGambHall),
-        16 => Some(JobType::Dealer), 17 => Some(JobType::Entertainment),
+        0 => Some(JobType::Resting),
+        1 => Some(JobType::Training),
+        2 => Some(JobType::Cleaning),
+        3 => Some(JobType::Security),
+        4 => Some(JobType::Advertising),
+        5 => Some(JobType::Matron),
+        6 => Some(JobType::Torturer),
+        7 => Some(JobType::ExploreCatacombs),
+        8 => Some(JobType::BeastCapture),
+        9 => Some(JobType::BeastCarer),
+        10 => Some(JobType::WhoreBrothel),
+        11 => Some(JobType::WhoreStreets),
+        12 => Some(JobType::BrothelStripper),
+        13 => Some(JobType::Masseuse),
+        14 => Some(JobType::CustomerService),
+        15 => Some(JobType::WhoreGambHall),
+        16 => Some(JobType::Dealer),
+        17 => Some(JobType::Entertainment),
         18 => Some(JobType::XXXEntertainment),
-        19 => Some(JobType::Barmaid), 20 => Some(JobType::Waitress),
-        21 => Some(JobType::Stripper), 22 => Some(JobType::WhoreBar),
+        19 => Some(JobType::Barmaid),
+        20 => Some(JobType::Waitress),
+        21 => Some(JobType::Stripper),
+        22 => Some(JobType::WhoreBar),
         23 => Some(JobType::Singer),
         _ => None,
     }
@@ -69,9 +80,16 @@ impl GirlManagementScreen {
             let brothel = state.brothels.current_brothel();
             for (_i, &girl_id) in brothel.girls.iter().enumerate() {
                 if let Some(girl) = state.girls.get_girl(girl_id) {
-                    let job_day = girl.job_day.map(|j| format!("{:?}", j)).unwrap_or_else(|| "None".into());
-                    let job_night = girl.job_night.map(|j| format!("{:?}", j)).unwrap_or_else(|| "None".into());
-                    let data = format!("{}|{}|{}|{}|{}|{}|{}",
+                    let job_day = girl
+                        .job_day
+                        .map(|j| format!("{:?}", j))
+                        .unwrap_or_else(|| "None".into());
+                    let job_night = girl
+                        .job_night
+                        .map(|j| format!("{:?}", j))
+                        .unwrap_or_else(|| "None".into());
+                    let data = format!(
+                        "{}|{}|{}|{}|{}|{}|{}",
                         girl.name,
                         GirlManager::get_stat(girl, Stat::Age),
                         GirlManager::get_stat(girl, Stat::Health),
@@ -90,9 +108,15 @@ impl GirlManagementScreen {
         if let Some(Widget::ListBox(lb)) = widgets.get_mut(self.job_type_list_id) {
             lb.clear();
             let categories = [
-                (0, "General"), (1, "Brothel"), (2, "Gambling Hall"),
-                (3, "Bar"), (4, "Movie Studio"), (5, "Community Centre"),
-                (6, "Drug Lab"), (7, "Alchemist Lab"), (8, "Arena"),
+                (0, "General"),
+                (1, "Brothel"),
+                (2, "Gambling Hall"),
+                (3, "Bar"),
+                (4, "Movie Studio"),
+                (5, "Community Centre"),
+                (6, "Drug Lab"),
+                (7, "Alchemist Lab"),
+                (8, "Arena"),
             ];
             for (id, name) in categories {
                 lb.add_element(id, name);
@@ -104,10 +128,38 @@ impl GirlManagementScreen {
         if let Some(Widget::ListBox(lb)) = widgets.get_mut(self.job_list_id) {
             lb.clear();
             let jobs: Vec<(i32, &str)> = match category {
-                0 => vec![(0,"Resting"),(1,"Training"),(2,"Cleaning"),(3,"Security"),(4,"Advertising"),(5,"Matron"),(6,"Torturer"),(7,"ExploreCatacombs"),(8,"BeastCapture"),(9,"BeastCarer")],
-                1 => vec![(10,"WhoreBrothel"),(11,"WhoreStreets"),(12,"Stripper"),(13,"Masseuse")],
-                2 => vec![(14,"CustomerService"),(15,"WhoreGambHall"),(16,"Dealer"),(17,"Entertainment"),(18,"XXXEntertainment")],
-                3 => vec![(19,"Barmaid"),(20,"Waitress"),(21,"Stripper"),(22,"WhoreBar"),(23,"Singer")],
+                0 => vec![
+                    (0, "Resting"),
+                    (1, "Training"),
+                    (2, "Cleaning"),
+                    (3, "Security"),
+                    (4, "Advertising"),
+                    (5, "Matron"),
+                    (6, "Torturer"),
+                    (7, "ExploreCatacombs"),
+                    (8, "BeastCapture"),
+                    (9, "BeastCarer"),
+                ],
+                1 => vec![
+                    (10, "WhoreBrothel"),
+                    (11, "WhoreStreets"),
+                    (12, "Stripper"),
+                    (13, "Masseuse"),
+                ],
+                2 => vec![
+                    (14, "CustomerService"),
+                    (15, "WhoreGambHall"),
+                    (16, "Dealer"),
+                    (17, "Entertainment"),
+                    (18, "XXXEntertainment"),
+                ],
+                3 => vec![
+                    (19, "Barmaid"),
+                    (20, "Waitress"),
+                    (21, "Stripper"),
+                    (22, "WhoreBar"),
+                    (23, "Singer"),
+                ],
                 _ => vec![],
             };
             for (id, name) in jobs {
@@ -118,7 +170,9 @@ impl GirlManagementScreen {
 }
 
 impl Screen for GirlManagementScreen {
-    fn id(&self) -> ScreenId { "girl_management" }
+    fn id(&self) -> ScreenId {
+        "girl_management"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/girl_management_screen.xml");
@@ -148,11 +202,18 @@ impl Screen for GirlManagementScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             // Back button
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             // View details
             if let Some(Widget::Button(b)) = widgets.get(self.view_details_id) {
@@ -176,10 +237,14 @@ impl Screen for GirlManagementScreen {
             }
             // Day/Night toggle
             if let Some(Widget::Button(b)) = widgets.get(self.day_btn_id) {
-                if b.base.is_over(x, y) { self.is_day_shift = true; }
+                if b.base.is_over(x, y) {
+                    self.is_day_shift = true;
+                }
             }
             if let Some(Widget::Button(b)) = widgets.get(self.night_btn_id) {
-                if b.base.is_over(x, y) { self.is_day_shift = false; }
+                if b.base.is_over(x, y) {
+                    self.is_day_shift = false;
+                }
             }
             // Girl list click
             if let Some(Widget::ListBox(lb)) = widgets.get_mut(self.girl_list_id) {
@@ -189,7 +254,8 @@ impl Screen for GirlManagementScreen {
                         self.selected_girl = Some(sel as usize);
                         // Update description
                         if let Some(girl) = state.girls.get_girl(sel as usize) {
-                            let desc = format!("{}\nAge: {}\nHealth: {}\nHappiness: {}",
+                            let desc = format!(
+                                "{}\nAge: {}\nHealth: {}\nHappiness: {}",
                                 girl.name,
                                 GirlManager::get_stat(girl, Stat::Age),
                                 GirlManager::get_stat(girl, Stat::Health),

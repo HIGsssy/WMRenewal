@@ -39,12 +39,10 @@ impl eframe::App for EditorApp {
             });
         });
 
-        egui::CentralPanel::default().show(ctx, |ui| {
-            match self.tab {
-                Tab::Girls => self.girls_tab.show(ui),
-                Tab::Items => self.items_tab.show(ui),
-                Tab::Traits => self.traits_tab.show(ui),
-            }
+        egui::CentralPanel::default().show(ctx, |ui| match self.tab {
+            Tab::Girls => self.girls_tab.show(ui),
+            Tab::Items => self.items_tab.show(ui),
+            Tab::Traits => self.traits_tab.show(ui),
         });
     }
 }

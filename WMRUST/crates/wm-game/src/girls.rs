@@ -1,7 +1,7 @@
+use rand::Rng;
 use wm_core::enums::{ActionType, Skill, Stat, Status};
 use wm_core::girl::Girl;
 use wm_core::xml::loaders;
-use rand::Rng;
 
 /// Manages the collection of all girls in the game.
 #[derive(Debug)]
@@ -155,7 +155,9 @@ impl GirlManager {
 
     /// Check if girl has a named trait.
     pub fn has_trait(girl: &Girl, trait_name: &str) -> bool {
-        girl.traits.iter().any(|t| t.eq_ignore_ascii_case(trait_name))
+        girl.traits
+            .iter()
+            .any(|t| t.eq_ignore_ascii_case(trait_name))
     }
 
     /// Add a trait if not already present.

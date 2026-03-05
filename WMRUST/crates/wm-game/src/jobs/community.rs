@@ -9,8 +9,15 @@ use super::{Job, JobResult};
 
 pub struct JobCollectDonations;
 impl Job for JobCollectDonations {
-    fn job_type(&self) -> JobType { JobType::CollectDonations }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::CollectDonations
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let charisma = GirlManager::get_stat(girl, Stat::Charisma);
         let beauty = GirlManager::get_stat(girl, Stat::Beauty);
@@ -28,8 +35,15 @@ impl Job for JobCollectDonations {
 
 pub struct JobFeedPoor;
 impl Job for JobFeedPoor {
-    fn job_type(&self) -> JobType { JobType::FeedPoor }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::FeedPoor
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         // Feeding poor costs gold but improves disposition
         result.gold_earned = -10; // Cost
@@ -47,8 +61,15 @@ impl Job for JobFeedPoor {
 
 pub struct JobMakeItems;
 impl Job for JobMakeItems {
-    fn job_type(&self) -> JobType { JobType::MakeItems }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::MakeItems
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let intelligence = GirlManager::get_stat(girl, Stat::Intelligence);
         result.gold_earned = 10 + intelligence / 4;
@@ -65,8 +86,15 @@ impl Job for JobMakeItems {
 
 pub struct JobSellItems;
 impl Job for JobSellItems {
-    fn job_type(&self) -> JobType { JobType::SellItems }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::SellItems
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         let charisma = GirlManager::get_stat(girl, Stat::Charisma);
         let service = GirlManager::get_skill(girl, Skill::Service);
@@ -84,8 +112,15 @@ impl Job for JobSellItems {
 
 pub struct JobCommunityService;
 impl Job for JobCommunityService {
-    fn job_type(&self) -> JobType { JobType::CommunityService }
-    fn process(&self, girl: &mut Girl, _brothel: &Brothel, rng: &mut dyn rand::RngCore) -> JobResult {
+    fn job_type(&self) -> JobType {
+        JobType::CommunityService
+    }
+    fn process(
+        &self,
+        girl: &mut Girl,
+        _brothel: &Brothel,
+        rng: &mut dyn rand::RngCore,
+    ) -> JobResult {
         let mut result = JobResult::default();
         // No direct income but improves disposition
         let tiredness = (7 - GirlManager::get_stat(girl, Stat::Constitution) / 14).max(1);
@@ -95,7 +130,9 @@ impl Job for JobCommunityService {
         if rng.gen_range(0..100) < 20 {
             GirlManager::update_skill(girl, Skill::Service, 1);
         }
-        result.events.push("She performed community service.".to_string());
+        result
+            .events
+            .push("She performed community service.".to_string());
         result
     }
 }

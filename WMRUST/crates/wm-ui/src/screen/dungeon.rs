@@ -4,7 +4,7 @@ use wm_game::state::GameState;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
-use crate::widget::{Widget, WidgetStore, WidgetId};
+use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
 
 #[derive(Debug)]
@@ -26,10 +26,18 @@ pub struct DungeonScreen {
 impl DungeonScreen {
     pub fn new() -> Self {
         Self {
-            girl_list_id: 0, details_id: 0, torture_id: 0,
-            release_id: 0, release_all_id: 0, release_cust_id: 0,
-            brand_slave_id: 0, sell_id: 0, interact_id: 0,
-            feed_id: 0, no_feed_id: 0, back_id: 0,
+            girl_list_id: 0,
+            details_id: 0,
+            torture_id: 0,
+            release_id: 0,
+            release_all_id: 0,
+            release_cust_id: 0,
+            brand_slave_id: 0,
+            sell_id: 0,
+            interact_id: 0,
+            feed_id: 0,
+            no_feed_id: 0,
+            back_id: 0,
         }
     }
 
@@ -41,9 +49,14 @@ impl DungeonScreen {
                 let obedience = GirlManager::get_stat(&inmate.girl, Stat::Obedience);
                 let feeding = if inmate.fed { "Yes" } else { "No" };
                 let reason = format!("{:?}", inmate.reason);
-                let data = format!("{}|{}|{}|{}|{}|{}|{}",
-                    inmate.girl.name, health, obedience,
-                    inmate.weeks, feeding, if inmate.is_customer { "N/A" } else { "No" },
+                let data = format!(
+                    "{}|{}|{}|{}|{}|{}|{}",
+                    inmate.girl.name,
+                    health,
+                    obedience,
+                    inmate.weeks,
+                    feeding,
+                    if inmate.is_customer { "N/A" } else { "No" },
                     reason,
                 );
                 lb.add_element(i as i32, &data);
@@ -53,7 +66,9 @@ impl DungeonScreen {
 }
 
 impl Screen for DungeonScreen {
-    fn id(&self) -> ScreenId { "dungeon" }
+    fn id(&self) -> ScreenId {
+        "dungeon"
+    }
 
     fn init(&mut self, widgets: &mut WidgetStore, state: &mut GameState) {
         let path = wm_core::resources_path().join("Interface/dungeon_screen.xml");
@@ -79,10 +94,17 @@ impl Screen for DungeonScreen {
         ScreenAction::None
     }
 
-    fn on_event(&mut self, event: UiEvent, widgets: &mut WidgetStore, state: &mut GameState) -> ScreenAction {
+    fn on_event(
+        &mut self,
+        event: UiEvent,
+        widgets: &mut WidgetStore,
+        state: &mut GameState,
+    ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.back_id) {
-                if b.base.is_over(x, y) { return ScreenAction::Pop; }
+                if b.base.is_over(x, y) {
+                    return ScreenAction::Pop;
+                }
             }
             // Release selected inmate
             if let Some(Widget::Button(b)) = widgets.get(self.release_id) {
@@ -100,7 +122,11 @@ impl Screen for DungeonScreen {
             if let Some(Widget::Button(b)) = widgets.get(self.release_all_id) {
                 if b.base.is_over(x, y) {
                     // Release in reverse to avoid index shifting issues
-                    let girl_indices: Vec<usize> = state.dungeon.inmates.iter().enumerate()
+                    let girl_indices: Vec<usize> = state
+                        .dungeon
+                        .inmates
+                        .iter()
+                        .enumerate()
                         .filter(|(_, i)| !i.is_customer)
                         .map(|(idx, _)| idx)
                         .rev()
