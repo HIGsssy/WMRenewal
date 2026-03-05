@@ -1,5 +1,6 @@
 use sdl2::pixels::Color;
-use sdl2::render::{TextureCreator, WindowCanvas};
+use sdl2::rect::Rect;
+use sdl2::render::{Texture, TextureCreator, WindowCanvas};
 use sdl2::video::WindowContext;
 use sdl2::Sdl;
 
@@ -35,6 +36,13 @@ impl Graphics {
         let sdl_context = sdl2::init().map_err(GraphicsError::SdlInit)?;
         let video_subsystem = sdl_context.video().map_err(GraphicsError::SdlInit)?;
 
+        // Initialize SDL2_ttf (hold context to keep it alive)
+        let _ttf = sdl2::ttf::init().map_err(|e| GraphicsError::SdlInit(e.to_string()))?;
+
+        // Initialize SDL2_image for PNG/JPG
+        sdl2::image::init(sdl2::image::InitFlag::PNG | sdl2::image::InitFlag::JPG)
+            .map_err(|e| GraphicsError::SdlInit(e.to_string()))?;
+
         let window = video_subsystem
             .window(title, width, height)
             .position_centered()
@@ -44,7 +52,6 @@ impl Graphics {
         let canvas = window
             .into_canvas()
             .accelerated()
-            .present_vsync()
             .build()
             .map_err(|e| GraphicsError::CanvasCreation(e.to_string()))?;
 
@@ -66,6 +73,28 @@ impl Graphics {
     /// Present the rendered frame.
     pub fn end_frame(&mut self) {
         self.canvas.present();
+    }
+
+    /// Draw a filled rectangle.
+    pub fn draw_rect(&mut self, rect: Rect, color: Color) {
+        self.canvas.set_draw_color(color);
+        let _ = self.canvas.fill_rect(rect);
+    }
+
+    /// Draw a texture at the given destination rectangle.
+    pub fn draw_texture(&mut self, texture: &Texture, dst: Rect) {
+        let _ = self.canvas.copy(texture, None, Some(dst));
+    }
+
+    /// Draw a texture with a source rectangle (for sprite sheets).
+    pub fn draw_texture_src(&mut self, texture: &Texture, src: Rect, dst: Rect) {
+        let _ = self.canvas.copy(texture, Some(src), Some(dst));
+    }
+
+    /// Draw a rectangle outline.
+    pub fn draw_rect_outline(&mut self, rect: Rect, color: Color) {
+        self.canvas.set_draw_color(color);
+        let _ = self.canvas.draw_rect(rect);
     }
 }
 

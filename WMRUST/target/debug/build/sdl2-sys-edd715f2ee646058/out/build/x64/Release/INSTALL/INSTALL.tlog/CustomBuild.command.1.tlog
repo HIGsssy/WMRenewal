@@ -1,0 +1,10 @@
+^D:\PROJECTS\WMASTER\WMRENEWAL\WMRUST\TARGET\DEBUG\BUILD\SDL2-SYS-EDD715F2EE646058\OUT\BUILD\CMAKEFILES\77A8765E590CDEBB81B11BF639644F99\INSTALL_FORCE.RULE
+setlocal
+cd .
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

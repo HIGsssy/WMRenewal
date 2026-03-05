@@ -1,4 +1,5 @@
 pub mod events;
+pub mod font;
 pub mod graphics;
 pub mod screen;
 pub mod texture_cache;

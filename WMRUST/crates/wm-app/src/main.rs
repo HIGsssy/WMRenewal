@@ -8,8 +8,11 @@ use tracing::info;
 use wm_core::config::GameConfig;
 use wm_game::state::GameState;
 use wm_ui::events::UiEvent;
+use wm_ui::font::FontCache;
 use wm_ui::graphics::Graphics;
 use wm_ui::screen::{ScreenAction, ScreenManager};
+use wm_ui::texture_cache::TextureCache;
+use wm_ui::widget::RenderContext;
 
 /// Target frame time for ~25 FPS (matching original game).
 const FRAME_DURATION: Duration = Duration::from_millis(40);
@@ -41,6 +44,15 @@ fn main() -> Result<()> {
         .map_err(|e| anyhow::anyhow!("{}", e))?;
     info!("Graphics initialized (800x600)");
 
+    // Initialize font cache
+    let font_path = resources.join("../Dependencies/fonts/bin/segoeui.ttf");
+    let mut fonts = FontCache::new(&font_path)
+        .map_err(|e| anyhow::anyhow!("Font init failed: {}", e))?;
+    info!("Font cache initialized");
+
+    // Initialize texture cache
+    let mut textures = TextureCache::new();
+
     // Initialize screen manager
     let mut screen_mgr = ScreenManager::new();
     // TODO: push MainMenuScreen once builder implements it
@@ -53,6 +65,8 @@ fn main() -> Result<()> {
         .map_err(|e| anyhow::anyhow!("{}", e))?;
 
     let mut running = true;
+    let mut mouse_x = 0i32;
+    let mut mouse_y = 0i32;
     info!("Entering main loop");
 
     while running {
@@ -74,7 +88,11 @@ fn main() -> Result<()> {
                 Event::MouseButtonUp { x, y, .. } => {
                     Some(UiEvent::MouseClick { x, y })
                 }
-                Event::MouseMotion { x, y, .. } => Some(UiEvent::MouseMove { x, y }),
+                Event::MouseMotion { x, y, .. } => {
+                    mouse_x = x;
+                    mouse_y = y;
+                    Some(UiEvent::MouseMove { x, y })
+                }
                 Event::MouseWheel { y, .. } => {
                     if y > 0 {
                         Some(UiEvent::MouseWheelUp)
@@ -123,7 +141,20 @@ fn main() -> Result<()> {
 
         // Render
         graphics.begin_frame();
-        // TODO: render current screen's widgets
+
+        if !screen_mgr.is_empty() {
+            let mut ctx = RenderContext {
+                canvas: &mut graphics.canvas,
+                textures: &mut textures,
+                fonts: &mut fonts,
+                texture_creator: &graphics.texture_creator,
+                resources_path: &resources,
+                mouse_x,
+                mouse_y,
+            };
+            screen_mgr.widgets.draw_all(&mut ctx);
+        }
+
         graphics.end_frame();
 
         // Frame rate cap (~25 FPS)
@@ -132,6 +163,9 @@ fn main() -> Result<()> {
             std::thread::sleep(FRAME_DURATION - elapsed);
         }
     }
+
+    // Clean up textures before graphics context drops
+    textures.clear();
 
     info!("WhoreMaster Renewal shutting down");
     Ok(())

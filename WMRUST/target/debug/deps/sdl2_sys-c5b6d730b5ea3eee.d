@@ -1,0 +1,14 @@
+D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\deps\sdl2_sys-c5b6d730b5ea3eee.d: C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\lib.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\image.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\ttf.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_image_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_ttf_bindings.rs
+
+D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\deps\libsdl2_sys-c5b6d730b5ea3eee.rlib: C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\lib.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\image.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\ttf.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_image_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_ttf_bindings.rs
+
+D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\deps\libsdl2_sys-c5b6d730b5ea3eee.rmeta: C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\lib.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\image.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\ttf.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_image_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_ttf_bindings.rs
+
+C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\lib.rs:
+C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\image.rs:
+C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\ttf.rs:
+D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_bindings.rs:
+D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_image_bindings.rs:
+D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-5a42e6a20920a713\out/sdl_ttf_bindings.rs:
+
+# env-dep:OUT_DIR=D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5a42e6a20920a713\\out

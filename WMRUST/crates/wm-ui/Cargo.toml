@@ -5,7 +5,7 @@ edition = "2021"
 
 [dependencies]
 wm-core = { path = "../wm-core" }
-sdl2 = { version = "0.37", features = ["bundled", "image", "ttf", "gfx", "unsafe_textures"] }
+sdl2 = { version = "0.37", features = ["bundled", "image", "ttf", "unsafe_textures"] }
 serde = { version = "1", features = ["derive"] }
 quick-xml = { version = "0.36", features = ["serialize"] }
 thiserror = "2"

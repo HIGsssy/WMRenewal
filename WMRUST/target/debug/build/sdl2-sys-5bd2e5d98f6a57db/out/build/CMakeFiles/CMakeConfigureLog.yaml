@@ -1,0 +1,1419 @@
+
+---
+events:
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineSystem.cmake:205 (message)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      The system is: Windows - 10.0.26200 - AMD64
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCCompiler.cmake:123 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Compiling the C compiler identification source file "CMakeCCompilerId.c" succeeded.
+      Compiler:  
+      Build flags: -nologo;-MD;-Brepro;-W0
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+      Build started 3/5/2026 12:40:11 AM.
+      
+      Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\4.0.3\\CompilerIdC\\CompilerIdC.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdC.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdC.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TC /FC /errorReport:queue CMakeCCompilerId.c
+        CMakeCCompilerId.c
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdC.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdC.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdC.lib" /MACHINE:X64 Debug\\CMakeCCompilerId.obj
+        CompilerIdC.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\4.0.3\\CompilerIdC\\CompilerIdC.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_C_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_C_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdC.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdC.tlog\\CompilerIdC.lastbuildstate".
+      Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\4.0.3\\CompilerIdC\\CompilerIdC.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:01.21
+      
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.exe"
+      
+      Compilation of the C compiler identification source "CMakeCCompilerId.c" produced "CompilerIdC.vcxproj"
+      
+      The C compiler identification is MSVC, found in:
+        D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/4.0.3/CompilerIdC/CompilerIdC.exe
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:17 (message)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerId.cmake:64 (__determine_compiler_id_test)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCXXCompiler.cmake:126 (CMAKE_DETERMINE_COMPILER_ID)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Compiling the CXX compiler identification source file "CMakeCXXCompilerId.cpp" succeeded.
+      Compiler:  
+      Build flags: -nologo;-MD;-Brepro;-W0
+      Id flags:  
+      
+      The output was:
+      0
+      MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+      Build started 3/5/2026 12:40:13 AM.
+      
+      Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\4.0.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" on node 1 (default targets).
+      PrepareForBuild:
+        Creating directory "Debug\\".
+        Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+        Creating directory "Debug\\CompilerIdCXX.tlog\\".
+      InitializeBuildStatus:
+        Creating "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+        Touching "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+      ClCompile:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /nologo /W0 /WX- /diagnostics:column /Od /D _MBCS /Gm- /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\\\" /Fd"Debug\\vc143.pdb" /external:W0 /Gd /TP /FC /errorReport:queue CMakeCXXCompilerId.cpp
+        CMakeCXXCompilerId.cpp
+      Link:
+        C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:".\\CompilerIdCXX.exe" /INCREMENTAL:NO /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /PDB:".\\CompilerIdCXX.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:".\\CompilerIdCXX.lib" /MACHINE:X64 Debug\\CMakeCXXCompilerId.obj
+        CompilerIdCXX.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\4.0.3\\CompilerIdCXX\\CompilerIdCXX.exe
+      PostBuildEvent:
+        for %%i in (cl.exe) do @echo CMAKE_CXX_COMPILER=%%~$PATH:i
+        :VCEnd
+        CMAKE_CXX_COMPILER=C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\Hostx64\\x64\\cl.exe
+      FinalizeBuildStatus:
+        Deleting file "Debug\\CompilerIdCXX.tlog\\unsuccessfulbuild".
+        Touching "Debug\\CompilerIdCXX.tlog\\CompilerIdCXX.lastbuildstate".
+      Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\4.0.3\\CompilerIdCXX\\CompilerIdCXX.vcxproj" (default targets).
+      
+      Build succeeded.
+          0 Warning(s)
+          0 Error(s)
+      
+      Time Elapsed 00:00:00.66
+      
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.exe"
+      
+      Compilation of the CXX compiler identification source "CMakeCXXCompilerId.cpp" produced "CompilerIdCXX.vcxproj"
+      
+      The CXX compiler identification is MSVC, found in:
+        D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/4.0.3/CompilerIdCXX/CompilerIdCXX.exe
+      
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    checks:
+      - "Detecting C compiler ABI info"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-4gu5u6"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-4gu5u6"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_C_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-4gu5u6'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_06723.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:14 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4gu5u6\\cmTC_06723.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_06723.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4gu5u6\\Debug\\".
+          Creating directory "cmTC_06723.dir\\Debug\\cmTC_06723.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_06723.dir\\Debug\\cmTC_06723.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_06723.dir\\Debug\\cmTC_06723.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_06723.dir\\Debug\\\\" /Fd"cmTC_06723.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "C:\\Users\\Trailer\\Documents\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\cmake\\data\\share\\cmake-4.0\\Modules\\CMakeCCompilerABI.c"
+          CMakeCCompilerABI.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4gu5u6\\Debug\\cmTC_06723.exe" /INCREMENTAL /ILK:"cmTC_06723.dir\\Debug\\cmTC_06723.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-4gu5u6/Debug/cmTC_06723.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-4gu5u6/Debug/cmTC_06723.lib" /MACHINE:X64  /machine:x64 cmTC_06723.dir\\Debug\\CMakeCCompilerABI.obj
+          cmTC_06723.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4gu5u6\\Debug\\cmTC_06723.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_06723.dir\\Debug\\cmTC_06723.tlog\\unsuccessfulbuild".
+          Touching "cmTC_06723.dir\\Debug\\cmTC_06723.tlog\\cmTC_06723.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-4gu5u6\\cmTC_06723.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.56
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Parsed C implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'C': C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:270 (cmake_determine_linker_id)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeTestCCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Running the C compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35207.1
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:83 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    checks:
+      - "Detecting CXX compiler ABI info"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-cyokys"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-cyokys"
+    cmakeVariables:
+      CMAKE_CXX_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_CXX_SCAN_FOR_MODULES: "OFF"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+    buildResult:
+      variable: "CMAKE_CXX_ABI_COMPILED"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-cyokys'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_2564d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:15 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cyokys\\cmTC_2564d.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_2564d.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cyokys\\Debug\\".
+          Creating directory "cmTC_2564d.dir\\Debug\\cmTC_2564d.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_2564d.dir\\Debug\\cmTC_2564d.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_2564d.dir\\Debug\\cmTC_2564d.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_2564d.dir\\Debug\\\\" /Fd"cmTC_2564d.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TP /errorReport:queue  -Brepro "C:\\Users\\Trailer\\Documents\\ComfyUI_windows_portable_nvidia\\ComfyUI_windows_portable\\python_embeded\\Lib\\site-packages\\cmake\\data\\share\\cmake-4.0\\Modules\\CMakeCXXCompilerABI.cpp"
+          CMakeCXXCompilerABI.cpp
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cyokys\\Debug\\cmTC_2564d.exe" /INCREMENTAL /ILK:"cmTC_2564d.dir\\Debug\\cmTC_2564d.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-cyokys/Debug/cmTC_2564d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-cyokys/Debug/cmTC_2564d.lib" /MACHINE:X64  /machine:x64 cmTC_2564d.dir\\Debug\\CMakeCXXCompilerABI.obj
+          cmTC_2564d.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cyokys\\Debug\\cmTC_2564d.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_2564d.dir\\Debug\\cmTC_2564d.tlog\\unsuccessfulbuild".
+          Touching "cmTC_2564d.dir\\Debug\\cmTC_2564d.tlog\\cmTC_2564d.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-cyokys\\cmTC_2564d.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.48
+        
+      exitCode: 0
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:227 (message)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Parsed CXX implicit link information:
+        link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
+        linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|link\\.exe|lld-link(\\.exe)?))("|,| |$)]
+        linker tool for 'CXX': C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe
+        implicit libs: []
+        implicit objs: []
+        implicit dirs: []
+        implicit fwks: []
+      
+      
+  -
+    kind: "message-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/Internal/CMakeDetermineLinkerId.cmake:36 (message)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeDetermineCompilerABI.cmake:270 (cmake_determine_linker_id)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CMakeTestCXXCompiler.cmake:26 (CMAKE_DETERMINE_COMPILER_ABI)"
+      - "CMakeLists.txt:6 (project)"
+    message: |
+      Running the CXX compiler's linker: "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.44.35207/bin/HostX64/x64/link.exe" "-v"
+      Microsoft (R) Incremental Linker Version 14.44.35207.1
+      Copyright (C) Microsoft Corporation.  All rights reserved.
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckSymbolExists.cmake:160 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckSymbolExists.cmake:65 (__CHECK_SYMBOL_EXISTS_IMPL)"
+      - "CMakeLists.txt:81 (check_symbol_exists)"
+    checks:
+      - "Looking for __GLIBC__"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-ywrycs"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-ywrycs"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "LIBC_IS_GLIBC"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-ywrycs'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_4ce94.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:16 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ywrycs\\cmTC_4ce94.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_4ce94.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ywrycs\\Debug\\".
+          Creating directory "cmTC_4ce94.dir\\Debug\\cmTC_4ce94.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_4ce94.dir\\Debug\\cmTC_4ce94.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_4ce94.dir\\Debug\\cmTC_4ce94.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_4ce94.dir\\Debug\\\\" /Fd"cmTC_4ce94.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ywrycs\\CheckSymbolExists.c"
+          CheckSymbolExists.c
+        D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ywrycs\\CheckSymbolExists.c(8,19): error C2065: '__GLIBC__': undeclared identifier [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ywrycs\\cmTC_4ce94.vcxproj]
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ywrycs\\cmTC_4ce94.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ywrycs\\cmTC_4ce94.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ywrycs\\CheckSymbolExists.c(8,19): error C2065: '__GLIBC__': undeclared identifier [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ywrycs\\cmTC_4ce94.vcxproj]
+        
+            0 Warning(s)
+            1 Error(s)
+        
+        Time Elapsed 00:00:00.31
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:953 (check_include_file)"
+    checks:
+      - "Looking for immintrin.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-5fj731"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-5fj731"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_IMMINTRIN_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-5fj731'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_7b068.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:16 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5fj731\\cmTC_7b068.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_7b068.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5fj731\\Debug\\".
+          Creating directory "cmTC_7b068.dir\\Debug\\cmTC_7b068.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_7b068.dir\\Debug\\cmTC_7b068.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_7b068.dir\\Debug\\cmTC_7b068.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_7b068.dir\\Debug\\\\" /Fd"cmTC_7b068.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5fj731\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5fj731\\Debug\\cmTC_7b068.exe" /INCREMENTAL /ILK:"cmTC_7b068.dir\\Debug\\cmTC_7b068.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-5fj731/Debug/cmTC_7b068.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-5fj731/Debug/cmTC_7b068.lib" /MACHINE:X64  /machine:x64 cmTC_7b068.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_7b068.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5fj731\\Debug\\cmTC_7b068.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_7b068.dir\\Debug\\cmTC_7b068.tlog\\unsuccessfulbuild".
+          Touching "cmTC_7b068.dir\\Debug\\cmTC_7b068.tlog\\cmTC_7b068.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-5fj731\\cmTC_7b068.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.66
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1103 (check_include_file)"
+    checks:
+      - "Looking for stdint.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-05v9d1"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-05v9d1"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_STDINT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-05v9d1'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_397a5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:17 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05v9d1\\cmTC_397a5.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_397a5.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05v9d1\\Debug\\".
+          Creating directory "cmTC_397a5.dir\\Debug\\cmTC_397a5.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_397a5.dir\\Debug\\cmTC_397a5.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_397a5.dir\\Debug\\cmTC_397a5.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_397a5.dir\\Debug\\\\" /Fd"cmTC_397a5.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05v9d1\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05v9d1\\Debug\\cmTC_397a5.exe" /INCREMENTAL /ILK:"cmTC_397a5.dir\\Debug\\cmTC_397a5.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-05v9d1/Debug/cmTC_397a5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-05v9d1/Debug/cmTC_397a5.lib" /MACHINE:X64  /machine:x64 cmTC_397a5.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_397a5.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05v9d1\\Debug\\cmTC_397a5.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_397a5.dir\\Debug\\cmTC_397a5.tlog\\unsuccessfulbuild".
+          Touching "cmTC_397a5.dir\\Debug\\cmTC_397a5.tlog\\cmTC_397a5.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-05v9d1\\cmTC_397a5.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.64
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:1676 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_WIN32_CC"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jzj9af"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jzj9af"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_WIN32_CC"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jzj9af'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_e99d9.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:18 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jzj9af\\cmTC_e99d9.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_e99d9.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jzj9af\\Debug\\".
+          Creating directory "cmTC_e99d9.dir\\Debug\\cmTC_e99d9.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_e99d9.dir\\Debug\\cmTC_e99d9.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_e99d9.dir\\Debug\\cmTC_e99d9.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D HAVE_WIN32_CC /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_e99d9.dir\\Debug\\\\" /Fd"cmTC_e99d9.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jzj9af\\src.c"
+          src.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jzj9af\\Debug\\cmTC_e99d9.exe" /INCREMENTAL /ILK:"cmTC_e99d9.dir\\Debug\\cmTC_e99d9.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jzj9af/Debug/cmTC_e99d9.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jzj9af/Debug/cmTC_e99d9.lib" /MACHINE:X64  /machine:x64 cmTC_e99d9.dir\\Debug\\src.obj
+          cmTC_e99d9.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jzj9af\\Debug\\cmTC_e99d9.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_e99d9.dir\\Debug\\cmTC_e99d9.tlog\\unsuccessfulbuild".
+          Touching "cmTC_e99d9.dir\\Debug\\cmTC_e99d9.tlog\\cmTC_e99d9.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jzj9af\\cmTC_e99d9.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.71
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1718 (check_include_file)"
+    checks:
+      - "Looking for d3d9.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-ikw4zc"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-ikw4zc"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_D3D_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-ikw4zc'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_cc007.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:19 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ikw4zc\\cmTC_cc007.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_cc007.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ikw4zc\\Debug\\".
+          Creating directory "cmTC_cc007.dir\\Debug\\cmTC_cc007.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_cc007.dir\\Debug\\cmTC_cc007.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_cc007.dir\\Debug\\cmTC_cc007.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_cc007.dir\\Debug\\\\" /Fd"cmTC_cc007.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ikw4zc\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ikw4zc\\Debug\\cmTC_cc007.exe" /INCREMENTAL /ILK:"cmTC_cc007.dir\\Debug\\cmTC_cc007.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-ikw4zc/Debug/cmTC_cc007.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-ikw4zc/Debug/cmTC_cc007.lib" /MACHINE:X64  /machine:x64 cmTC_cc007.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_cc007.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ikw4zc\\Debug\\cmTC_cc007.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_cc007.dir\\Debug\\cmTC_cc007.tlog\\unsuccessfulbuild".
+          Touching "cmTC_cc007.dir\\Debug\\cmTC_cc007.tlog\\cmTC_cc007.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-ikw4zc\\cmTC_cc007.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.75
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1719 (check_include_file)"
+    checks:
+      - "Looking for d3d11_1.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-x7d3c8"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-x7d3c8"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_D3D11_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-x7d3c8'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_ce93d.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:20 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x7d3c8\\cmTC_ce93d.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_ce93d.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x7d3c8\\Debug\\".
+          Creating directory "cmTC_ce93d.dir\\Debug\\cmTC_ce93d.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_ce93d.dir\\Debug\\cmTC_ce93d.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_ce93d.dir\\Debug\\cmTC_ce93d.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_ce93d.dir\\Debug\\\\" /Fd"cmTC_ce93d.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x7d3c8\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x7d3c8\\Debug\\cmTC_ce93d.exe" /INCREMENTAL /ILK:"cmTC_ce93d.dir\\Debug\\cmTC_ce93d.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-x7d3c8/Debug/cmTC_ce93d.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-x7d3c8/Debug/cmTC_ce93d.lib" /MACHINE:X64  /machine:x64 cmTC_ce93d.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_ce93d.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x7d3c8\\Debug\\cmTC_ce93d.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_ce93d.dir\\Debug\\cmTC_ce93d.tlog\\unsuccessfulbuild".
+          Touching "cmTC_ce93d.dir\\Debug\\cmTC_ce93d.tlog\\cmTC_ce93d.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-x7d3c8\\cmTC_ce93d.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.70
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:1720 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_D3D12_H"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tvlsbm"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tvlsbm"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_D3D12_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tvlsbm'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3194e.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:21 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tvlsbm\\cmTC_3194e.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_3194e.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tvlsbm\\Debug\\".
+          Creating directory "cmTC_3194e.dir\\Debug\\cmTC_3194e.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_3194e.dir\\Debug\\cmTC_3194e.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_3194e.dir\\Debug\\cmTC_3194e.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D HAVE_D3D12_H /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3194e.dir\\Debug\\\\" /Fd"cmTC_3194e.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tvlsbm\\src.c"
+          src.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tvlsbm\\Debug\\cmTC_3194e.exe" /INCREMENTAL /ILK:"cmTC_3194e.dir\\Debug\\cmTC_3194e.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tvlsbm/Debug/cmTC_3194e.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tvlsbm/Debug/cmTC_3194e.lib" /MACHINE:X64  /machine:x64 cmTC_3194e.dir\\Debug\\src.obj
+          cmTC_3194e.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tvlsbm\\Debug\\cmTC_3194e.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_3194e.dir\\Debug\\cmTC_3194e.tlog\\unsuccessfulbuild".
+          Touching "cmTC_3194e.dir\\Debug\\cmTC_3194e.tlog\\cmTC_3194e.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tvlsbm\\cmTC_3194e.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.63
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1728 (check_include_file)"
+    checks:
+      - "Looking for ddraw.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-omxq7l"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-omxq7l"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_DDRAW_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-omxq7l'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_f9227.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:22 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omxq7l\\cmTC_f9227.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_f9227.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omxq7l\\Debug\\".
+          Creating directory "cmTC_f9227.dir\\Debug\\cmTC_f9227.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_f9227.dir\\Debug\\cmTC_f9227.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_f9227.dir\\Debug\\cmTC_f9227.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_f9227.dir\\Debug\\\\" /Fd"cmTC_f9227.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omxq7l\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omxq7l\\Debug\\cmTC_f9227.exe" /INCREMENTAL /ILK:"cmTC_f9227.dir\\Debug\\cmTC_f9227.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-omxq7l/Debug/cmTC_f9227.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-omxq7l/Debug/cmTC_f9227.lib" /MACHINE:X64  /machine:x64 cmTC_f9227.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_f9227.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omxq7l\\Debug\\cmTC_f9227.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_f9227.dir\\Debug\\cmTC_f9227.tlog\\unsuccessfulbuild".
+          Touching "cmTC_f9227.dir\\Debug\\cmTC_f9227.tlog\\cmTC_f9227.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-omxq7l\\cmTC_f9227.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.59
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1729 (check_include_file)"
+    checks:
+      - "Looking for dsound.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jcu87x"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jcu87x"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_DSOUND_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jcu87x'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_3d1d8.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:22 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jcu87x\\cmTC_3d1d8.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_3d1d8.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jcu87x\\Debug\\".
+          Creating directory "cmTC_3d1d8.dir\\Debug\\cmTC_3d1d8.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_3d1d8.dir\\Debug\\cmTC_3d1d8.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_3d1d8.dir\\Debug\\cmTC_3d1d8.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_3d1d8.dir\\Debug\\\\" /Fd"cmTC_3d1d8.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jcu87x\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jcu87x\\Debug\\cmTC_3d1d8.exe" /INCREMENTAL /ILK:"cmTC_3d1d8.dir\\Debug\\cmTC_3d1d8.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jcu87x/Debug/cmTC_3d1d8.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-jcu87x/Debug/cmTC_3d1d8.lib" /MACHINE:X64  /machine:x64 cmTC_3d1d8.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_3d1d8.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jcu87x\\Debug\\cmTC_3d1d8.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_3d1d8.dir\\Debug\\cmTC_3d1d8.tlog\\unsuccessfulbuild".
+          Touching "cmTC_3d1d8.dir\\Debug\\cmTC_3d1d8.tlog\\cmTC_3d1d8.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-jcu87x\\cmTC_3d1d8.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.57
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1730 (check_include_file)"
+    checks:
+      - "Looking for dinput.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-6tzsos"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-6tzsos"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_DINPUT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-6tzsos'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_346b1.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:23 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6tzsos\\cmTC_346b1.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_346b1.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6tzsos\\Debug\\".
+          Creating directory "cmTC_346b1.dir\\Debug\\cmTC_346b1.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_346b1.dir\\Debug\\cmTC_346b1.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_346b1.dir\\Debug\\cmTC_346b1.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_346b1.dir\\Debug\\\\" /Fd"cmTC_346b1.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6tzsos\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+          C:\\Program Files (x86)\\Windows Kits\\10\\Include\\10.0.26100.0\\um\\dinput.h: DIRECTINPUT_VERSION undefined. Defaulting to version 0x0800
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6tzsos\\Debug\\cmTC_346b1.exe" /INCREMENTAL /ILK:"cmTC_346b1.dir\\Debug\\cmTC_346b1.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-6tzsos/Debug/cmTC_346b1.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-6tzsos/Debug/cmTC_346b1.lib" /MACHINE:X64  /machine:x64 cmTC_346b1.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_346b1.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6tzsos\\Debug\\cmTC_346b1.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_346b1.dir\\Debug\\cmTC_346b1.tlog\\unsuccessfulbuild".
+          Touching "cmTC_346b1.dir\\Debug\\cmTC_346b1.tlog\\cmTC_346b1.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-6tzsos\\cmTC_346b1.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.56
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1734 (check_include_file)"
+    checks:
+      - "Looking for dxgi.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-gji0zl"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-gji0zl"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_DXGI_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-gji0zl'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_147b5.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:24 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gji0zl\\cmTC_147b5.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_147b5.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gji0zl\\Debug\\".
+          Creating directory "cmTC_147b5.dir\\Debug\\cmTC_147b5.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_147b5.dir\\Debug\\cmTC_147b5.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_147b5.dir\\Debug\\cmTC_147b5.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_147b5.dir\\Debug\\\\" /Fd"cmTC_147b5.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gji0zl\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gji0zl\\Debug\\cmTC_147b5.exe" /INCREMENTAL /ILK:"cmTC_147b5.dir\\Debug\\cmTC_147b5.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-gji0zl/Debug/cmTC_147b5.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-gji0zl/Debug/cmTC_147b5.lib" /MACHINE:X64  /machine:x64 cmTC_147b5.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_147b5.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gji0zl\\Debug\\cmTC_147b5.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_147b5.dir\\Debug\\cmTC_147b5.tlog\\unsuccessfulbuild".
+          Touching "cmTC_147b5.dir\\Debug\\cmTC_147b5.tlog\\cmTC_147b5.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-gji0zl\\cmTC_147b5.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.58
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:1748 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_XINPUT_H"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-di01u2"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-di01u2"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_XINPUT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-di01u2'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_36651.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:25 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-di01u2\\cmTC_36651.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_36651.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-di01u2\\Debug\\".
+          Creating directory "cmTC_36651.dir\\Debug\\cmTC_36651.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_36651.dir\\Debug\\cmTC_36651.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_36651.dir\\Debug\\cmTC_36651.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D HAVE_XINPUT_H /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_36651.dir\\Debug\\\\" /Fd"cmTC_36651.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-di01u2\\src.c"
+          src.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-di01u2\\Debug\\cmTC_36651.exe" /INCREMENTAL /ILK:"cmTC_36651.dir\\Debug\\cmTC_36651.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-di01u2/Debug/cmTC_36651.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-di01u2/Debug/cmTC_36651.lib" /MACHINE:X64  /machine:x64 cmTC_36651.dir\\Debug\\src.obj
+          cmTC_36651.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-di01u2\\Debug\\cmTC_36651.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_36651.dir\\Debug\\cmTC_36651.tlog\\unsuccessfulbuild".
+          Touching "cmTC_36651.dir\\Debug\\cmTC_36651.tlog\\cmTC_36651.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-di01u2\\cmTC_36651.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.56
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:1752 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_XINPUT_GAMEPAD_EX"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-kgt7fm"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-kgt7fm"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_XINPUT_GAMEPAD_EX"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-kgt7fm'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c5691.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:25 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\cmTC_c5691.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_c5691.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\Debug\\".
+          Creating directory "cmTC_c5691.dir\\Debug\\cmTC_c5691.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_c5691.dir\\Debug\\cmTC_c5691.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_c5691.dir\\Debug\\cmTC_c5691.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D HAVE_XINPUT_GAMEPAD_EX /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c5691.dir\\Debug\\\\" /Fd"cmTC_c5691.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\src.c"
+          src.c
+        D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\src.c(4,25): error C2061: syntax error: identifier 'x1' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\cmTC_c5691.vcxproj]
+        D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\src.c(4,25): error C2059: syntax error: ';' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\cmTC_c5691.vcxproj]
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\cmTC_c5691.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\cmTC_c5691.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\src.c(4,25): error C2061: syntax error: identifier 'x1' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\cmTC_c5691.vcxproj]
+          D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\src.c(4,25): error C2059: syntax error: ';' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-kgt7fm\\cmTC_c5691.vcxproj]
+        
+            0 Warning(s)
+            2 Error(s)
+        
+        Time Elapsed 00:00:00.39
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:1757 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_XINPUT_STATE_EX"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-28fwfy"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-28fwfy"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_XINPUT_STATE_EX"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-28fwfy'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_a3d12.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:26 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\cmTC_a3d12.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_a3d12.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\Debug\\".
+          Creating directory "cmTC_a3d12.dir\\Debug\\cmTC_a3d12.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_a3d12.dir\\Debug\\cmTC_a3d12.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_a3d12.dir\\Debug\\cmTC_a3d12.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D HAVE_XINPUT_STATE_EX /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_a3d12.dir\\Debug\\\\" /Fd"cmTC_a3d12.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\src.c"
+          src.c
+        D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\src.c(4,23): error C2061: syntax error: identifier 's1' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\cmTC_a3d12.vcxproj]
+        D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\src.c(4,23): error C2059: syntax error: ';' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\cmTC_a3d12.vcxproj]
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\cmTC_a3d12.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\cmTC_a3d12.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\src.c(4,23): error C2061: syntax error: identifier 's1' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\cmTC_a3d12.vcxproj]
+          D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\src.c(4,23): error C2059: syntax error: ';' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-28fwfy\\cmTC_a3d12.vcxproj]
+        
+            0 Warning(s)
+            2 Error(s)
+        
+        Time Elapsed 00:00:00.39
+        
+      exitCode: 1
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "CMakeLists.txt:1762 (check_c_source_compiles)"
+    checks:
+      - "Performing Test HAVE_WINDOWS_GAMING_INPUT_H"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-btsbk4"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-btsbk4"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_WINDOWS_GAMING_INPUT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-btsbk4'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_38387.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:26 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-btsbk4\\cmTC_38387.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_38387.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-btsbk4\\Debug\\".
+          Creating directory "cmTC_38387.dir\\Debug\\cmTC_38387.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_38387.dir\\Debug\\cmTC_38387.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_38387.dir\\Debug\\cmTC_38387.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D HAVE_WINDOWS_GAMING_INPUT_H /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_38387.dir\\Debug\\\\" /Fd"cmTC_38387.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-btsbk4\\src.c"
+          src.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-btsbk4\\Debug\\cmTC_38387.exe" /INCREMENTAL /ILK:"cmTC_38387.dir\\Debug\\cmTC_38387.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-btsbk4/Debug/cmTC_38387.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-btsbk4/Debug/cmTC_38387.lib" /MACHINE:X64  /machine:x64 cmTC_38387.dir\\Debug\\src.obj
+          cmTC_38387.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-btsbk4\\Debug\\cmTC_38387.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_38387.dir\\Debug\\cmTC_38387.tlog\\unsuccessfulbuild".
+          Touching "cmTC_38387.dir\\Debug\\cmTC_38387.tlog\\cmTC_38387.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-btsbk4\\cmTC_38387.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:01.01
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1770 (check_include_file)"
+    checks:
+      - "Looking for tpcshrd.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-u6xg8z"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-u6xg8z"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_TPCSHRD_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-u6xg8z'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_27b69.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:28 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u6xg8z\\cmTC_27b69.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_27b69.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u6xg8z\\Debug\\".
+          Creating directory "cmTC_27b69.dir\\Debug\\cmTC_27b69.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_27b69.dir\\Debug\\cmTC_27b69.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_27b69.dir\\Debug\\cmTC_27b69.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_27b69.dir\\Debug\\\\" /Fd"cmTC_27b69.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u6xg8z\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u6xg8z\\Debug\\cmTC_27b69.exe" /INCREMENTAL /ILK:"cmTC_27b69.dir\\Debug\\cmTC_27b69.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-u6xg8z/Debug/cmTC_27b69.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-u6xg8z/Debug/cmTC_27b69.lib" /MACHINE:X64  /machine:x64 cmTC_27b69.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_27b69.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u6xg8z\\Debug\\cmTC_27b69.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_27b69.dir\\Debug\\cmTC_27b69.tlog\\unsuccessfulbuild".
+          Touching "cmTC_27b69.dir\\Debug\\cmTC_27b69.tlog\\cmTC_27b69.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-u6xg8z\\cmTC_27b69.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.56
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1771 (check_include_file)"
+    checks:
+      - "Looking for roapi.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-of2us7"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-of2us7"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_ROAPI_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-of2us7'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_18784.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:28 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-of2us7\\cmTC_18784.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_18784.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-of2us7\\Debug\\".
+          Creating directory "cmTC_18784.dir\\Debug\\cmTC_18784.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_18784.dir\\Debug\\cmTC_18784.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_18784.dir\\Debug\\cmTC_18784.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_18784.dir\\Debug\\\\" /Fd"cmTC_18784.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-of2us7\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-of2us7\\Debug\\cmTC_18784.exe" /INCREMENTAL /ILK:"cmTC_18784.dir\\Debug\\cmTC_18784.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-of2us7/Debug/cmTC_18784.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-of2us7/Debug/cmTC_18784.lib" /MACHINE:X64  /machine:x64 cmTC_18784.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_18784.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-of2us7\\Debug\\cmTC_18784.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_18784.dir\\Debug\\cmTC_18784.tlog\\unsuccessfulbuild".
+          Touching "cmTC_18784.dir\\Debug\\cmTC_18784.tlog\\cmTC_18784.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-of2us7\\cmTC_18784.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.58
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1772 (check_include_file)"
+    checks:
+      - "Looking for mmdeviceapi.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-sued65"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-sued65"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_MMDEVICEAPI_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-sued65'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_c1741.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:29 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sued65\\cmTC_c1741.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_c1741.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sued65\\Debug\\".
+          Creating directory "cmTC_c1741.dir\\Debug\\cmTC_c1741.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_c1741.dir\\Debug\\cmTC_c1741.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_c1741.dir\\Debug\\cmTC_c1741.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_c1741.dir\\Debug\\\\" /Fd"cmTC_c1741.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sued65\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sued65\\Debug\\cmTC_c1741.exe" /INCREMENTAL /ILK:"cmTC_c1741.dir\\Debug\\cmTC_c1741.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-sued65/Debug/cmTC_c1741.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-sued65/Debug/cmTC_c1741.lib" /MACHINE:X64  /machine:x64 cmTC_c1741.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_c1741.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sued65\\Debug\\cmTC_c1741.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_c1741.dir\\Debug\\cmTC_c1741.tlog\\unsuccessfulbuild".
+          Touching "cmTC_c1741.dir\\Debug\\cmTC_c1741.tlog\\cmTC_c1741.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-sued65\\cmTC_c1741.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.58
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1773 (check_include_file)"
+    checks:
+      - "Looking for audioclient.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tx56uh"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tx56uh"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_AUDIOCLIENT_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tx56uh'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_fc777.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:30 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tx56uh\\cmTC_fc777.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_fc777.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tx56uh\\Debug\\".
+          Creating directory "cmTC_fc777.dir\\Debug\\cmTC_fc777.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_fc777.dir\\Debug\\cmTC_fc777.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_fc777.dir\\Debug\\cmTC_fc777.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_fc777.dir\\Debug\\\\" /Fd"cmTC_fc777.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tx56uh\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tx56uh\\Debug\\cmTC_fc777.exe" /INCREMENTAL /ILK:"cmTC_fc777.dir\\Debug\\cmTC_fc777.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tx56uh/Debug/cmTC_fc777.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-tx56uh/Debug/cmTC_fc777.lib" /MACHINE:X64  /machine:x64 cmTC_fc777.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_fc777.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tx56uh\\Debug\\cmTC_fc777.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_fc777.dir\\Debug\\cmTC_fc777.tlog\\unsuccessfulbuild".
+          Touching "cmTC_fc777.dir\\Debug\\cmTC_fc777.tlog\\cmTC_fc777.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-tx56uh\\cmTC_fc777.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.58
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1774 (check_include_file)"
+    checks:
+      - "Looking for sensorsapi.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-et158y"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-et158y"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_SENSORSAPI_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-et158y'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_71b3a.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:31 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-et158y\\cmTC_71b3a.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_71b3a.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-et158y\\Debug\\".
+          Creating directory "cmTC_71b3a.dir\\Debug\\cmTC_71b3a.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_71b3a.dir\\Debug\\cmTC_71b3a.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_71b3a.dir\\Debug\\cmTC_71b3a.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_71b3a.dir\\Debug\\\\" /Fd"cmTC_71b3a.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-et158y\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-et158y\\Debug\\cmTC_71b3a.exe" /INCREMENTAL /ILK:"cmTC_71b3a.dir\\Debug\\cmTC_71b3a.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-et158y/Debug/cmTC_71b3a.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-et158y/Debug/cmTC_71b3a.lib" /MACHINE:X64  /machine:x64 cmTC_71b3a.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_71b3a.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-et158y\\Debug\\cmTC_71b3a.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_71b3a.dir\\Debug\\cmTC_71b3a.tlog\\unsuccessfulbuild".
+          Touching "cmTC_71b3a.dir\\Debug\\cmTC_71b3a.tlog\\cmTC_71b3a.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-et158y\\cmTC_71b3a.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.58
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckIncludeFile.cmake:99 (try_compile)"
+      - "CMakeLists.txt:1775 (check_include_file)"
+    checks:
+      - "Looking for shellscalingapi.h"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-zcsd9c"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-zcsd9c"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0"
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "HAVE_SHELLSCALINGAPI_H"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-zcsd9c'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_bd584.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:31 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zcsd9c\\cmTC_bd584.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_bd584.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zcsd9c\\Debug\\".
+          Creating directory "cmTC_bd584.dir\\Debug\\cmTC_bd584.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_bd584.dir\\Debug\\cmTC_bd584.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_bd584.dir\\Debug\\cmTC_bd584.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D _GNU_SOURCE=1 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_bd584.dir\\Debug\\\\" /Fd"cmTC_bd584.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zcsd9c\\CheckIncludeFile.c"
+          CheckIncludeFile.c
+        Link:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\link.exe /ERRORREPORT:QUEUE /OUT:"D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zcsd9c\\Debug\\cmTC_bd584.exe" /INCREMENTAL /ILK:"cmTC_bd584.dir\\Debug\\cmTC_bd584.ilk" /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib shell32.lib ole32.lib oleaut32.lib uuid.lib comdlg32.lib advapi32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-zcsd9c/Debug/cmTC_bd584.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-zcsd9c/Debug/cmTC_bd584.lib" /MACHINE:X64  /machine:x64 cmTC_bd584.dir\\Debug\\CheckIncludeFile.obj
+          cmTC_bd584.vcxproj -> D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zcsd9c\\Debug\\cmTC_bd584.exe
+        FinalizeBuildStatus:
+          Deleting file "cmTC_bd584.dir\\Debug\\cmTC_bd584.tlog\\unsuccessfulbuild".
+          Touching "cmTC_bd584.dir\\Debug\\cmTC_bd584.tlog\\cmTC_bd584.lastbuildstate".
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-zcsd9c\\cmTC_bd584.vcxproj" (default targets).
+        
+        Build succeeded.
+            0 Warning(s)
+            0 Error(s)
+        
+        Time Elapsed 00:00:00.57
+        
+      exitCode: 0
+  -
+    kind: "try_compile-v1"
+    backtrace:
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/Internal/CheckSourceCompiles.cmake:104 (try_compile)"
+      - "C:/Users/Trailer/Documents/ComfyUI_windows_portable_nvidia/ComfyUI_windows_portable/python_embeded/Lib/site-packages/cmake/data/share/cmake-4.0/Modules/CheckCSourceCompiles.cmake:58 (cmake_check_source_compiles)"
+      - "cmake/CheckCPUArchitecture.cmake:17 (check_c_source_compiles)"
+      - "cmake/CheckCPUArchitecture.cmake:28 (_internal_check_cpu_architecture)"
+      - "CMakeLists.txt:3287 (check_cpu_architecture)"
+    checks:
+      - "Performing Test CHECK_CPU_ARCHITECTURE_X86"
+    directories:
+      source: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-w1n3ow"
+      binary: "D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-w1n3ow"
+    cmakeVariables:
+      CMAKE_C_FLAGS: " -nologo -MD -Brepro -W0  "
+      CMAKE_EXE_LINKER_FLAGS: "/machine:x64"
+      CMAKE_MODULE_PATH: "C:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL/cmake"
+    buildResult:
+      variable: "CHECK_CPU_ARCHITECTURE_X86"
+      cached: true
+      stdout: |
+        Change Dir: 'D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-5bd2e5d98f6a57db/out/build/CMakeFiles/CMakeScratch/TryCompile-w1n3ow'
+        
+        Run Build Command(s): "C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/MSBuild/Current/Bin/amd64/MSBuild.exe" cmTC_30eb4.vcxproj /p:Configuration=Debug /p:Platform=x64 /p:VisualStudioVersion=17.0 /v:n
+        MSBuild version 17.14.8+a7a4d5af0 for .NET Framework
+        Build started 3/5/2026 12:40:32 AM.
+        
+        Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\cmTC_30eb4.vcxproj" on node 1 (default targets).
+        PrepareForBuild:
+          Creating directory "cmTC_30eb4.dir\\Debug\\".
+          Structured output is enabled. The formatting of compiler diagnostics will reflect the error hierarchy. See https://aka.ms/cpp/structured-output for more details.
+          Creating directory "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\Debug\\".
+          Creating directory "cmTC_30eb4.dir\\Debug\\cmTC_30eb4.tlog\\".
+        InitializeBuildStatus:
+          Creating "cmTC_30eb4.dir\\Debug\\cmTC_30eb4.tlog\\unsuccessfulbuild" because "AlwaysCreate" was specified.
+          Touching "cmTC_30eb4.dir\\Debug\\cmTC_30eb4.tlog\\unsuccessfulbuild".
+        ClCompile:
+          C:\\Program Files (x86)\\Microsoft Visual Studio\\2022\\BuildTools\\VC\\Tools\\MSVC\\14.44.35207\\bin\\HostX64\\x64\\CL.exe /c /Zi /nologo /W0 /WX- /diagnostics:column /Od /Ob0 /D _MBCS /D CHECK_CPU_ARCHITECTURE_X86 /D "CMAKE_INTDIR=\\"Debug\\"" /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"cmTC_30eb4.dir\\Debug\\\\" /Fd"cmTC_30eb4.dir\\Debug\\vc143.pdb" /external:W0 /Gd /TC /errorReport:queue  -Brepro "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\src.c"
+          src.c
+        D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\src.c(6,3): error C2065: 'choke': undeclared identifier [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\cmTC_30eb4.vcxproj]
+        D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\src.c(8,1): error C2143: syntax error: missing ';' before '}' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\cmTC_30eb4.vcxproj]
+        Done Building Project "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\cmTC_30eb4.vcxproj" (default targets) -- FAILED.
+        
+        Build FAILED.
+        
+        "D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\cmTC_30eb4.vcxproj" (default target) (1) ->
+        (ClCompile target) -> 
+          D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\src.c(6,3): error C2065: 'choke': undeclared identifier [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\cmTC_30eb4.vcxproj]
+          D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\src.c(8,1): error C2143: syntax error: missing ';' before '}' [D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\debug\\build\\sdl2-sys-5bd2e5d98f6a57db\\out\\build\\CMakeFiles\\CMakeScratch\\TryCompile-w1n3ow\\cmTC_30eb4.vcxproj]
+        
+            0 Warning(s)
+            2 Error(s)
+        
+        Time Elapsed 00:00:00.25
+        
+      exitCode: 1
+...

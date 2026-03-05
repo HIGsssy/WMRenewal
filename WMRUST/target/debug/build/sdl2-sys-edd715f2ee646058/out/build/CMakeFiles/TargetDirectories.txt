@@ -1,0 +1,8 @@
+D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-edd715f2ee646058/out/build/CMakeFiles/sdl_headers_copy.dir
+D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-edd715f2ee646058/out/build/CMakeFiles/SDL2main.dir
+D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-edd715f2ee646058/out/build/CMakeFiles/SDL2.dir
+D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-edd715f2ee646058/out/build/CMakeFiles/SDL2_test.dir
+D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-edd715f2ee646058/out/build/CMakeFiles/uninstall.dir
+D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-edd715f2ee646058/out/build/CMakeFiles/INSTALL.dir
+D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-edd715f2ee646058/out/build/CMakeFiles/ALL_BUILD.dir
+D:/Projects/WMaster/WMRenewal/WMRUST/target/debug/build/sdl2-sys-edd715f2ee646058/out/build/CMakeFiles/ZERO_CHECK.dir

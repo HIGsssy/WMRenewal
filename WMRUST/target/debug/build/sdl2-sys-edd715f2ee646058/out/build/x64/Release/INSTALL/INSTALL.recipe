@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project>
+  <ProjectOutputs>
+    <ProjectOutput>
+      <FullPath>D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-edd715f2ee646058\out\build\x64\Release\ZERO_CHECK</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-edd715f2ee646058\out\build\x64\Release\sdl_headers_copy</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-edd715f2ee646058\out\build\Release\SDL2.dll</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-edd715f2ee646058\out\build\x64\Release\ALL_BUILD</FullPath>
+    </ProjectOutput>
+    <ProjectOutput>
+      <FullPath>D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-edd715f2ee646058\out\build\x64\Release\INSTALL</FullPath>
+    </ProjectOutput>
+  </ProjectOutputs>
+  <ContentFiles />
+  <SatelliteDlls />
+  <NonRecipeFileRefs />
+</Project>
