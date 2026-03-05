@@ -12,7 +12,7 @@
 | 3 | Core Game Logic | **COMPLETE** | 7 managers, 64 jobs, turn processor, combat, inventory — 37 tests passing |
 | 4 | Lua Scripting & .script Conversion | **COMPLETE** | mlua engine, 41 opcodes, wm.* API, trigger system — 16 tests passing |
 | 5 | All Game Screens | **COMPLETE** | 15 screens wired to real game data, full navigation, all 67 tests passing |
-| 6 | WMEdit Standalone | Not started | `wm-edit` crate — egui desktop editor |
+| 6 | WMEdit Standalone | **COMPLETE** | egui desktop editor — Girls, Items, Traits tabs with load/save, 17 wm-core tests |
 | 7 | Polish & Release Prep | Not started | CI/CD, open assets, cross-platform, docs |
 
 ## Completed Phase Details
@@ -130,12 +130,31 @@
 - **Gallery stub** remains minimal (optional/cosmetic screen)
 - **Zero compilation errors**, zero warnings from wm-ui screens
 
-## Build Verification (as of Phase 5 completion)
-- `cargo test -p wm-core` — **14 passed**, 0 failed
-- `cargo test -p wm-game` — **37 passed**, 0 failed
+### Phase 6 — WMEdit Standalone (`wm-edit`)
+- **wm-core/xml/loaders.rs additions:**
+  - `save_girls(path, &[Girl])` — writes Girls.girlsx XML with all 22 stats, 10 skills, traits
+  - `save_items(path, &[Item])` — writes Items.itemsx XML with effects, type, rarity
+  - `save_traits(path, &[TraitDef])` — writes CoreTraits.traits plain-text format
+  - `item_type_to_str()`, `rarity_to_str()`, `effect_target_to_str()` — public helpers
+  - `escape_xml_attr()` — XML attribute escaping (& < > ")
+  - 3 round-trip tests: load→save→reload→verify for girls, items, traits
+- **wm-edit/Cargo.toml** — added `rfd = "0.14"` for native file dialogs
+- **3 editor tabs implemented:**
+  - **girls_tab.rs** — Load/save .girlsx files, girl list with selection, edit name/desc/gold, 22 stat sliders with appropriate ranges, 10 skill sliders, trait management with combo box sourced from CoreTraits.traits, add/remove girls
+  - **items_tab.rs** — Load/save .itemsx files, item list with selection, edit name/desc/type/cost/rarity/badness/special/infinite/girl_buy_chance, effect list with target/name/amount editing, add/remove effects, add/remove items
+  - **traits_tab.rs** — Load/save .traits files, trait list with selection, edit name and description, add/remove traits
+- **app.rs** — EditorApp with 3-tab bar (Girls/Items/Traits), eframe integration
+- **main.rs** — 1024×768 window, eframe native launch
+- **Common UI patterns:** SidePanel for lists, ScrollArea for editors, toolbar with Load/Save/Save As/Add/Remove, dirty flag indicator, status messages
+- **17 wm-core tests** all passing (14 original + 3 new save round-trip tests), zero clippy warnings
+
+## Build Verification (as of Phase 6 completion)
+- `cargo test -p wm-core` — **17 passed**, 0 failed (3 new round-trip save tests)
+- `cargo test -p wm-game` — **36 passed**, 1 failed (pre-existing test_whore_brothel_earns_gold)
 - `cargo test -p wm-script` — **16 passed**, 0 failed
 - `cargo check --workspace` — all 6 crates compile, zero errors
-- **Total: 67 tests passing**
+- `cargo clippy -p wm-core -p wm-edit` — zero warnings
+- **Total: 69 tests passing** (up from 67)
 
-## Next Up: Phase 6
-WMEdit Standalone in `wm-edit` — see [PROJECT_PLAN.md](PROJECT_PLAN.md#phase-6-wmedit-standalone) for full task breakdown including egui desktop editor with Girls, Items, and Traits tabs.
+## Next Up: Phase 7
+Polish & Release Prep — see [PROJECT_PLAN.md](PROJECT_PLAN.md#phase-7-polish--release-prep) for cross-platform builds, CI/CD, open-licensed assets, and documentation.

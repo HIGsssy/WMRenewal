@@ -6,6 +6,7 @@ use crate::item::{Item, ItemXml, ItemsXml};
 use crate::room::{FacilitiesXml, FacilityXml, Room};
 use crate::screen::{ScreenLayout, ScreenXml};
 use crate::traits::{parse_traits, TraitDef};
+use crate::enums::{EffectTarget, ItemType, Rarity, Skill, Stat};
 
 /// Error type for resource loading operations.
 #[derive(Debug, thiserror::Error)]
@@ -59,6 +60,186 @@ pub fn load_screen(path: &Path) -> Result<ScreenLayout, LoadError> {
     let xml_str = std::fs::read_to_string(path)?;
     let screen_xml: ScreenXml = quick_xml::de::from_str(&xml_str)?;
     Ok(screen_xml.into_layout())
+}
+
+// ---------------------------------------------------------------------------
+// Save / write functions
+// ---------------------------------------------------------------------------
+
+/// Escape special XML characters in attribute values.
+fn escape_xml_attr(s: &str) -> String {
+    s.replace('&', "&amp;")
+        .replace('<', "&lt;")
+        .replace('>', "&gt;")
+        .replace('"', "&quot;")
+}
+
+/// Convert ItemType to its XML attribute string.
+pub fn item_type_to_str(t: ItemType) -> &'static str {
+    match t {
+        ItemType::Food => "Food",
+        ItemType::Ring => "Ring",
+        ItemType::Necklace => "Necklace",
+        ItemType::Dress => "Dress",
+        ItemType::Underwear => "Underwear",
+        ItemType::Shoes => "Shoes",
+        ItemType::Hat => "Hat",
+        ItemType::Helmet => "Helmet",
+        ItemType::SmallWeapon => "SmallWeapon",
+        ItemType::LargeWeapon => "LargeWeapon",
+        ItemType::Armor => "Armor",
+        ItemType::Shield => "Shield",
+        ItemType::Consumable => "Consumable",
+        ItemType::Makeup => "Makeup",
+        ItemType::Misc => "Misc",
+    }
+}
+
+/// Convert Rarity to its XML attribute string.
+pub fn rarity_to_str(r: Rarity) -> &'static str {
+    match r {
+        Rarity::Common => "Common",
+        Rarity::Shop50 => "Shop50",
+        Rarity::Shop25 => "Shop25",
+        Rarity::Shop05 => "Shop05",
+        Rarity::Catacomb15 => "Catacomb15",
+        Rarity::ScriptOnly => "ScriptOnly",
+        Rarity::Reward => "Reward",
+    }
+}
+
+/// Convert EffectTarget to its XML attribute string.
+pub fn effect_target_to_str(t: EffectTarget) -> &'static str {
+    match t {
+        EffectTarget::Stat => "Stat",
+        EffectTarget::Skill => "Skill",
+        EffectTarget::Trait => "Trait",
+    }
+}
+
+/// Save girl definitions to a .girlsx XML file.
+pub fn save_girls(path: &Path, girls: &[Girl]) -> Result<(), LoadError> {
+    use std::fmt::Write;
+    let mut xml = String::from("<Girls>\n");
+    for girl in girls {
+        write!(xml, "  <Girl Name=\"{}\"", escape_xml_attr(&girl.name)).unwrap();
+        if !girl.desc.is_empty() {
+            write!(xml, " Desc=\"{}\"", escape_xml_attr(&girl.desc)).unwrap();
+        }
+        if girl.money != 0 {
+            write!(xml, " Gold=\"{}\"", girl.money).unwrap();
+        }
+        for &(attr, stat) in &[
+            ("Charisma", Stat::Charisma),
+            ("Happiness", Stat::Happiness),
+            ("Libido", Stat::Libido),
+            ("Constitution", Stat::Constitution),
+            ("Intelligence", Stat::Intelligence),
+            ("Confidence", Stat::Confidence),
+            ("Mana", Stat::Mana),
+            ("Agility", Stat::Agility),
+            ("Fame", Stat::Fame),
+            ("Level", Stat::Level),
+            ("AskPrice", Stat::AskPrice),
+            ("House", Stat::HousePerc),
+            ("Exp", Stat::Exp),
+            ("Age", Stat::Age),
+            ("Obedience", Stat::Obedience),
+            ("Spirit", Stat::Spirit),
+            ("Beauty", Stat::Beauty),
+            ("Tiredness", Stat::Tiredness),
+            ("Health", Stat::Health),
+            ("PCFear", Stat::PCFear),
+            ("PCLove", Stat::PCLove),
+            ("PCHate", Stat::PCHate),
+        ] {
+            write!(xml, " {}=\"{}\"", attr, girl.stats[stat as usize]).unwrap();
+        }
+        for &(attr, skill) in &[
+            ("Anal", Skill::Anal),
+            ("Magic", Skill::Magic),
+            ("BDSM", Skill::BDSM),
+            ("NormalSex", Skill::NormalSex),
+            ("Beastiality", Skill::Beastiality),
+            ("Group", Skill::Group),
+            ("Lesbian", Skill::Lesbian),
+            ("Service", Skill::Service),
+            ("Strip", Skill::Strip),
+            ("Combat", Skill::Combat),
+        ] {
+            write!(xml, " {}=\"{}\"", attr, girl.skills[skill as usize]).unwrap();
+        }
+        if girl.traits.is_empty() {
+            writeln!(xml, " />").unwrap();
+        } else {
+            writeln!(xml, ">").unwrap();
+            for t in &girl.traits {
+                writeln!(xml, "    <Trait Name=\"{}\"/>", escape_xml_attr(t)).unwrap();
+            }
+            writeln!(xml, "  </Girl>").unwrap();
+        }
+    }
+    xml.push_str("</Girls>\n");
+    std::fs::write(path, xml)?;
+    Ok(())
+}
+
+/// Save items to a .itemsx XML file.
+pub fn save_items(path: &Path, items: &[Item]) -> Result<(), LoadError> {
+    use std::fmt::Write;
+    let mut xml = String::from("<Items>\n");
+    for item in items {
+        write!(xml, "  <Item Name=\"{}\"", escape_xml_attr(&item.name)).unwrap();
+        if !item.desc.is_empty() {
+            write!(xml, " Desc=\"{}\"", escape_xml_attr(&item.desc)).unwrap();
+        }
+        write!(xml, " Type=\"{}\"", item_type_to_str(item.item_type)).unwrap();
+        if item.badness != 0 {
+            write!(xml, " Badness=\"{}\"", item.badness).unwrap();
+        }
+        if !item.special.is_empty() {
+            write!(xml, " Special=\"{}\"", escape_xml_attr(&item.special)).unwrap();
+        }
+        write!(xml, " Cost=\"{}\"", item.cost).unwrap();
+        write!(xml, " Rarity=\"{}\"", rarity_to_str(item.rarity)).unwrap();
+        if item.infinite {
+            write!(xml, " Infinite=\"true\"").unwrap();
+        }
+        if item.girl_buy_chance != 0 {
+            write!(xml, " GirlBuyChance=\"{}\"", item.girl_buy_chance).unwrap();
+        }
+        if item.effects.is_empty() {
+            writeln!(xml, " />").unwrap();
+        } else {
+            writeln!(xml, ">").unwrap();
+            for effect in &item.effects {
+                writeln!(
+                    xml,
+                    "    <Effect What=\"{}\" Name=\"{}\" Amount=\"{}\"/>",
+                    effect_target_to_str(effect.target),
+                    escape_xml_attr(&effect.name),
+                    effect.amount
+                )
+                .unwrap();
+            }
+            writeln!(xml, "  </Item>").unwrap();
+        }
+    }
+    xml.push_str("</Items>\n");
+    std::fs::write(path, xml)?;
+    Ok(())
+}
+
+/// Save trait definitions to a .traits plain-text file.
+pub fn save_traits(path: &Path, traits_list: &[TraitDef]) -> Result<(), LoadError> {
+    use std::fmt::Write;
+    let mut text = String::new();
+    for t in traits_list {
+        writeln!(text, "{}", t.name).unwrap();
+        writeln!(text, "{}", t.description).unwrap();
+    }
+    std::fs::write(path, text)?;
+    Ok(())
 }
 
 #[cfg(test)]
@@ -309,5 +490,100 @@ mod gold_tests {
         gold.add_bank_interest(25.0);
         assert_eq!(gold.bank_balance, 525.0);
         assert_eq!(gold.cash_on_hand, 500.0); // unchanged
+    }
+}
+
+#[cfg(test)]
+mod save_tests {
+    use super::*;
+    use std::path::PathBuf;
+
+    fn resources_dir() -> PathBuf {
+        let from_workspace =
+            PathBuf::from(env!("CARGO_MANIFEST_DIR")).join("../../resources");
+        if from_workspace.join("Data").exists() {
+            return from_workspace;
+        }
+        let from_original = PathBuf::from(env!("CARGO_MANIFEST_DIR"))
+            .join("../../../WhoreMasterRenewal/Resources");
+        if from_original.join("Data").exists() {
+            return from_original;
+        }
+        panic!("Could not locate game Resources directory for tests");
+    }
+
+    #[test]
+    fn test_girls_round_trip() {
+        let path = resources_dir().join("Characters/Girls.girlsx");
+        if !path.exists() {
+            eprintln!("Skipping: {:?} not found", path);
+            return;
+        }
+        let girls = load_girls(&path).expect("Failed to load");
+        assert!(!girls.is_empty());
+
+        let tmp = std::env::temp_dir().join("wm_test_girls.girlsx");
+        save_girls(&tmp, &girls).expect("Failed to save");
+
+        let reloaded = load_girls(&tmp).expect("Failed to reload");
+        assert_eq!(girls.len(), reloaded.len());
+
+        // Verify first girl matches
+        let orig = &girls[0];
+        let copy = &reloaded[0];
+        assert_eq!(orig.name, copy.name);
+        assert_eq!(orig.stats, copy.stats);
+        assert_eq!(orig.skills, copy.skills);
+        assert_eq!(orig.traits, copy.traits);
+
+        let _ = std::fs::remove_file(&tmp);
+    }
+
+    #[test]
+    fn test_items_round_trip() {
+        let path = resources_dir().join("Data/Items.itemsx");
+        if !path.exists() {
+            eprintln!("Skipping: {:?} not found", path);
+            return;
+        }
+        let items = load_items(&path).expect("Failed to load");
+        assert!(!items.is_empty());
+
+        let tmp = std::env::temp_dir().join("wm_test_items.itemsx");
+        save_items(&tmp, &items).expect("Failed to save");
+
+        let reloaded = load_items(&tmp).expect("Failed to reload");
+        assert_eq!(items.len(), reloaded.len());
+
+        // Verify a known item round-trips correctly
+        let orig = items.iter().find(|i| i.name == "AIDS Cure").unwrap();
+        let copy = reloaded.iter().find(|i| i.name == "AIDS Cure").unwrap();
+        assert_eq!(orig.cost, copy.cost);
+        assert_eq!(orig.item_type, copy.item_type);
+        assert_eq!(orig.rarity, copy.rarity);
+        assert_eq!(orig.effects.len(), copy.effects.len());
+
+        let _ = std::fs::remove_file(&tmp);
+    }
+
+    #[test]
+    fn test_traits_round_trip() {
+        let path = resources_dir().join("Data/CoreTraits.traits");
+        if !path.exists() {
+            eprintln!("Skipping: {:?} not found", path);
+            return;
+        }
+        let traits = load_traits(&path).expect("Failed to load");
+        assert!(!traits.is_empty());
+
+        let tmp = std::env::temp_dir().join("wm_test_core.traits");
+        save_traits(&tmp, &traits).expect("Failed to save");
+
+        let reloaded = load_traits(&tmp).expect("Failed to reload");
+        assert_eq!(traits.len(), reloaded.len());
+        assert_eq!(traits[0].name, reloaded[0].name);
+        assert_eq!(traits[0].description, reloaded[0].description);
+
+        let _ = std::fs::remove_file(&tmp);
     }
 }
