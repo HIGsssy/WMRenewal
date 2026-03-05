@@ -1,4 +1,4 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::enums::{ActionType, JobType, Skill, Stat, Status};
 
@@ -12,7 +12,7 @@ pub const MAX_TRAITS: usize = 60;
 pub const MAX_INVENTORY: usize = 40;
 
 /// Complete girl data model, matching C++ `sGirl` / `Girl` struct.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Girl {
     pub name: String,
     pub realname: String,
@@ -124,13 +124,13 @@ impl Default for Girl {
 }
 
 /// Status flags for a girl. Mirrors C++ status bitmask.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct GirlStatus {
     pub statuses: Vec<Status>,
 }
 
 /// A child belonging to a girl.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Child {
     pub is_girl: bool,
     pub age_weeks: u32,

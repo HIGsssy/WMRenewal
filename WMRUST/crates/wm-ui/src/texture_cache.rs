@@ -1,4 +1,4 @@
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
 
 use sdl2::image::LoadTexture;
@@ -8,6 +8,7 @@ use sdl2::video::WindowContext;
 /// Caches loaded textures by file path to avoid redundant disk/GPU loads.
 pub struct TextureCache {
     cache: HashMap<PathBuf, Texture>,
+    failed: HashSet<PathBuf>,
 }
 
 impl Default for TextureCache {
@@ -20,6 +21,7 @@ impl TextureCache {
     pub fn new() -> Self {
         Self {
             cache: HashMap::new(),
+            failed: HashSet::new(),
         }
     }
 
@@ -29,9 +31,19 @@ impl TextureCache {
         texture_creator: &TextureCreator<WindowContext>,
         path: &Path,
     ) -> Result<&Texture, String> {
+        if self.failed.contains(path) {
+            return Err("previously failed".into());
+        }
         if !self.cache.contains_key(path) {
-            let texture = texture_creator.load_texture(path)?;
-            self.cache.insert(path.to_path_buf(), texture);
+            match texture_creator.load_texture(path) {
+                Ok(texture) => {
+                    self.cache.insert(path.to_path_buf(), texture);
+                }
+                Err(e) => {
+                    self.failed.insert(path.to_path_buf());
+                    return Err(e);
+                }
+            }
         }
         Ok(&self.cache[path])
     }
@@ -39,6 +51,7 @@ impl TextureCache {
     /// Clear all cached textures (call before dropping TextureCreator).
     pub fn clear(&mut self) {
         self.cache.clear();
+        self.failed.clear();
     }
 
     /// Check if a texture is already cached.

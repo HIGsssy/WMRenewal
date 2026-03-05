@@ -1,8 +1,10 @@
 use wm_core::enums::Stat;
 use wm_game::girls::GirlManager;
 use wm_game::state::GameState;
+use wm_script::script_runner::ScriptRunner;
 
 use crate::events::UiEvent;
+use crate::screen::dialog::DialogScreen;
 use crate::screen::{Screen, ScreenAction, ScreenId};
 use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
@@ -192,7 +194,54 @@ impl Screen for DungeonScreen {
                     lb.handle_click(x, y);
                 }
             }
+            // Interact button — run DefaultInteractDungeon script
+            if let Some(Widget::Button(b)) = widgets.get(self.interact_id) {
+                if b.base.is_over(x, y) {
+                    if let Some(sel) = widgets
+                        .get(self.girl_list_id)
+                        .and_then(|w| {
+                            if let Widget::ListBox(lb) = w {
+                                lb.get_selected()
+                            } else {
+                                None
+                            }
+                        })
+                    {
+                        if let Some(inmate) = state.dungeon.inmates.get(sel as usize) {
+                            if !inmate.is_customer {
+                                let scripts = wm_core::resources_path().join("Scripts");
+                                if let Some(code) =
+                                    load_dungeon_script(&scripts, "DefaultInteractDungeon")
+                                {
+                                    if let Ok(runner) = ScriptRunner::new(&code) {
+                                        {
+                                            let mut ctx = runner.context().lock().unwrap();
+                                            ctx.populate_from_girl(&inmate.girl);
+                                        }
+                                        return ScreenAction::Push(Box::new(
+                                            DialogScreen::from_runner(runner),
+                                        ));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
         }
         ScreenAction::None
     }
+}
+
+/// Load a script by name — tries .lua first, then converts .script.
+fn load_dungeon_script(scripts_dir: &std::path::Path, name: &str) -> Option<String> {
+    let lua_path = scripts_dir.join(format!("{}.lua", name));
+    if lua_path.exists() {
+        return std::fs::read_to_string(&lua_path).ok();
+    }
+    let script_path = scripts_dir.join(format!("{}.script", name));
+    if script_path.exists() {
+        return wm_script::script_converter::convert_script_to_lua(&script_path).ok();
+    }
+    None
 }

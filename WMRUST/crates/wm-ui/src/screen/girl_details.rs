@@ -1,8 +1,10 @@
 use wm_core::enums::{Skill, Stat};
 use wm_game::girls::GirlManager;
 use wm_game::state::GameState;
+use wm_script::script_runner::ScriptRunner;
 
 use crate::events::UiEvent;
+use crate::screen::dialog::DialogScreen;
 use crate::screen::{Screen, ScreenAction, ScreenId};
 use crate::widget::{Widget, WidgetId, WidgetStore};
 use crate::xml_loader::load_screen_xml;
@@ -116,6 +118,31 @@ impl GirlDetailsScreen {
             s.value = GirlManager::get_stat(girl, Stat::HousePerc);
         }
     }
+
+    fn make_interact_dialog(&self, state: &GameState) -> Option<DialogScreen> {
+        let girl = state.girls.get_girl(self.girl_id)?;
+        let scripts = wm_core::resources_path().join("Scripts");
+        let code = load_script_code(&scripts, "DefaultInteractDetails")?;
+        let runner = ScriptRunner::new(&code).ok()?;
+        {
+            let mut ctx = runner.context().lock().unwrap();
+            ctx.populate_from_girl(girl);
+        }
+        Some(DialogScreen::from_runner(runner).with_target_girl(self.girl_id))
+    }
+}
+
+/// Load a script by name — tries .lua first, then converts .script.
+fn load_script_code(scripts_dir: &std::path::Path, name: &str) -> Option<String> {
+    let lua_path = scripts_dir.join(format!("{}.lua", name));
+    if lua_path.exists() {
+        return std::fs::read_to_string(&lua_path).ok();
+    }
+    let script_path = scripts_dir.join(format!("{}.script", name));
+    if script_path.exists() {
+        return wm_script::script_converter::convert_script_to_lua(&script_path).ok();
+    }
+    None
 }
 
 impl Screen for GirlDetailsScreen {
@@ -219,6 +246,14 @@ impl Screen for GirlDetailsScreen {
                     if lb.base.is_over(x, y) {
                         lb.handle_click(x, y);
                         return ScreenAction::None;
+                    }
+                }
+            }
+            // Interact button — run DefaultInteractDetails script
+            if let Some(Widget::Button(b)) = widgets.get(self.interact_id) {
+                if b.base.is_over(x, y) {
+                    if let Some(screen) = self.make_interact_dialog(state) {
+                        return ScreenAction::Push(Box::new(screen));
                     }
                 }
             }

@@ -1,7 +1,7 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 /// A room/facility in a brothel.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Room {
     pub name: String,
     pub desc: String,
@@ -15,7 +15,7 @@ pub struct Room {
 }
 
 /// A function/capability provided by a room.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct RoomFunction {
     pub name: String,
     pub factor: Option<f32>,

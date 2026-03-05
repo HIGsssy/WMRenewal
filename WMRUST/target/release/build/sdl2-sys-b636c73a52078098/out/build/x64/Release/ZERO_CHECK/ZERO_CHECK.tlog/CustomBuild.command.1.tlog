@@ -1,0 +1,10 @@
+^D:\PROJECTS\WMASTER\WMRENEWAL\WMRUST\TARGET\RELEASE\BUILD\SDL2-SYS-B636C73A52078098\OUT\BUILD\CMAKEFILES\7258B2561D4D24FF0218C157791733E1\GENERATE.STAMP.RULE
+setlocal
+C:\Users\Trailer\Documents\ComfyUI_windows_portable_nvidia\ComfyUI_windows_portable\python_embeded\Lib\site-packages\cmake\data\bin\cmake.exe -SC:/Users/Trailer/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/sdl2-sys-0.37.0/SDL -BD:/Projects/WMaster/WMRenewal/WMRUST/target/release/build/sdl2-sys-b636c73a52078098/out/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file D:/Projects/WMaster/WMRenewal/WMRUST/target/release/build/sdl2-sys-b636c73a52078098/out/build/SDL2.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

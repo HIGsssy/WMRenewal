@@ -1,5 +1,7 @@
+use serde::{Deserialize, Serialize};
+
 /// A trait definition parsed from CoreTraits.traits (alternating name/description lines).
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TraitDef {
     pub name: String,
     pub description: String,

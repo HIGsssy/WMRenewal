@@ -25,9 +25,13 @@ impl TurnProcessor {
 
         // 1. Reset weekly trackers
         state.gold.reset_weekly();
+        state.walk_around = false;
         for brothel in &mut state.brothels.brothels {
             brothel.reset_weekly();
         }
+
+        // Refresh shop stock for the new week
+        state.refresh_shop_stock();
 
         // 2. Pre-shift: decay temp stats, aging, STD checks, update traits
         Self::pre_shift_updates(state, &mut rng, &mut events);

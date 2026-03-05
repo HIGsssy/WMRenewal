@@ -1,8 +1,9 @@
 use rand::Rng;
+use serde::{Deserialize, Serialize};
 use wm_core::enums::GangMission;
 
 /// A single gang.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Gang {
     pub name: String,
     pub num_members: i32,
@@ -56,7 +57,7 @@ impl Gang {
 }
 
 /// Result of a gang mission for weekly event reporting.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct GangMissionResult {
     pub gold_earned: i64,
     pub gold_lost: i64,
@@ -66,7 +67,7 @@ pub struct GangMissionResult {
 }
 
 /// Manages hired and recruitable gangs.
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct GangManager {
     pub hired_gangs: Vec<Gang>,
     pub recruit_list: Vec<Gang>,

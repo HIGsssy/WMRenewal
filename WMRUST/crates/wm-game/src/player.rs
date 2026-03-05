@@ -1,5 +1,7 @@
+use serde::{Deserialize, Serialize};
+
 /// Player information.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Player {
     pub name: String,
     pub house_perc: i32,

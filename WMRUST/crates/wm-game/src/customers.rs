@@ -1,10 +1,11 @@
 use rand::Rng;
+use serde::{Deserialize, Serialize};
 use wm_core::enums::Shift;
 
 use crate::brothel::Brothel;
 
 /// Wealth class of a customer.
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize)]
 pub enum CustomerClass {
     Poor,
     Middle,
@@ -12,7 +13,7 @@ pub enum CustomerClass {
 }
 
 /// A single customer visiting a brothel.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Customer {
     pub class: CustomerClass,
     pub money: i32,
@@ -42,7 +43,7 @@ impl Default for Customer {
 }
 
 /// Customer generation for brothels.
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct CustomerGenerator {
     pub num_customers_per_brothel: Vec<i32>,
 }

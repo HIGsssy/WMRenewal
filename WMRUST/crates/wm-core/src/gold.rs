@@ -1,5 +1,7 @@
+use serde::{Deserialize, Serialize};
+
 /// Gold/finance tracking, mirroring C++ cGold/cGoldBase.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct Gold {
     pub cash_on_hand: f64,
     pub bank_balance: f64,
@@ -8,7 +10,7 @@ pub struct Gold {
 }
 
 /// Error for gold operations.
-#[derive(Debug, Clone, thiserror::Error)]
+#[derive(Debug, Clone, thiserror::Error, Serialize, Deserialize)]
 pub enum GoldError {
     #[error("Insufficient funds: need {needed}, have {available}")]
     InsufficientFunds { needed: f64, available: f64 },
@@ -282,7 +284,7 @@ impl Gold {
 }
 
 /// Breakdown of all income sources.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct IncomeDetail {
     pub brothel_work: f64,
     pub street_work: f64,
@@ -326,7 +328,7 @@ impl IncomeDetail {
 }
 
 /// Breakdown of all expense categories.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct ExpenseDetail {
     pub brothel_cost: f64,
     pub slave_cost: f64,

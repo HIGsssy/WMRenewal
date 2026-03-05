@@ -27,7 +27,8 @@ param(
 )
 
 $ErrorActionPreference = "Stop"
-Set-Location $PSScriptRoot
+# Run from project root (one level up from scripts/)
+Set-Location (Split-Path $PSScriptRoot -Parent)
 
 Write-Host "=== WhoreMaster Renewal Release Packager ===" -ForegroundColor Cyan
 
@@ -63,7 +64,7 @@ Write-Host "Copying binaries..." -ForegroundColor Yellow
 $ext = if ($IsWindows -or $env:OS -eq "Windows_NT") { ".exe" } else { "" }
 
 $gameBin = Join-Path $binDir "whoremaster$ext"
-$editBin = Join-Path $binDir "wm-edit$ext"
+$editBin = Join-Path $binDir "wm-editor$ext"
 
 if (Test-Path $gameBin) {
     Copy-Item $gameBin $OutputDir
@@ -82,19 +83,24 @@ if (Test-Path $editBin) {
 # --- Copy SDL2 DLLs (Windows) ---
 if ($IsWindows -or $env:OS -eq "Windows_NT") {
     Write-Host "Copying SDL2 DLLs..." -ForegroundColor Yellow
-    $sdlLibs = "sdl2-libs"
-    foreach ($dll in @("SDL2.dll", "SDL2_image.dll", "SDL2_ttf.dll")) {
-        $src = Join-Path $sdlLibs $dll
-        if (Test-Path $src) {
-            Copy-Item $src $OutputDir
-            Write-Host "  $dll"
-        } else {
-            # Also check in the build output
-            $binDll = Join-Path $binDir $dll
-            if (Test-Path $binDll) {
-                Copy-Item $binDll $OutputDir
-                Write-Host "  $dll (from build)"
+    # DLL source locations: build output and downloaded SDL2 extension libs
+    $dllSources = @{
+        "SDL2.dll"       = @((Join-Path $binDir "SDL2.dll"))
+        "SDL2_image.dll" = @((Join-Path $binDir "SDL2_image.dll"), "sdl2-libs/SDL2_image-2.8.4/lib/x64/SDL2_image.dll")
+        "SDL2_ttf.dll"   = @((Join-Path $binDir "SDL2_ttf.dll"), "sdl2-libs/SDL2_ttf-2.22.0/lib/x64/SDL2_ttf.dll")
+    }
+    foreach ($dll in $dllSources.Keys) {
+        $copied = $false
+        foreach ($src in $dllSources[$dll]) {
+            if (Test-Path $src) {
+                Copy-Item $src $OutputDir
+                Write-Host "  $dll"
+                $copied = $true
+                break
             }
+        }
+        if (-not $copied) {
+            Write-Warning "$dll not found"
         }
     }
 }

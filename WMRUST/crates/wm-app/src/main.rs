@@ -39,6 +39,22 @@ fn main() -> Result<()> {
     let mut game_state = GameState::new(config);
     info!("Game state initialized");
 
+    // Load game data from resource XML files
+    load_game_data(&mut game_state, &resources);
+
+    // Build initial shop stock
+    game_state.refresh_shop_stock();
+
+    // Player starts with NO girls assigned — they must be acquired
+    // from the Slave Market or by walking around town.
+    let total_girls = game_state.girls.count();
+
+    info!(
+        "Game data loaded: {} girls available, {} items",
+        total_girls,
+        game_state.items.len()
+    );
+
     // Initialize graphics (800x600, matching original)
     let mut graphics =
         Graphics::new("WhoreMaster Renewal", 800, 600).map_err(|e| anyhow::anyhow!("{}", e))?;
@@ -90,9 +106,34 @@ fn main() -> Result<()> {
                     ..
                 } => Some(UiEvent::Escape),
                 Event::KeyDown {
+                    keycode: Some(Keycode::Return),
+                    ..
+                }
+                | Event::KeyDown {
+                    keycode: Some(Keycode::KpEnter),
+                    ..
+                } => Some(UiEvent::Enter),
+                Event::KeyDown {
+                    keycode: Some(Keycode::Backspace),
+                    ..
+                } => Some(UiEvent::KeyPress {
+                    key: '\u{8}',
+                    shift: false,
+                }),
+                Event::KeyDown {
                     keycode: Some(keycode),
                     ..
                 } => Some(UiEvent::KeyDown { keycode }),
+                Event::TextInput { text, .. } => {
+                    if let Some(ch) = text.chars().next() {
+                        Some(UiEvent::KeyPress {
+                            key: ch,
+                            shift: ch.is_uppercase(),
+                        })
+                    } else {
+                        None
+                    }
+                }
                 Event::MouseButtonDown { x, y, .. } => Some(UiEvent::MouseDown { x, y }),
                 Event::MouseButtonUp { x, y, .. } => Some(UiEvent::MouseClick { x, y }),
                 Event::MouseMotion { x, y, .. } => {
@@ -113,12 +154,9 @@ fn main() -> Result<()> {
             };
 
             if let Some(ui_event) = ui_event {
-                match &ui_event {
-                    UiEvent::Quit | UiEvent::Escape => {
-                        running = false;
-                        break;
-                    }
-                    _ => {}
+                if matches!(&ui_event, UiEvent::Quit) {
+                    running = false;
+                    break;
                 }
 
                 if !screen_mgr.is_empty() {
@@ -176,4 +214,63 @@ fn main() -> Result<()> {
 
     info!("WhoreMaster Renewal shutting down");
     Ok(())
+}
+
+/// Load girls, items, rooms, and traits from the resource XML files into game state.
+fn load_game_data(state: &mut GameState, resources: &std::path::Path) {
+    let data = resources.join("Data");
+
+    // Load items
+    let items_path = data.join("Items.itemsx");
+    if items_path.exists() {
+        match wm_core::xml::load_items(&items_path) {
+            Ok(items) => {
+                info!("Loaded {} items from {:?}", items.len(), items_path);
+                state.items = items;
+            }
+            Err(e) => eprintln!("Failed to load items: {}", e),
+        }
+    }
+
+    // Load rooms
+    let rooms_path = data.join("Rooms.roomsx");
+    if rooms_path.exists() {
+        match wm_core::xml::load_rooms(&rooms_path) {
+            Ok(rooms) => {
+                info!("Loaded {} room types from {:?}", rooms.len(), rooms_path);
+                // Assign loaded rooms to the first brothel
+                if let Some(brothel) = state.brothels.get_brothel_mut(0) {
+                    brothel.rooms = rooms;
+                }
+            }
+            Err(e) => eprintln!("Failed to load rooms: {}", e),
+        }
+    }
+
+    // Load girls from all .girlsx files in Characters/
+    let chars_dir = resources.join("Characters");
+    if chars_dir.is_dir() {
+        if let Ok(entries) = std::fs::read_dir(&chars_dir) {
+            for entry in entries.flatten() {
+                let path = entry.path();
+                if path.extension().is_some_and(|ext| ext == "girlsx") {
+                    state.girls.load_girls_from_xml(&path);
+                    info!("Loaded girls from {:?}", path.file_name().unwrap_or_default());
+                }
+            }
+        }
+    }
+
+    // Load traits
+    let traits_path = data.join("CoreTraits.traits");
+    if traits_path.exists() {
+        match wm_core::xml::load_traits(&traits_path) {
+            Ok(traits) => {
+                info!("Loaded {} trait definitions", traits.len());
+                // Trait definitions could be stored on state if needed in the future
+                let _ = traits;
+            }
+            Err(e) => eprintln!("Failed to load traits: {}", e),
+        }
+    }
 }

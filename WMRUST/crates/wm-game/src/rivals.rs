@@ -1,7 +1,8 @@
 use rand::Rng;
+use serde::{Deserialize, Serialize};
 
 /// A rival gang/organization.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Rival {
     pub name: String,
     pub power: i32,
@@ -209,7 +210,7 @@ impl Rival {
 }
 
 /// Manages all rival organizations.
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct RivalManager {
     pub rivals: Vec<Rival>,
 }

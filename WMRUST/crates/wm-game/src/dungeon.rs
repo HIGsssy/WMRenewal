@@ -1,11 +1,12 @@
 use rand::Rng;
+use serde::{Deserialize, Serialize};
 use wm_core::enums::{DungeonReason, Skill, Stat, Status};
 use wm_core::girl::Girl;
 
 use crate::girls::GirlManager;
 
 /// A prisoner in the dungeon.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct DungeonInmate {
     pub girl: Girl,
     pub reason: DungeonReason,
@@ -15,7 +16,7 @@ pub struct DungeonInmate {
 }
 
 /// Manages the dungeon/prison.
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct DungeonManager {
     pub inmates: Vec<DungeonInmate>,
 }

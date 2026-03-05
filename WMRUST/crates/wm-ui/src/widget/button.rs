@@ -30,20 +30,28 @@ impl ButtonWidget {
         };
 
         let path = ctx.resources_path.join("Buttons").join(image_name);
-        if let Ok(texture) = ctx.textures.load(ctx.texture_creator, &path) {
-            let dst = if self.scale {
-                self.base.rect
-            } else {
-                // Use original image size, positioned at widget location
-                let query = texture.query();
-                Rect::new(
-                    self.base.rect.x(),
-                    self.base.rect.y(),
-                    query.width.min(self.base.rect.width()),
-                    query.height.min(self.base.rect.height()),
-                )
-            };
-            let _ = ctx.canvas.copy(texture, None, Some(dst));
+        match ctx.textures.load(ctx.texture_creator, &path) {
+            Ok(texture) => {
+                let dst = if self.scale {
+                    self.base.rect
+                } else {
+                    // Use original image size, positioned at widget location
+                    let query = texture.query();
+                    Rect::new(
+                        self.base.rect.x(),
+                        self.base.rect.y(),
+                        query.width.min(self.base.rect.width()),
+                        query.height.min(self.base.rect.height()),
+                    )
+                };
+                let _ = ctx.canvas.copy(texture, None, Some(dst));
+            }
+            Err(e) => {
+                // Only log the first failure, not repeated "previously failed" hits
+                if e != "previously failed" {
+                    eprintln!("[UI] Button '{}': failed to load {:?}: {}", self.base.name, path, e);
+                }
+            }
         }
     }
 

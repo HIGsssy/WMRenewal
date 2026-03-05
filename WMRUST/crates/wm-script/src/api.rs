@@ -114,11 +114,46 @@ impl ScriptContext {
         self.dungeon_add_customers.clear();
         self.dungeon_add_girls.clear();
     }
+
+    /// Populate girl context fields from a Girl struct.
+    ///
+    /// Fills stats (base + mods + temp, clamped), skills, traits, and flags
+    /// so Lua scripts can query them via wm.girl.*.
+    pub fn populate_from_girl(&mut self, girl: &wm_core::girl::Girl) {
+        // Effective stats: base + mods + temp, clamped 0..=100 (age unclamped)
+        for i in 0..22.min(girl.stats.len()) {
+            let v = girl.stats[i] + girl.stat_mods[i] + girl.temp_stats[i];
+            self.girl_stats[i] = if i == 13 { v } else { v.clamp(0, 100) }; // 13 = Age
+        }
+        // Effective skills: base + mods + temp, clamped 0..=100
+        for i in 0..10.min(girl.skills.len()) {
+            let v = girl.skills[i] + girl.skill_mods[i] + girl.temp_skills[i];
+            self.girl_skills[i] = v.clamp(0, 100);
+        }
+        // Traits
+        self.girl_traits.clear();
+        for t in &girl.traits {
+            self.girl_traits.insert(t.clone());
+        }
+        // Flags (bool → i32)
+        for i in 0..30.min(girl.flags.len()) {
+            self.girl_flags[i] = if girl.flags[i] { 1 } else { 0 };
+        }
+    }
 }
 
 /// Register all wm.* API functions into the Lua state.
 pub fn register_api(lua: &Lua, ctx: SharedContext) -> LuaResult<()> {
     let wm = lua.create_table()?;
+
+    // -- wm.log(text) --
+    wm.set(
+        "log",
+        lua.create_function(|_, text: String| {
+            eprintln!("[script] {}", text);
+            Ok(())
+        })?,
+    )?;
 
     // -- wm.message(text, color) --
     {

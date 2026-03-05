@@ -71,6 +71,20 @@ impl Widget {
             Widget::ImageItem(w) => &w.base,
         }
     }
+
+    /// Get mutable base properties of this widget.
+    pub fn base_mut(&mut self) -> &mut WidgetBase {
+        match self {
+            Widget::Button(w) => &mut w.base,
+            Widget::TextItem(w) => &mut w.base,
+            Widget::ListBox(w) => &mut w.base,
+            Widget::EditBox(w) => &mut w.base,
+            Widget::CheckBox(w) => &mut w.base,
+            Widget::Slider(w) => &mut w.base,
+            Widget::ScrollBar(w) => &mut w.base,
+            Widget::ImageItem(w) => &mut w.base,
+        }
+    }
 }
 
 /// Base properties shared by all widgets.

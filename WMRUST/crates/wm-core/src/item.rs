@@ -1,9 +1,9 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 use crate::enums::{EffectTarget, ItemType, Rarity};
 
 /// A game item with stat/skill/trait effects.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Item {
     pub name: String,
     pub desc: String,
@@ -18,7 +18,7 @@ pub struct Item {
 }
 
 /// A single effect applied when an item is used/equipped.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Effect {
     pub target: EffectTarget,
     pub name: String,

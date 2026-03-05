@@ -222,7 +222,7 @@ fn actions_to_lua(actions: &[ScriptAction]) -> Result<String, ConvertError> {
             }
             // 4: Restart
             4 => {
-                out.push_str("-- restart (yield to game loop)\n");
+                out.push_str("coroutine.yield(\"restart\")\n");
             }
             // 5: ChoiceBox
             5 => {

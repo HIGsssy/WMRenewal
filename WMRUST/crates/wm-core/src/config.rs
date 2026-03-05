@@ -1,7 +1,7 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 
 /// Game configuration matching all sections of config.xml.
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct GameConfig {
     pub initial: InitialConfig,
     pub income: IncomeConfig,
@@ -16,7 +16,7 @@ pub struct GameConfig {
     pub debug: DebugConfig,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct InitialConfig {
     pub gold: i32,
     pub girl_meet: i32,
@@ -37,7 +37,7 @@ impl Default for InitialConfig {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct IncomeConfig {
     pub extortion: f64,
     pub brothel_work: f64,
@@ -64,7 +64,7 @@ impl Default for IncomeConfig {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ExpensesConfig {
     pub training: f64,
     pub movie_cost: f64,
@@ -107,7 +107,7 @@ impl Default for ExpensesConfig {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct GamblingConfig {
     pub odds: i32,
     pub base: i32,
@@ -128,7 +128,7 @@ impl Default for GamblingConfig {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct TaxConfig {
     pub rate: f64,
     pub minimum: f64,
@@ -145,7 +145,7 @@ impl Default for TaxConfig {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct PregnancyConfig {
     pub player_chance: i32,
     pub customer_chance: i32,
@@ -172,7 +172,7 @@ impl Default for PregnancyConfig {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct GangsConfig {
     pub max_recruit_list: i32,
     pub start_random: i32,
@@ -199,7 +199,7 @@ impl Default for GangsConfig {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ProstitutionConfig {
     pub rape_brothel: f64,
     pub rape_street: f64,
@@ -214,7 +214,7 @@ impl Default for ProstitutionConfig {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ItemsConfig {
     pub auto_combat_equip: bool,
     pub rarity_colors: [String; 7],
@@ -237,7 +237,7 @@ impl Default for ItemsConfig {
     }
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct FontsConfig {
     pub normal: String,
     pub fixed: String,
@@ -254,7 +254,7 @@ impl Default for FontsConfig {
     }
 }
 
-#[derive(Debug, Clone, Default)]
+#[derive(Debug, Clone, Default, Serialize, Deserialize)]
 pub struct DebugConfig {
     pub log_all: bool,
     pub log_items: bool,

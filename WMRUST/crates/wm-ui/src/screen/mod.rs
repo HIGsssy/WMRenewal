@@ -1,10 +1,12 @@
 pub mod bank;
 pub mod brothel_management;
 pub mod building_setup;
+pub mod dialog;
 pub mod dungeon;
 pub mod gallery;
 pub mod gang_management;
 pub mod girl_details;
+pub mod intro;
 pub mod girl_management;
 pub mod house;
 pub mod item_management;
@@ -13,8 +15,10 @@ pub mod main_menu;
 pub mod mayor;
 pub mod prison;
 pub mod slave_market;
+pub mod text_input;
 pub mod town;
 pub mod turn_summary;
+pub mod walk_encounter;
 
 use wm_game::state::GameState;
 

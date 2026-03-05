@@ -1,7 +1,7 @@
 use wm_game::state::GameState;
 
 use crate::events::UiEvent;
-use crate::screen::brothel_management::BrothelManagementScreen;
+use crate::screen::intro::IntroScreen;
 use crate::screen::load_game::LoadGameScreen;
 use crate::screen::{Screen, ScreenAction, ScreenId};
 use crate::widget::button::ButtonWidget;
@@ -77,9 +77,9 @@ impl Screen for MainMenuScreen {
             "ExitGameButton",
             Widget::Button(ButtonWidget {
                 base,
-                image_off: "ExitGameOff.png".into(),
-                image_on: "ExitGameOn.png".into(),
-                image_disabled: "ExitGameDisabled.png".into(),
+                image_off: "QuitGameOff.png".into(),
+                image_on: "QuitGameOn.png".into(),
+                image_disabled: "QuitDisabled.png".into(),
                 transparency: true,
                 scale: true,
                 pressed: false,
@@ -100,7 +100,7 @@ impl Screen for MainMenuScreen {
         if let UiEvent::MouseClick { x, y } = event {
             if let Some(Widget::Button(b)) = widgets.get(self.new_game_id) {
                 if b.base.is_over(x, y) {
-                    return ScreenAction::Push(Box::new(BrothelManagementScreen::new()));
+                    return ScreenAction::Push(Box::new(IntroScreen::new()));
                 }
             }
             if let Some(Widget::Button(b)) = widgets.get(self.load_game_id) {

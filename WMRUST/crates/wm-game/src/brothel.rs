@@ -1,9 +1,10 @@
+use serde::{Deserialize, Serialize};
 use wm_core::enums::{JobType, Shift};
 use wm_core::girl::Girl;
 use wm_core::room::Room;
 
 /// A single brothel with its girls, rooms, and settings.
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Brothel {
     pub name: String,
     pub num_rooms: i32,
@@ -101,11 +102,15 @@ impl Brothel {
 }
 
 /// Manages all brothels.
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct BrothelManager {
     pub brothels: Vec<Brothel>,
     pub current: usize,
 }
+
+/// Brothel purchase prices by index (0-based).
+/// Index 0 is the starting brothel (free), indices 1-5 cost gold.
+pub const BROTHEL_PRICES: [i64; 6] = [0, 10_000, 30_000, 70_000, 150_000, 300_000];
 
 impl Default for BrothelManager {
     fn default() -> Self {

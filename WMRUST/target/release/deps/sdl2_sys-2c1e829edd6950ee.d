@@ -1,0 +1,14 @@
+D:\Projects\WMaster\WMRenewal\WMRUST\target\release\deps\sdl2_sys-2c1e829edd6950ee.d: C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\lib.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\image.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\ttf.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_image_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_ttf_bindings.rs
+
+D:\Projects\WMaster\WMRenewal\WMRUST\target\release\deps\libsdl2_sys-2c1e829edd6950ee.rlib: C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\lib.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\image.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\ttf.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_image_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_ttf_bindings.rs
+
+D:\Projects\WMaster\WMRenewal\WMRUST\target\release\deps\libsdl2_sys-2c1e829edd6950ee.rmeta: C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\lib.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\image.rs C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\ttf.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_image_bindings.rs D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_ttf_bindings.rs
+
+C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\lib.rs:
+C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\image.rs:
+C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\src\ttf.rs:
+D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_bindings.rs:
+D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_image_bindings.rs:
+D:\Projects\WMaster\WMRenewal\WMRUST\target\release\build\sdl2-sys-b636c73a52078098\out/sdl_ttf_bindings.rs:
+
+# env-dep:OUT_DIR=D:\\Projects\\WMaster\\WMRenewal\\WMRUST\\target\\release\\build\\sdl2-sys-b636c73a52078098\\out

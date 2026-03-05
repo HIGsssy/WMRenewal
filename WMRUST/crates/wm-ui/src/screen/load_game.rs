@@ -1,4 +1,5 @@
 use wm_game::state::GameState;
+use wm_game::jobs::JobDispatcher;
 
 use crate::events::UiEvent;
 use crate::screen::{Screen, ScreenAction, ScreenId};
@@ -29,9 +30,17 @@ impl LoadGameScreen {
         }
     }
 
+    fn saves_dir() -> std::path::PathBuf {
+        let dir = std::path::PathBuf::from("saves");
+        if !dir.exists() {
+            let _ = std::fs::create_dir_all(&dir);
+        }
+        dir
+    }
+
     fn scan_saves(&mut self) {
         self.save_files.clear();
-        let save_dir = wm_core::resources_path().join("../Saves");
+        let save_dir = Self::saves_dir();
         if let Ok(entries) = std::fs::read_dir(&save_dir) {
             for entry in entries.flatten() {
                 let path = entry.path();
@@ -154,7 +163,7 @@ impl Screen for LoadGameScreen {
         &mut self,
         event: UiEvent,
         widgets: &mut WidgetStore,
-        _state: &mut GameState,
+        state: &mut GameState,
     ) -> ScreenAction {
         if let UiEvent::MouseClick { x, y } = event {
             // Back
@@ -166,11 +175,32 @@ impl Screen for LoadGameScreen {
             // Save
             if let Some(Widget::Button(b)) = widgets.get(self.save_id) {
                 if b.base.is_over(x, y) {
-                    // Save stub — requires Serialize derives on GameState
-                    self.set_status(
-                        widgets,
-                        "Save not yet implemented (needs Serialize derives).",
-                    );
+                    let save_name = format!("save_week_{}", state.week);
+                    let path = Self::saves_dir().join(format!("{}.json", save_name));
+                    match serde_json::to_string_pretty(state) {
+                        Ok(json) => match std::fs::write(&path, json) {
+                            Ok(()) => {
+                                self.set_status(
+                                    widgets,
+                                    &format!("Saved to '{}'.", save_name),
+                                );
+                                self.scan_saves();
+                                self.populate_list(widgets);
+                            }
+                            Err(e) => {
+                                self.set_status(
+                                    widgets,
+                                    &format!("Save failed: {}", e),
+                                );
+                            }
+                        },
+                        Err(e) => {
+                            self.set_status(
+                                widgets,
+                                &format!("Serialization failed: {}", e),
+                            );
+                        }
+                    }
                     return ScreenAction::None;
                 }
             }
@@ -181,9 +211,33 @@ impl Screen for LoadGameScreen {
                         if let Some(sel) = lb.get_selected() {
                             let sel = sel as usize;
                             if sel < self.save_files.len() {
-                                // Load stub — requires Deserialize derives on GameState
-                                self.set_status(widgets,
-                                    &format!("Load '{}' not yet implemented (needs Deserialize derives).", self.save_files[sel]));
+                                let save_name = &self.save_files[sel];
+                                let path = Self::saves_dir().join(format!("{}.json", save_name));
+                                match std::fs::read_to_string(&path) {
+                                    Ok(json) => match serde_json::from_str::<GameState>(&json) {
+                                        Ok(mut loaded) => {
+                                            // Reconstruct skipped fields
+                                            loaded.job_dispatcher = JobDispatcher::new();
+                                            *state = loaded;
+                                            self.set_status(
+                                                widgets,
+                                                &format!("Loaded '{}'.", save_name),
+                                            );
+                                        }
+                                        Err(e) => {
+                                            self.set_status(
+                                                widgets,
+                                                &format!("Load parse error: {}", e),
+                                            );
+                                        }
+                                    },
+                                    Err(e) => {
+                                        self.set_status(
+                                            widgets,
+                                            &format!("Load read error: {}", e),
+                                        );
+                                    }
+                                }
                             }
                         } else {
                             self.set_status(widgets, "No save file selected.");

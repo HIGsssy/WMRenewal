@@ -1,10 +1,11 @@
 use rand::Rng;
+use serde::{Deserialize, Serialize};
 use wm_core::enums::{ActionType, Skill, Stat, Status};
 use wm_core::girl::Girl;
 use wm_core::xml::loaders;
 
 /// Manages the collection of all girls in the game.
-#[derive(Debug)]
+#[derive(Debug, Serialize, Deserialize)]
 pub struct GirlManager {
     pub girls: Vec<Girl>,
 }

@@ -80,9 +80,9 @@ impl Screen for TurnSummaryScreen {
         let base3 = WidgetBase::new(id3, "BackButton", 350, 560, 100, 30);
         let btn = ButtonWidget {
             base: base3,
-            image_off: "BackButtonOff.png".into(),
-            image_on: "BackButtonOn.png".into(),
-            image_disabled: "BackButtonDisabled.png".into(),
+            image_off: "BackOff.png".into(),
+            image_on: "BackOn.png".into(),
+            image_disabled: "BackDisabled.png".into(),
             transparency: true,
             scale: true,
             pressed: false,
