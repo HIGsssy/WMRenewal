@@ -1,0 +1,10 @@
+[workspace]
+members = [
+    "crates/wm-app",
+    "crates/wm-core",
+    "crates/wm-game",
+    "crates/wm-ui",
+    "crates/wm-script",
+    "crates/wm-edit",
+]
+resolver = "2"

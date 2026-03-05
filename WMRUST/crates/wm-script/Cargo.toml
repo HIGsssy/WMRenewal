@@ -1,0 +1,10 @@
+[package]
+name = "wm-script"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+wm-core = { path = "../wm-core" }
+mlua = { version = "0.10", features = ["lua54", "vendored"] }
+quick-xml = { version = "0.36", features = ["serialize"] }
+thiserror = "2"

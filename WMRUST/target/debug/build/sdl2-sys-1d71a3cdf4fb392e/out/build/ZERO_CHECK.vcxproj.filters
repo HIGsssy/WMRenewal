@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\62a2161bfb512de248daa3bcc1658f10\generate.stamp.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{DE58862A-F05E-3594-A163-6DE589E7FDB2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

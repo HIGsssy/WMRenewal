@@ -1,0 +1,248 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_assert.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_atomic.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_audio.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_bits.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_blendmode.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_clipboard.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_copying.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_cpuinfo.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_egl.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_endian.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_error.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_events.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_filesystem.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_gamecontroller.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_gesture.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_guid.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_haptic.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_hidapi.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_hints.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_joystick.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_keyboard.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_keycode.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_loadso.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_locale.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_log.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_main.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_messagebox.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_metal.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_misc.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_mouse.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_mutex.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_name.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_opengl.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_opengl_glext.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_opengles.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_opengles2.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_opengles2_gl2.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_opengles2_gl2ext.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_opengles2_gl2platform.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_opengles2_khrplatform.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_pixels.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_platform.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_power.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_quit.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_rect.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_render.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_rwops.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_scancode.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_sensor.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_shape.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_stdinc.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_surface.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_system.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_syswm.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_assert.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_common.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_compare.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_crc32.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_font.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_fuzzer.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_harness.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_images.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_log.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_md5.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_memory.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_test_random.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_thread.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_timer.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_touch.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_types.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_version.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_video.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\SDL_vulkan.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\begin_code.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\8b4a36e563b596ea76c0daae775d91ba\close_code.h.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\62a2161bfb512de248daa3bcc1658f10\sdl_headers_copy.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="C:\Users\Trailer\.cargo\registry\src\index.crates.io-1949cf8c6b5b557f\sdl2-sys-0.37.0\SDL\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="D:\Projects\WMaster\WMRenewal\WMRUST\target\debug\build\sdl2-sys-1d71a3cdf4fb392e\out\build\CMakeFiles\sdl_headers_copy" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{DE58862A-F05E-3594-A163-6DE589E7FDB2}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

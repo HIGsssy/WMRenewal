@@ -1,0 +1,13 @@
+[package]
+name = "wm-edit"
+version = "0.1.0"
+edition = "2021"
+
+[[bin]]
+name = "wm-editor"
+path = "src/main.rs"
+
+[dependencies]
+wm-core = { path = "../wm-core" }
+eframe = "0.29"
+egui = "0.29"
