@@ -7,4 +7,5 @@ edition = "2021"
 wm-core = { path = "../wm-core" }
 mlua = { version = "0.10", features = ["lua54", "vendored"] }
 quick-xml = { version = "0.36", features = ["serialize"] }
+rand = "0.8"
 thiserror = "2"

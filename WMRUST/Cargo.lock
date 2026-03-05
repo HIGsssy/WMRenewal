@@ -4236,6 +4236,7 @@ version = "0.1.0"
 dependencies = [
  "mlua",
  "quick-xml 0.36.2",
+ "rand",
  "thiserror 2.0.18",
  "wm-core",
 ]
